@@ -131,3 +131,41 @@ body {
   height: 25px;
   background: #4EAAD2;
 } */
+
+/* Modal logic */
+.modal-content {
+  display: none;
+  font-size: 1.1rem;
+  padding: 2.5rem 7rem 6.5rem 7rem;
+}
+
+.modal__content--active {
+  display: grid;
+}
+
+.form__link--active{
+  background: orangered;
+}
+
+fieldset{
+  border: none;
+}
+
+label::after{
+  content: "";
+  margin-right: 13px;
+}
+
+fieldset{
+  margin-top: 15px;
+}
+
+input{
+  margin-right: 7px;
+}
+
+legend{
+  line-height: 1.5;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
