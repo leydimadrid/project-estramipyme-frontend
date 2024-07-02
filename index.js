@@ -18,6 +18,6 @@ const cerrarModal = function () {
   ovelay.classList.add("hidden");
 }
 
-closeBtn.addEventListener("click", cerrarModal)
+closeBtn.addEventListener("click", cerrarModal);
 
 
