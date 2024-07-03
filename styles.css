@@ -178,9 +178,15 @@ form {
   border-radius: 5px;
 }
 
-
 fieldset label::before{
   content: "";
   margin-right: 15px;
+}
 
+
+button:disabled {
+  background-color: #ccc; /* Grey background */
+  color: #666; /* Grey text */
+  cursor: not-allowed; /* Change cursor to indicate it's not clickable */
+  opacity: 0.6;
 }
