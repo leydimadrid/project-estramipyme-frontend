@@ -85,6 +85,7 @@ body {
   width: 70%;
   height: 70%;
   z-index: 20;
+  overflow: hidden;
 }
 
 .close-btn {
@@ -135,37 +136,51 @@ body {
 /* Modal logic */
 .modal-content {
   display: none;
-  font-size: 1rem;
-  padding: 2rem 7rem 6rem 7rem;
+  font-size: 1.2rem;
+  padding: 1rem 5rem 1rem 5rem;
+  /* padding-bottom:60px ; */
+  overflow-y: auto;
 }
 
 .modal__content--active {
   display: grid;
+  height: 90%;
 }
 
-.form__link--active{
+.form__link--active {
   background: orangered;
 }
 
-fieldset{
-  border: none;
-}
-
-label::after{
+/* label::after {
   content: "";
   margin-right: 5px;
+  } */
+
+  fieldset {
+  border: none;
+  margin-top: 30px;
+  display: grid;
 }
 
-fieldset{
-  margin-top: 5px;
-}
-
-input{
+input {
   margin-right: 7px;
 }
 
-legend{
+legend {
   line-height: 1.5;
-  font-weight: 600;
-  /* margin-bottom: 3px; */
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+form {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 5px;
+}
+
+
+fieldset label::before{
+  content: "";
+  margin-right: 15px;
+
 }
