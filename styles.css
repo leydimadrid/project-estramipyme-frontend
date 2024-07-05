@@ -275,12 +275,10 @@ fieldset label::before {
 }
 
 
-.contened .tuProgreso p {
+/*.contened .tuProgreso p {
   width: 100%;
   display: flex;
   justify-content: space-between; /*poner los textos en ambos extremos del contenedor*/
-}
-
 
 .contened .tuProgreso .progreso {
   position: relative;
