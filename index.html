@@ -10,47 +10,985 @@
       href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
       rel="stylesheet"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playwrite+AU+QLD:wght@100..400&display=swap"
+      rel="stylesheet"
+    />
     <title>Estramipyme</title>
   </head>
   <body>
     <header class="header">
+      <nav class="nav">
+        <img
+          src="images/logo_eafit.png"
+          alt="EAFIT logo"
+          class="nav__logo"
+          id="logo"
+        />
+        <ul class="nav__links">
+          <li class="nav__item">
+            <a class="nav__link" href="#section--1">Cliente</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--2">Negocio</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--3">Coherencia</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--4">Alineación Interna</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link" href="#section--5">Circulo dorado</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link nav__link--btn btn--show-modal" href="#"
+              >Ver Resultados</a
+            >
+          </li>
+        </ul>
+      </nav>
+
       <div class="text-box">
         <h1 class="heading-primary">
           <span class="heading-primary-main"> Estramipyme </span>
           <span class="heading-primary-sub"> Planeación estratégica </span>
         </h1>
-        <button class="start-test">Comenzar Test</button>
+        <button class="start-test" href="#section--1">Comenzar Test</button>
+      </div>
+    </header>
+    <section class="section" id="section--1">
+      <div class="section-intro">
+        <h2 class="section-title">Conocimiento del cliente</h2>
+        <p class="section-description">
+          Esta sección consta de 10 preguntas, con este test se pretende evaluar
+          el conocimiento que se tiene acerca del cliente y poder identificar
+          oportunidades de mejoramiento; El tiempo estimado para esta sección es
+          de 5 minutos.
+        </p>
       </div>
 
-      <div class="modal hidden">
-        <button class="close-btn">&times;</button>
-        <h2 class="modal-title">Titulo del modal</h2>
-        <div class="modal-content">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quidem
-          consectetur architecto recusandae dolores rerum magni. Tenetur enim
-          reprehenderit odio dolore, dolor, quod praesentium placeat eos dolorem
-          cum fugiat, totam facilis.
-        </div>
-        <div class="modal-nav">
-          <button class="btn btn-back">Atrás</button>
-          <button class="form-link">1</button>
-          <button class="form-link">2</button>
-          <button class="form-link">3</button>
-          <button class="form-link">4</button>
-          <button class="form-link">5</button>
-          <button class="form-link">6</button>
-          <button class="form-link">7</button>
-          <button class="form-link">8</button>
-          <button class="form-link">9</button>
-          <button class="form-link">10</button>
-          <button class="btn btn-next">Siguiente</button>
-        </div>
+      <div class="form-container">
+        <form id="form--1">
+          <fieldset>
+            <legend>
+              1-¿Qué tan precisa es la información demográfica de sus clientes
+              (edad, género, ubicación, etc.) en su base de datos?
+            </legend>
+            <label> <input type="radio" value="1" name="p1" />No tengo </label>
+            <label> <input type="radio" value="2" name="p1" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p1" />Buena </label>
+            <label> <input type="radio" value="4" name="p1" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              2-¿Qué tan bien comprende el historial de compras, las
+              preferencias y los patrones de gasto de sus clientes?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p2" />Lo desconozco
+            </label>
+            <label> <input type="radio" value="2" name="p2" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p2" />Bien </label>
+            <label> <input type="radio" value="4" name="p2" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              3-¿Qué tan bien identifica las necesidades, deseos y motivaciones
+              de sus diferentes segmentos de clientes?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p3" />No lo identifico
+            </label>
+            <label> <input type="radio" value="2" name="p3" />Muy Poco </label>
+            <label> <input type="radio" value="3" name="p3" />Bien </label>
+            <label> <input type="radio" value="4" name="p3" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              4-¿Qué tan bien conoce los canales de comunicación preferidos de
+              sus clientes (correo electrónico, redes sociales, teléfono, etc.)?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p4" />No los conozco
+            </label>
+            <label> <input type="radio" value="2" name="p4" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p4" />Bien </label>
+            <label> <input type="radio" value="4" name="p4" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              5-¿Qué tan bien mide y comprende la satisfacción de sus clientes
+              con sus productos, servicios y experiencias?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p5" />No los mido
+            </label>
+            <label> <input type="radio" value="2" name="p5" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p5" />Bien </label>
+            <label> <input type="radio" value="4" name="p5" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              6-¿Qué tan bien identifica y retiene a sus clientes más valiosos y
+              leales?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p6" />No lo aplico
+            </label>
+            <label> <input type="radio" value="2" name="p6" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p6" />Bien </label>
+            <label> <input type="radio" value="4" name="p6" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              7-¿Qué tan efectiva es su segmentación de clientes para crear
+              campañas y ofertas personalizadas?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p7" />No lo aplico
+            </label>
+            <label> <input type="radio" value="2" name="p7" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p7" />Bien </label>
+            <label> <input type="radio" value="4" name="p7" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              8-¿Qué tan bien utiliza los datos de sus clientes para obtener
+              información y tomar decisiones estratégicas?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p8" />No lo utilizo
+            </label>
+            <label> <input type="radio" value="2" name="p8" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p8" />Bien </label>
+            <label> <input type="radio" value="4" name="p8" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              9-¿Qué tan bien personaliza las experiencias de sus clientes en
+              sus diferentes canales de interacción?
+            </legend>
+            <label>
+              <input type="radio" value="1" name="p9" />No lo aplico
+            </label>
+            <label> <input type="radio" value="2" name="p9" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p9" />Bien </label>
+            <label> <input type="radio" value="4" name="p9" />Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              10-¿Qué tan bien recopila y utiliza la retroalimentación de los
+              clientes para mejorar sus productos, servicios y experiencias?
+            </legend>
+            <label> <input type="radio" value="1" name="p10" />Nunca </label>
+            <label> <input type="radio" value="2" name="p10" />Muy poco </label>
+            <label> <input type="radio" value="3" name="p10" />Bien </label>
+            <label>
+              <input type="radio" value="4" name="p10" />Excelente
+            </label>
+          </fieldset>
+        </form>
       </div>
-      <div class="overlay hidden"></div>
-    </header>
+    </section>
+
+    <section class="section" id="section--2">
+      <div class="section-intro">
+        <h2 class="section-title">Conocimiento del Negocio</h2>
+        <p class="section-description">
+          Con este formulario nos referimos a la habilidad relacionada con poder
+          tomar las decisiones adecuadas, en situaciones cotidianas, basado en
+          nuestro entendimiento de cómo el negocio genera dinero y de su
+          relación con los clientes y empleados
+        </p>
+      </div>
+
+      <div class="form-container">
+        <form>
+          <fieldset>
+            <legend>1. ¿Qué tan positivo es tu flujo de caja cada mes?</legend>
+            <label>
+              <input type="radio" name="Q1" value="5" required />Muy Positivo
+            </label>
+            <label>
+              <input type="radio" name="Q1" value="4" required />Positivo
+            </label>
+            <label>
+              <input type="radio" name="Q1" value="2" required />Negativo
+            </label>
+            <label>
+              <input type="radio" name="Q1" value="1" required />Muy Negativo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              2. ¿Con qué eficacia genera ingresos en el área comercial?
+            </legend>
+            <label>
+              <input type="radio" name="Q2" value="4" required />100% de los
+              ingresos
+            </label>
+            <label>
+              <input type="radio" name="Q2" value="3" required />75% de los
+              ingresos
+            </label>
+            <label>
+              <input type="radio" name="Q2" value="2" required />50% de los
+              ingresos
+            </label>
+            <label>
+              <input type="radio" name="Q2" value="1" required />25% de los
+              ingresos
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              3. ¿Cuántas devoluciones por producto o servicio se tuvieron el
+              mes pasado?
+            </legend>
+            <label>
+              <input type="radio" name="Q3" value="1" required />Más del 50%
+            </label>
+            <label>
+              <input type="radio" name="Q3" value="2" required />Más del 25%
+            </label>
+            <label>
+              <input type="radio" name="Q3" value="3" required />Más del 15%
+            </label>
+            <label>
+              <input type="radio" name="Q3" value="4" required />ninguno
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              4. ¿Cuál es el porcentaje de participación de mercado que tienen
+              en el sector?
+            </legend>
+            <label>
+              <input type="radio" name="Q4" value="4" required />Más del 90%
+            </label>
+            <label>
+              <input type="radio" name="Q4" value="3" required />Más del 70%
+            </label>
+            <label>
+              <input type="radio" name="Q4" value="2" required />Más del 40%
+            </label>
+            <label>
+              <input type="radio" name="Q4" value="1" required />Más del 20%
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              5. ¿Cuántas horas se dedica a la formación continua de los
+              empleados el último año?
+            </legend>
+            <label>
+              <input type="radio" name="Q5" value="4" required /> Más de 90
+              horas
+            </label>
+            <label>
+              <input type="radio" name="Q5" value="3" required />Entre 70 y 90
+              horas
+            </label>
+            <label>
+              <input type="radio" name="Q5" value="2" required />Entre 40 y 70
+              horas
+            </label>
+            <label>
+              <input type="radio" name="Q5" value="1" required />Menos de 40
+              horas
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              6. ¿Qué tan familiarizados están los empleados con los productos o
+              servicios que ofrece la empresa?
+            </legend>
+            <label>
+              <input type="radio" name="Q6" value="4" required />Muy
+              familiarizados
+            </label>
+            <label>
+              <input type="radio" name="Q6" value="3" required />Bastante
+              familiarizados
+            </label>
+            <label>
+              <input type="radio" name="Q6" value="2" required />Algo
+              familiarizados
+            </label>
+            <label>
+              <input type="radio" name="Q6" value="1" required />Poco
+              familiarizados
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              7. ¿Tiene identificado el ciclo de vida del producto o servicio?
+            </legend>
+            <label>
+              <input type="radio" name="Q7" value="5" required />Continuamente
+              identificado
+            </label>
+            <label>
+              <input type="radio" name="Q7" value="4" required />Mayormente
+              identificado
+            </label>
+            <label>
+              <input type="radio" name="Q7" value="2" required />Parcialmente
+              identificado
+            </label>
+            <label>
+              <input type="radio" name="Q7" value="1" required />No identificado
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              8. ¿Cuántos clientes nuevos se ha adquirido en el último mes?
+            </legend>
+            <label>
+              <input type="radio" name="Q8" value="5" required />Se han
+              adquirido un número significativo de clientes nuevos
+            </label>
+            <label>
+              <input type="radio" name="Q8" value="4" required />Se han
+              adquirido muchos clientes nuevos
+            </label>
+            <label>
+              <input type="radio" name="Q8" value="2" required />Se han
+              adquirido pocos clientes nuevos
+            </label>
+            <label>
+              <input type="radio" name="Q8" value="1" required />No se han
+              adquirido nuevos clientes
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              9. ¿Cómo se encuentra la relación con tus empleados?
+            </legend>
+            <label>
+              <input type="radio" name="Q9" value="4" required />Muy buena
+            </label>
+            <label>
+              <input type="radio" name="Q9" value="3" required />Buena
+            </label>
+            <label>
+              <input type="radio" name="Q9" value="2" required />Regular
+            </label>
+            <label>
+              <input type="radio" name="Q9" value="1" required />Se necesita
+              mejoría
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              10. ¿En qué nivel se encuentra tu posicionamiento de marca a nivel
+              nacional?
+            </legend>
+            <label>
+              <input type="radio" name="Q10" value="4" required />Altamente
+              posicionada
+            </label>
+            <label>
+              <input type="radio" name="Q10" value="3" required />Muy bien
+              posicionada
+            </label>
+            <label>
+              <input type="radio" name="Q10" value="2" required />Medianamente
+              posicionada
+            </label>
+            <label>
+              <input type="radio" name="Q10" value="1" required />No está
+              posicionada
+            </label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="section--3">
+      <div class="section-intro">
+        <h2 class="section-title">coherecia de negocio</h2>
+        <p class="section-description">
+          Este es un cuestionario para evaluar la coherencia del negocio,
+          contará con 3 fases proposito, proceso y producto
+        </p>
+      </div>
+
+      <div class="form-container">
+        <form>
+          <fieldset>
+            <legend>
+              Nuestra empresa tiene un propósito claro y bien definido que guía
+              todas nuestras decisiones.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Todos los empleados comprenden y se identifican con el propósito
+              fundamental de nuestra empresa.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              El propósito de nuestra empresa se comunica de manera efectiva
+              tanto interna como externamente.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <h3>Proceso, el Como</h3>
+          <fieldset>
+            <legend>
+              Tenemos procesos claros y bien establecidos que reflejan nuestro
+              propósito y valores.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Nuestro enfoque en los procesos nos permite entregar
+              consistentemente productos y servicios de alta calidad.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Los procesos y procedimientos de nuestra empresa están alineados
+              con nuestras metas estratégicas.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <h3>Producto, El Que</h3>
+          <fieldset>
+            <legend>
+              Los productos y servicios que ofrecemos están alineados con el
+              propósito fundamental de nuestra empresa.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Nuestros clientes reconocen y valoran la conexión entre nuestros
+              productos/servicios y nuestro propósito.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              .Nuestra empresa está constantemente innovando y mejorando
+              nuestros productos y servicios en línea con nuestro propósito.
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+
+    <section class="section" id="section--4">
+      <div class="section-intro">
+        <h2 class="section-title">alineación interna</h2>
+        <p class="ection-description">
+          Este es un cuestionario para evaluar la coherencia y consistencia
+          entre el plan estrátegico, la cultura empresarial los procesos y
+          proyectosque colaboran para el cumplimiento de los objetivos
+          organizacionales.
+        </p>
+      </div>
+      <div class="form-container">
+        <form>
+          <fieldset>
+            <legend>
+              ¿Cómo calificarías la claridad de la estrategia empresarial en tu
+              organización?
+            </legend>
+            <label>
+              <input type="radio" name="Q1" required /> No hay claridad
+            </label>
+            <label> <input type="radio" name="Q1" required /> Muy poca </label>
+            <label> <input type="radio" name="Q1" required /> Muy buena </label>
+            <label> <input type="radio" name="Q1" required /> Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Qué tan efectiva consideras que es la comunicación de la
+              estrategia a todos los niveles de la empresa?
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> No hay comunicación
+            </label>
+            <label> <input type="radio" name="Q2" required /> Muy poca </label>
+            <label> <input type="radio" name="Q2" required /> Muy buena </label>
+            <label> <input type="radio" name="Q2" required /> Excelente </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>
+              ¿Qué tan alineados sientes que están los objetivos individuales
+              con los objetivos estratégicos de la empresa?
+            </legend>
+            <label>
+              <input type="radio" name="Q3" required /> No hay objetivos
+            </label>
+            <label> <input type="radio" name="Q3" required /> Muy poco </label>
+            <label>
+              <input type="radio" name="Q3" required /> Medianamente
+            </label>
+            <label> <input type="radio" name="Q3" required /> Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Qué tan frecuentemente se evalúa la comprensión y adopción de la
+              estrategia por parte de los empleados?
+            </legend>
+            <label> <input type="radio" name="Q4" required /> Nunca </label>
+            <label> <input type="radio" name="Q4" required /> Muy poco </label>
+            <label>
+              <input type="radio" name="Q4" required /> Frecuentemente
+            </label>
+            <label>
+              <input type="radio" name="Q4" required /> Semanalmente
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Cómo valorarías el nivel de colaboración y trabajo en equipo para
+              lograr los objetivos estratégicos
+            </legend>
+            <label> <input type="radio" name="Q5" required /> No existe </label>
+            <label> <input type="radio" name="Q5" required /> Muy poco </label>
+            <label> <input type="radio" name="Q5" required /> Muy bueno </label>
+            <label> <input type="radio" name="Q5" required /> Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Qué tan ágil consideras que es la empresa en ajustar la
+              estrategia ante cambios internos y externos?
+            </legend>
+            <label>
+              <input type="radio" name="Q6" required /> No se implementa
+            </label>
+            <label> <input type="radio" name="Q6" required /> Muy poco </label>
+            <label> <input type="radio" name="Q6" required /> Muy bueno </label>
+            <label> <input type="radio" name="Q6" required /> Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Cuánto crees que se involucra a los empleados en la formulación
+              de la estrategia empresarial?
+            </legend>
+            <label>
+              <input type="radio" name="Q7" required /> No se involucra
+            </label>
+            <label> <input type="radio" name="Q7" required /> Muy poco </label>
+            <label>
+              <input type="radio" name="Q7" required /> involucrados
+            </label>
+            <label>
+              <input type="radio" name="Q7" required /> Muy involucrados
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Cómo evaluarías la efectividad de las herramientas utilizadas para
+              monitorear el progreso hacia los objetivos estratégicos
+            </legend>
+            <label>
+              <input type="radio" name="Q8" required /> No se evalua
+            </label>
+            <label> <input type="radio" name="Q8" required /> Muy poco </label>
+            <label> <input type="radio" name="Q8" required /> Muy bueno </label>
+            <label> <input type="radio" name="Q8" required /> Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Qué tan comprometidos están los líderes y equipos directivos con
+              la alineación interna
+            </legend>
+            <label>
+              <input type="radio" name="Q9" required /> No hay compromiso
+            </label>
+            <label> <input type="radio" name="Q9" required /> Muy poco </label>
+            <label> <input type="radio" name="Q9" required /> Muy bueno </label>
+            <label> <input type="radio" name="Q9" required /> Excelente </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              Qué tan arraigada sientes que está la cultura organizacional que
+              apoye la ejecución de la estrategia empresarial
+            </legend>
+            <label>
+              <input type="radio" name="Q10" required /> No existe
+            </label>
+            <label> <input type="radio" name="Q10" required /> Muy poco </label>
+            <label>
+              <input type="radio" name="Q10" required /> Muy buena
+            </label>
+            <label>
+              <input type="radio" name="Q10" required /> Excelente
+            </label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <section class="section" id="section--5">
+      <div class="section-intro">
+        <h2 class="section-title">Circulo Dorado</h2>
+        <p class="section-description">
+          El círculo dorado propone encontrar una explicación en la razón de ser
+          que tiene cada situación y cada acción a partir del reconocimiento de
+          nuestro interior. Encontrar lo que realmente nos mueve, lo que
+          realmente nos constituye y nos dirige a realizar las cosas cada vez de
+          una mejor manera.<br />
+          Este cuestionario está diseñado para ayudar a las empresas a
+          identificar en qué nivel se encuentran según el modelo del círculo
+          dorado. A continuación, encontrará una serie de preguntas en las que
+          deberá responder en qué nivel se encuentra su empresa.
+        </p>
+      </div>
+      <div class="form-container">
+        <form>
+          <fieldset>
+            <legend>
+              ¿En qué medida estás de acuerdo con la siguiente afirmación:
+              "Nuestra empresa tiene un propósito claro y bien definido"?
+            </legend>
+            <label>
+              <input type="radio" name="Q1" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q1" required /> En desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q1" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q1" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Crees que nuestros clientes entienden y valoran el propósito de
+              nuestra empresa?
+            </legend>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q2" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Consideras que el propósito de nuestra empresa guía nuestras
+              decisiones estratégicas?
+            </legend>
+            <label>
+              <input type="radio" name="Q3" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q3" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q3" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q3" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>
+              ¿En qué medida crees que el propósito de nuestra empresa tiene un
+              impacto positivo en la sociedad?
+            </legend>
+            <label>
+              <input type="radio" name="Q4" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q4" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q4" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q4" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+
+          <h3>El ¿cómo? (El proceso):</h3>
+          <p>
+            Es la etapa en la que se refuerzan los valores que sustentan la
+            empresa.
+          </p>
+
+          <fieldset>
+            <legend>
+              ¿En qué medida estás de acuerdo con la siguiente afirmación:
+              "Nuestra empresa implementa procesos efectivos que apoyan nuestro
+              propósito"?
+            </legend>
+            <label>
+              <input type="radio" name="Q5" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q5" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q5" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q5" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Consideras que los valores de nuestra empresa están reflejados en
+              nuestras operaciones diarias?
+            </legend>
+            <label>
+              <input type="radio" name="Q6" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q6" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q6" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q6" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿En qué medida estás de acuerdo con la siguiente afirmación:
+              "Nuestra empresa se distingue de la competencia por la calidad de
+              sus procesos y procedimientos"?
+            </legend>
+            <label>
+              <input type="radio" name="Q7" required /> Totalmente en desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q7" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q7" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q7" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Qué tan bien crees que nuestra empresa comunica cómo llevamos a
+              cabo nuestro propósito a nuestros clientes?
+            </legend>
+            <label> <input type="radio" name="Q8" required /> Muy mal </label>
+            <label> <input type="radio" name="Q8" required /> Mal </label>
+
+            <label> <input type="radio" name="Q8" required /> Bien </label>
+            <label> <input type="radio" name="Q8" required /> Muy bien </label>
+          </fieldset>
+
+          <h3>El ¿qué? (Resultado):</h3>
+          <p>Es el producto o servicio que vendes.</p>
+
+          <fieldset>
+            <legend>
+              ¿Qué tan satisfecho estás con la calidad de los productos o
+              servicios que ofrece nuestra empresa?
+            </legend>
+            <label>
+              <input type="radio" name="Q9" required /> Totalmente insatisfecho
+            </label>
+            <label>
+              <input type="radio" name="Q9" required /> Insatisfecho
+            </label>
+
+            <label>
+              <input type="radio" name="Q9" required /> Satisfecho
+            </label>
+            <label>
+              <input type="radio" name="Q9" required /> Totalmente satisfecho
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿En qué medida crees que nuestros productos o servicios cumplen
+              con las expectativas de nuestros clientes?
+            </legend>
+            <label>
+              <input type="radio" name="Q10" required /> Totalmente en
+              desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q10" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q10" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q10" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Consideras que nuestra empresa se adapta bien a las necesidades
+              cambiantes del mercado con sus productos o servicios?
+            </legend>
+            <label>
+              <input type="radio" name="Q11" required /> Totalmente en
+              desacuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q11" required /> En desacuerdo
+            </label>
+
+            <label>
+              <input type="radio" name="Q11" required /> De acuerdo
+            </label>
+            <label>
+              <input type="radio" name="Q11" required /> Totalmente de acuerdo
+            </label>
+          </fieldset>
+          <fieldset>
+            <legend>
+              ¿Qué tan bien crees que nuestra empresa comunica las
+              características y beneficios de sus productos o servicios?
+            </legend>
+            <label> <input type="radio" name="Q8" required /> Muy mal </label>
+            <label> <input type="radio" name="Q8" required /> Mal </label>
+
+            <label> <input type="radio" name="Q8" required /> Bien </label>
+            <label> <input type="radio" name="Q8" required /> Muy bien </label>
+          </fieldset>
+        </form>
+      </div>
+    </section>
+    <section class="section section-see-results">
+      <div class="section-intro">
+        <h3 class="section__header">
+          ¡Gracias por completar el formulario! Apreciamos tu tiempo y
+          colaboración. !
+        </h3>
+      </div>
+      <button class="btn btn--show-modal">Ver resultados!</button>
+    </section>
     <script src="index.js"></script>
   </body>
 </html>
