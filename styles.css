@@ -89,6 +89,11 @@ body {
   color: #fff;
 }
 
+.nav, .contened {
+  width: 109.3%;
+  display: block;
+}
+
 .hidden {
   display: none;
 }
@@ -255,10 +260,6 @@ fieldset label::before {
   text-align: center;
 }
 
-.nav, .contened {
-  width: 109.3%;
-  display: block;
-}
 
 .contened {
   position: relative;
