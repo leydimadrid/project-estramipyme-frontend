@@ -207,6 +207,10 @@ fieldset label::before {
   top: 44%;
   left: 2%;
 }
+.nav__link{
+  color:#444
+
+}
 
 .nav__item {
   margin-left: 4rem;
@@ -216,7 +220,7 @@ fieldset label::before {
 .nav__link:visited {
   font-size: 1.1rem;
   font-weight: 400;
-  color: inherit;
+  /* color: inherit; */
   text-decoration: none;
   display: block;
   transition: all 0.3s;
@@ -231,13 +235,13 @@ fieldset label::before {
 }
 
 .selected-link {
-  /* color: #4EAAD2; */
+  color: #4EAAD2;
   /* text-decoration: underline; */
   /* text-decoration-color: #58B0A8; */
   /* font-weight: bold; */
-  background-color: #58b0a8;
-  border-radius: 50px;
-  padding: 5px 10px;
+  /* background-color: #58b0a8; */
+  /* border-radius: 50px; */
+  /* padding: 5px 10px; */
 }
 
 .btn {
@@ -276,6 +280,18 @@ fieldset label::before {
 .contened .tuProgreso {
   margin: -15px 0;
 }
+.tuProgreso{
+  display: flex;
+  /* background-color: red; */
+  /* padding: 0;
+  height: 100%;
+  margin: 0; */
+}
+.bar-remaining{
+  display:block;
+  /* width: auto%ç; */
+  /* width: auto; */
+}
 
 
 /*.contened .tuProgreso p {
@@ -302,3 +318,16 @@ fieldset label::before {
 .progreso::-webkit-progress-bar {
   background-color: #58b0a8; /* Color de fondo de la barra en navegadores WebKit */
 }
+
+/* .tuProgreso{
+  background-color: red;
+} */
+
+/* .question--33{
+  border: solid 2px red;
+  padding: 20px;
+}
+.question--33::before{
+  content:"Esto no puede estar vacio";
+  color:red;
+} */

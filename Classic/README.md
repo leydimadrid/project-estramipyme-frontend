@@ -44,3 +44,21 @@ git push origin nombre-de-la-rama
 ### 7. **Fusión del Pull Request**
 
 - Una vez aprobado, tu Pull Request será fusionado en el repositorio principal.
+
+## Cómo levantar el proyecto Clasic.
+## 1. Muevase a la carpeta `Classic`
+En la terminal ejecute el siguiente comando
+```bash
+cd Classic
+```
+## 2. Inicie el servidor de json-server
+
+```bash
+npx json-server db.json
+```
+## 3. Abra el archivo `index.html` dentro de `Classic` con su navegador de preferencia
+
+
+
+
+
