@@ -80,7 +80,49 @@
         </p>
       </div>
 
-      <div class="form-container"></div>
+      <div class="form-container">
+        <!-- <form class="form--1">
+          <fieldset class="questions question--1" data-question-id="1">
+            <legend data-l-s="8232">
+              ¿Qué tan precisa es la información demográfica de sus clientes
+              (edad, género, ubicación, etc.) en su base de datos?
+            </legend>
+            <label>
+              <input
+                type="radio"
+                name="Q1"
+                value="1"
+                class="radioinput radioinput__section--1"
+                data-id="1-1"
+              />Notengo </label
+            ><label>
+              <input
+                type="radio"
+                name="Q1"
+                value="2"
+                class="radioinput radioinput__section--1"
+                data-id="1-2"
+              />Muy poco </label
+            ><label>
+              <input
+                type="radio"
+                name="Q1"
+                value="3"
+                class="radioinput radioinput__section--1"
+                data-id="1-3"
+              />Buena </label
+            ><label>
+              <input
+                type="radio"
+                name="Q1"
+                value="4"
+                class="radioinput radioinput__section--1"
+                data-id="1-4"
+              />excelente
+            </label>
+          </fieldset>
+        </form> -->
+      </div>
     </section>
 
     <section class="section" id="section--2">
@@ -94,207 +136,7 @@
         </p>
       </div>
 
-      <div class="form-container">
-        <!-- <form>
-          <fieldset>
-            <legend>1. ¿Qué tan positivo es tu flujo de caja cada mes?</legend>
-            <label>
-              <input type="radio" name="Q1" class="question11" value="5" required min="0" max="100" oninput="updateBar()"/>Muy Positivo
-            </label>
-            <label>
-              <input type="radio" name="Q1" class="question11" value="4" required min="0" max="100" oninput="updateBar()"/>Positivo
-            </label>
-            <label>
-              <input type="radio" name="Q1" class="question11" value="2" required min="0" max="100" oninput="updateBar()"/>Negativo
-            </label>
-            <label>
-              <input type="radio" name="Q1" class="question11" value="1" required min="0" max="100" oninput="updateBar()"/>Muy Negativo
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              2. ¿Con qué eficacia genera ingresos en el área comercial?
-            </legend>
-            <label>
-              <input type="radio" name="Q2" class="question12" value="4" required min="0" max="100" oninput="updateBar()"/>100% de los
-              ingresos
-            </label>
-            <label>
-              <input type="radio" name="Q2" class="question12" value="3" required min="0" max="100" oninput="updateBar()"/>75% de los
-              ingresos
-            </label>
-            <label>
-              <input type="radio" name="Q2" class="question12" value="2" required min="0" max="100" oninput="updateBar()"/>50% de los
-              ingresos
-            </label>
-            <label>
-              <input type="radio" name="Q2" class="question12" value="1" required min="0" max="100" oninput="updateBar()"/>25% de los
-              ingresos
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              3. ¿Cuántas devoluciones por producto o servicio se tuvieron el
-              mes pasado?
-            </legend>
-            <label>
-              <input type="radio" name="Q3" class="question13" value="1" required min="0" max="100" oninput="updateBar()"/>Más del 50%
-            </label>
-            <label>
-              <input type="radio" name="Q3" class="question13" value="2" required min="0" max="100" oninput="updateBar()"/>Más del 25%
-            </label>
-            <label>
-              <input type="radio" name="Q3" class="question13" value="3" required min="0" max="100" oninput="updateBar()"/>Más del 15%
-            </label>
-            <label>
-              <input type="radio" name="Q3" class="question13" value="4" required min="0" max="100" oninput="updateBar()"/>ninguno
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              4. ¿Cuál es el porcentaje de participación de mercado que tienen
-              en el sector?
-            </legend>
-            <label>
-              <input type="radio" name="Q4" class="question14" value="4" required min="0" max="100" oninput="updateBar()"/>Más del 90%
-            </label>
-            <label>
-              <input type="radio" name="Q4" class="question14" value="3" required min="0" max="100" oninput="updateBar()"/>Más del 70%
-            </label>
-            <label>
-              <input type="radio" name="Q4" class="question14" value="2" required min="0" max="100" oninput="updateBar()"/>Más del 40%
-            </label>
-            <label>
-              <input type="radio" name="Q4" class="question14" value="1" required min="0" max="100" oninput="updateBar()"/>Más del 20%
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              5. ¿Cuántas horas se dedica a la formación continua de los
-              empleados el último año?
-            </legend>
-            <label>
-              <input type="radio" name="Q5" class="question15" value="4" required min="0" max="100" oninput="updateBar()"/> Más de 90
-              horas
-            </label>
-            <label>
-              <input type="radio" name="Q5" class="question15" value="3" required min="0" max="100" oninput="updateBar()"/>Entre 70 y 90
-              horas
-            </label>
-            <label>
-              <input type="radio" name="Q5" class="question15" value="2" required min="0" max="100" oninput="updateBar()"/>Entre 40 y 70
-              horas
-            </label>
-            <label>
-              <input type="radio" name="Q5" class="question15" value="1" required min="0" max="100" oninput="updateBar()"/>Menos de 40
-              horas
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              6. ¿Qué tan familiarizados están los empleados con los productos o
-              servicios que ofrece la empresa?
-            </legend>
-            <label>
-              <input type="radio" name="Q6" class="question16" value="4" required min="0" max="100" oninput="updateBar()"/>Muy
-              familiarizados
-            </label>
-            <label>
-              <input type="radio" name="Q6" class="question16" value="3" required min="0" max="100" oninput="updateBar()"/>Bastante
-              familiarizados
-            </label>
-            <label>
-              <input type="radio" name="Q6" class="question16" value="2" required min="0" max="100" oninput="updateBar()"/>Algo
-              familiarizados
-            </label>
-            <label>
-              <input type="radio" name="Q6" class="question16" value="1" required min="0" max="100" oninput="updateBar()"/>Poco
-              familiarizados
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              7. ¿Tiene identificado el ciclo de vida del producto o servicio?
-            </legend>
-            <label>
-              <input type="radio" name="Q7" class="question17" value="5" required min="0" max="100" oninput="updateBar()"/>Continuamente
-              identificado
-            </label>
-            <label>
-              <input type="radio" name="Q7" class="question17" value="4" required min="0" max="100" oninput="updateBar()"/>Mayormente
-              identificado
-            </label>
-            <label>
-              <input type="radio" name="Q7" class="question17" value="2" required min="0" max="100" oninput="updateBar()"/>Parcialmente
-              identificado
-            </label>
-            <label>
-              <input type="radio" name="Q7" class="question17" value="1" required min="0" max="100" oninput="updateBar()"/>No identificado
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              8. ¿Cuántos clientes nuevos se ha adquirido en el último mes?
-            </legend>
-            <label>
-              <input type="radio" name="Q8" class="question18" value="5" required min="0" max="100" oninput="updateBar()"/>Se han
-              adquirido un número significativo de clientes nuevos
-            </label>
-            <label>
-              <input type="radio" name="Q8" class="question18" value="4" required min="0" max="100" oninput="updateBar()"/>Se han
-              adquirido muchos clientes nuevos
-            </label>
-            <label>
-              <input type="radio" name="Q8" class="question18" value="2" required min="0" max="100" oninput="updateBar()"/>Se han
-              adquirido pocos clientes nuevos
-            </label>
-            <label>
-              <input type="radio" name="Q8" class="question18" value="1" required min="0" max="100" oninput="updateBar()"/>No se han
-              adquirido nuevos clientes
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              9. ¿Cómo se encuentra la relación con tus empleados?
-            </legend>
-            <label>
-              <input type="radio" name="Q9" class="question19" value="4" required min="0" max="100" oninput="updateBar()"/>Muy buena
-            </label>
-            <label>
-              <input type="radio" name="Q9" class="question19" value="3" required min="0" max="100" oninput="updateBar()"/>Buena
-            </label>
-            <label>
-              <input type="radio" name="Q9" class="question19" value="2" required min="0" max="100" oninput="updateBar()"/>Regular
-            </label>
-            <label>
-              <input type="radio" name="Q9" class="question19" value="1" required min="0" max="100" oninput="updateBar()"/>Se necesita
-              mejoría
-            </label>
-          </fieldset>
-          <fieldset>
-            <legend>
-              10. ¿En qué nivel se encuentra tu posicionamiento de marca a nivel
-              nacional?
-            </legend>
-            <label>
-              <input type="radio" name="Q10" class="question20" value="4" required min="0" max="100" oninput="updateBar()"/>Altamente
-              posicionada
-            </label>
-            <label>
-              <input type="radio" name="Q10" class="question20" value="3" required min="0" max="100" oninput="updateBar()"/>Muy bien
-              posicionada
-            </label>
-            <label>
-              <input type="radio" name="Q10" class="question20" value="2" required min="0" max="100" oninput="updateBar()"/>Medianamente
-              posicionada
-            </label>
-            <label>
-              <input type="radio" name="Q10" class="question20" value="1" required min="0" max="100" oninput="updateBar()"/>No está
-              posicionada
-            </label>
-          </fieldset>
-        </form> -->
-      </div>
+      <div class="form-container"></div>
     </section>
 
     <section class="section" id="section--3">

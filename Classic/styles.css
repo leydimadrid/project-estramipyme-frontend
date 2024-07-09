@@ -322,3 +322,12 @@ fieldset label::before {
 /* .tuProgreso{
   background-color: red;
 } */
+
+/* .question--33{
+  border: solid 2px red;
+  padding: 20px;
+}
+.question--33::before{
+  content:"Esto no puede estar vacio";
+  color:red;
+} */
