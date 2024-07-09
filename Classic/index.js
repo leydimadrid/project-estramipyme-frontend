@@ -165,3 +165,41 @@ allSections.forEach(function (section) {
   sectionObserver.observe(section);
   section.classList.add('section--hidden');
 });
+
+//progress bar
+//function updateBar () {
+//let allQuestion = 51;
+//let valorSumado = 0;
+//for (let i = 1; i <= allQuestion; i++) {
+//  let valor = 0;
+//  let radios = document.querySelectorAll(`.question${i}`);
+//  for (let j = 0; j < radios.length; j++) {
+//    if (radios[j].checked) {
+//      valor = parseInt(radios[j].value);
+//      break;
+//    }
+      
+//  }
+
+//  valorSumado += valor;
+
+//}
+  
+//let average = (valorSumado / allQuestion) *100;
+
+//document.querySelector('.progreso').value = average;
+//}
+function update() {
+  let progress = document.getElementById('progreso');
+  let scrollY = window.scrollY;
+  let scrollHeight = document.body.scrollHeight;
+  let innerHeight = window.innerHeight;
+
+  let percentage = (scrollY / (scrollHeight - innerHeight)) * 100;
+
+  progress.style.width = `${percentage}%`;
+
+  requestAnimationFrame(update);
+}
+
+update();

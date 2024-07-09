@@ -23,15 +23,10 @@
          <nav class="nav">
           <div class="contened">
             <div class="tuProgreso">
-              <div class="progreso" style="--wth:20%"></div>
+              <progress id="progreso" class="progreso" value="0" max="100"></progress>
             </div>
           </div>
-          <img
-          src="images/logo_eafit.png"
-          alt="EAFIT logo"
-          class="nav__logo"
-          id="logo"
-        />
+          
           <ul class="nav__links">
           <li class="nav__item">
             <a class="nav__link" href="#section--1">Cliente</a>
@@ -54,7 +49,12 @@
             >
           </li>
         </ul>
-        
+        <img
+          src="images/logo_eafit.png"
+          alt="EAFIT logo"
+          class="nav__logo"
+          id="logo"
+        />
       </nav>
       <div class="text-box">
         <h1 class="heading-primary">
@@ -82,10 +82,10 @@
               1-¿Qué tan precisa es la información demográfica de sus clientes
               (edad, género, ubicación, etc.) en su base de datos?
             </legend>
-            <label> <input type="radio" value="1" name="p1" />No tengo </label>
-            <label> <input type="radio" value="2" name="p1" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p1" />Buena </label>
-            <label> <input type="radio" value="4" name="p1" />Excelente </label>
+            <label> <input type="radio" class="question1" value="1" name="p1" required min="0" max="100" oninput="updateBar()"/>No tengo </label>
+            <label> <input type="radio" class="question1" value="2" name="p1" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question1" value="3" name="p1" required min="0" max="100" oninput="updateBar()"/>Buena </label>
+            <label> <input type="radio" class="question1" value="4" name="p1" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -93,11 +93,11 @@
               preferencias y los patrones de gasto de sus clientes?
             </legend>
             <label>
-              <input type="radio" value="1" name="p2" />Lo desconozco
+              <input type="radio" class="question2"value="1" name="p2" required min="0" max="100" oninput="updateBar()"/>Lo desconozco
             </label>
-            <label> <input type="radio" value="2" name="p2" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p2" />Bien </label>
-            <label> <input type="radio" value="4" name="p2" />Excelente </label>
+            <label> <input type="radio" class="question2" value="2" name="p2" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question2" value="3" name="p2" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question2" value="4" name="p2" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -105,11 +105,11 @@
               de sus diferentes segmentos de clientes?
             </legend>
             <label>
-              <input type="radio" value="1" name="p3" />No lo identifico
+              <input type="radio" class="question3" value="1" name="p3" required min="0" max="100" oninput="updateBar()"/>No lo identifico
             </label>
-            <label> <input type="radio" value="2" name="p3" />Muy Poco </label>
-            <label> <input type="radio" value="3" name="p3" />Bien </label>
-            <label> <input type="radio" value="4" name="p3" />Excelente </label>
+            <label> <input type="radio" class="question3" value="2" name="p3" required min="0" max="100" oninput="updateBar()"/>Muy Poco </label>
+            <label> <input type="radio" class="question3" value="3" name="p3" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question3" value="4" name="p3" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -117,11 +117,11 @@
               sus clientes (correo electrónico, redes sociales, teléfono, etc.)?
             </legend>
             <label>
-              <input type="radio" value="1" name="p4" />No los conozco
+              <input type="radio" class="question4" value="1" name="p4" required min="0" max="100" oninput="updateBar()" />No los conozco
             </label>
-            <label> <input type="radio" value="2" name="p4" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p4" />Bien </label>
-            <label> <input type="radio" value="4" name="p4" />Excelente </label>
+            <label> <input type="radio" class="question4" value="2" name="p4" required min="0" max="100" oninput="updateBar()" />Muy poco </label>
+            <label> <input type="radio" class="question4" value="3" name="p4" required min="0" max="100" oninput="updateBar()" />Bien </label>
+            <label> <input type="radio" class="question4" value="4" name="p4" required min="0" max="100" oninput="updateBar()" />Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -129,11 +129,11 @@
               con sus productos, servicios y experiencias?
             </legend>
             <label>
-              <input type="radio" value="1" name="p5" />No los mido
+              <input type="radio" class="question5" value="1" name="p5" required min="0" max="100" oninput="updateBar()"/>No los mido
             </label>
-            <label> <input type="radio" value="2" name="p5" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p5" />Bien </label>
-            <label> <input type="radio" value="4" name="p5" />Excelente </label>
+            <label> <input type="radio" class="question5" value="2" name="p5" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question5" value="3" name="p5" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question5" value="4" name="p5" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -141,11 +141,11 @@
               leales?
             </legend>
             <label>
-              <input type="radio" value="1" name="p6" />No lo aplico
+              <input type="radio" class="question6" value="1" name="p6" required min="0" max="100" oninput="updateBar()"/>No lo aplico
             </label>
-            <label> <input type="radio" value="2" name="p6" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p6" />Bien </label>
-            <label> <input type="radio" value="4" name="p6" />Excelente </label>
+            <label> <input type="radio" class="question6" value="2" name="p6" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question6" value="3" name="p6" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question6" value="4" name="p6" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -153,11 +153,10 @@
               campañas y ofertas personalizadas?
             </legend>
             <label>
-              <input type="radio" value="1" name="p7" />No lo aplico
-            </label>
-            <label> <input type="radio" value="2" name="p7" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p7" />Bien </label>
-            <label> <input type="radio" value="4" name="p7" />Excelente </label>
+              <input type="radio" class="question7" value="1" name="p7" required min="0" max="100" oninput="updateBar()"/>No lo aplico</label>
+            <label> <input type="radio" class="question7" value="2" name="p7" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question7" value="3" name="p7" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question7" value="4" name="p7" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -165,11 +164,11 @@
               información y tomar decisiones estratégicas?
             </legend>
             <label>
-              <input type="radio" value="1" name="p8" />No lo utilizo
+              <input type="radio" class="question8" value="1" name="p8" required min="0" max="100" oninput="updateBar()"/>No lo utilizo
             </label>
-            <label> <input type="radio" value="2" name="p8" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p8" />Bien </label>
-            <label> <input type="radio" value="4" name="p8" />Excelente </label>
+            <label> <input type="radio" class="question8" value="2" name="p8" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question8" value="3" name="p8" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question8" value="4" name="p8" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -177,22 +176,22 @@
               sus diferentes canales de interacción?
             </legend>
             <label>
-              <input type="radio" value="1" name="p9" />No lo aplico
+              <input type="radio" class="question9" value="1" name="p9" required min="0" max="100" oninput="updateBar()"/>No lo aplico
             </label>
-            <label> <input type="radio" value="2" name="p9" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p9" />Bien </label>
-            <label> <input type="radio" value="4" name="p9" />Excelente </label>
+            <label> <input type="radio" class="question9" value="2" name="p9" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question9" value="3" name="p9" required min="0" max="100" oninput="updateBar()"/>Bien </label>
+            <label> <input type="radio" class="question9" value="4" name="p9" required min="0" max="100" oninput="updateBar()"/>Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
               10-¿Qué tan bien recopila y utiliza la retroalimentación de los
               clientes para mejorar sus productos, servicios y experiencias?
             </legend>
-            <label> <input type="radio" value="1" name="p10" />Nunca </label>
-            <label> <input type="radio" value="2" name="p10" />Muy poco </label>
-            <label> <input type="radio" value="3" name="p10" />Bien </label>
+            <label> <input type="radio" class="question10" value="1" name="p10" required min="0" max="100" oninput="updateBar()"/>Nunca </label>
+            <label> <input type="radio" class="question10" value="2" name="p10" required min="0" max="100" oninput="updateBar()"/>Muy poco </label>
+            <label> <input type="radio" class="question10" value="3" name="p10" required min="0" max="100" oninput="updateBar()"/>Bien </label>
             <label>
-              <input type="radio" value="4" name="p10" />Excelente
+              <input type="radio" class="question10" value="4" name="p10" required min="0" max="100" oninput="updateBar()"/>Excelente
             </label>
           </fieldset>
         </form>
@@ -215,16 +214,16 @@
           <fieldset>
             <legend>1. ¿Qué tan positivo es tu flujo de caja cada mes?</legend>
             <label>
-              <input type="radio" name="Q1" value="5" required />Muy Positivo
+              <input type="radio" name="Q1" class="question11" value="5" required min="0" max="100" oninput="updateBar()"/>Muy Positivo
             </label>
             <label>
-              <input type="radio" name="Q1" value="4" required />Positivo
+              <input type="radio" name="Q1" class="question11" value="4" required min="0" max="100" oninput="updateBar()"/>Positivo
             </label>
             <label>
-              <input type="radio" name="Q1" value="2" required />Negativo
+              <input type="radio" name="Q1" class="question11" value="2" required min="0" max="100" oninput="updateBar()"/>Negativo
             </label>
             <label>
-              <input type="radio" name="Q1" value="1" required />Muy Negativo
+              <input type="radio" name="Q1" class="question11" value="1" required min="0" max="100" oninput="updateBar()"/>Muy Negativo
             </label>
           </fieldset>
           <fieldset>
@@ -232,19 +231,19 @@
               2. ¿Con qué eficacia genera ingresos en el área comercial?
             </legend>
             <label>
-              <input type="radio" name="Q2" value="4" required />100% de los
+              <input type="radio" name="Q2" class="question12" value="4" required min="0" max="100" oninput="updateBar()"/>100% de los
               ingresos
             </label>
             <label>
-              <input type="radio" name="Q2" value="3" required />75% de los
+              <input type="radio" name="Q2" class="question12" value="3" required min="0" max="100" oninput="updateBar()"/>75% de los
               ingresos
             </label>
             <label>
-              <input type="radio" name="Q2" value="2" required />50% de los
+              <input type="radio" name="Q2" class="question12" value="2" required min="0" max="100" oninput="updateBar()"/>50% de los
               ingresos
             </label>
             <label>
-              <input type="radio" name="Q2" value="1" required />25% de los
+              <input type="radio" name="Q2" class="question12" value="1" required min="0" max="100" oninput="updateBar()"/>25% de los
               ingresos
             </label>
           </fieldset>
@@ -254,16 +253,16 @@
               mes pasado?
             </legend>
             <label>
-              <input type="radio" name="Q3" value="1" required />Más del 50%
+              <input type="radio" name="Q3" class="question13" value="1" required min="0" max="100" oninput="updateBar()"/>Más del 50%
             </label>
             <label>
-              <input type="radio" name="Q3" value="2" required />Más del 25%
+              <input type="radio" name="Q3" class="question13" value="2" required min="0" max="100" oninput="updateBar()"/>Más del 25%
             </label>
             <label>
-              <input type="radio" name="Q3" value="3" required />Más del 15%
+              <input type="radio" name="Q3" class="question13" value="3" required min="0" max="100" oninput="updateBar()"/>Más del 15%
             </label>
             <label>
-              <input type="radio" name="Q3" value="4" required />ninguno
+              <input type="radio" name="Q3" class="question13" value="4" required min="0" max="100" oninput="updateBar()"/>ninguno
             </label>
           </fieldset>
           <fieldset>
@@ -272,16 +271,16 @@
               en el sector?
             </legend>
             <label>
-              <input type="radio" name="Q4" value="4" required />Más del 90%
+              <input type="radio" name="Q4" class="question14" value="4" required min="0" max="100" oninput="updateBar()"/>Más del 90%
             </label>
             <label>
-              <input type="radio" name="Q4" value="3" required />Más del 70%
+              <input type="radio" name="Q4" class="question14" value="3" required min="0" max="100" oninput="updateBar()"/>Más del 70%
             </label>
             <label>
-              <input type="radio" name="Q4" value="2" required />Más del 40%
+              <input type="radio" name="Q4" class="question14" value="2" required min="0" max="100" oninput="updateBar()"/>Más del 40%
             </label>
             <label>
-              <input type="radio" name="Q4" value="1" required />Más del 20%
+              <input type="radio" name="Q4" class="question14" value="1" required min="0" max="100" oninput="updateBar()"/>Más del 20%
             </label>
           </fieldset>
           <fieldset>
@@ -290,19 +289,19 @@
               empleados el último año?
             </legend>
             <label>
-              <input type="radio" name="Q5" value="4" required /> Más de 90
+              <input type="radio" name="Q5" class="question15" value="4" required min="0" max="100" oninput="updateBar()"/> Más de 90
               horas
             </label>
             <label>
-              <input type="radio" name="Q5" value="3" required />Entre 70 y 90
+              <input type="radio" name="Q5" class="question15" value="3" required min="0" max="100" oninput="updateBar()"/>Entre 70 y 90
               horas
             </label>
             <label>
-              <input type="radio" name="Q5" value="2" required />Entre 40 y 70
+              <input type="radio" name="Q5" class="question15" value="2" required min="0" max="100" oninput="updateBar()"/>Entre 40 y 70
               horas
             </label>
             <label>
-              <input type="radio" name="Q5" value="1" required />Menos de 40
+              <input type="radio" name="Q5" class="question15" value="1" required min="0" max="100" oninput="updateBar()"/>Menos de 40
               horas
             </label>
           </fieldset>
@@ -312,19 +311,19 @@
               servicios que ofrece la empresa?
             </legend>
             <label>
-              <input type="radio" name="Q6" value="4" required />Muy
+              <input type="radio" name="Q6" class="question16" value="4" required min="0" max="100" oninput="updateBar()"/>Muy
               familiarizados
             </label>
             <label>
-              <input type="radio" name="Q6" value="3" required />Bastante
+              <input type="radio" name="Q6" class="question16" value="3" required min="0" max="100" oninput="updateBar()"/>Bastante
               familiarizados
             </label>
             <label>
-              <input type="radio" name="Q6" value="2" required />Algo
+              <input type="radio" name="Q6" class="question16" value="2" required min="0" max="100" oninput="updateBar()"/>Algo
               familiarizados
             </label>
             <label>
-              <input type="radio" name="Q6" value="1" required />Poco
+              <input type="radio" name="Q6" class="question16" value="1" required min="0" max="100" oninput="updateBar()"/>Poco
               familiarizados
             </label>
           </fieldset>
@@ -333,19 +332,19 @@
               7. ¿Tiene identificado el ciclo de vida del producto o servicio?
             </legend>
             <label>
-              <input type="radio" name="Q7" value="5" required />Continuamente
+              <input type="radio" name="Q7" class="question17" value="5" required min="0" max="100" oninput="updateBar()"/>Continuamente
               identificado
             </label>
             <label>
-              <input type="radio" name="Q7" value="4" required />Mayormente
+              <input type="radio" name="Q7" class="question17" value="4" required min="0" max="100" oninput="updateBar()"/>Mayormente
               identificado
             </label>
             <label>
-              <input type="radio" name="Q7" value="2" required />Parcialmente
+              <input type="radio" name="Q7" class="question17" value="2" required min="0" max="100" oninput="updateBar()"/>Parcialmente
               identificado
             </label>
             <label>
-              <input type="radio" name="Q7" value="1" required />No identificado
+              <input type="radio" name="Q7" class="question17" value="1" required min="0" max="100" oninput="updateBar()"/>No identificado
             </label>
           </fieldset>
           <fieldset>
@@ -353,19 +352,19 @@
               8. ¿Cuántos clientes nuevos se ha adquirido en el último mes?
             </legend>
             <label>
-              <input type="radio" name="Q8" value="5" required />Se han
+              <input type="radio" name="Q8" class="question18" value="5" required min="0" max="100" oninput="updateBar()"/>Se han
               adquirido un número significativo de clientes nuevos
             </label>
             <label>
-              <input type="radio" name="Q8" value="4" required />Se han
+              <input type="radio" name="Q8" class="question18" value="4" required min="0" max="100" oninput="updateBar()"/>Se han
               adquirido muchos clientes nuevos
             </label>
             <label>
-              <input type="radio" name="Q8" value="2" required />Se han
+              <input type="radio" name="Q8" class="question18" value="2" required min="0" max="100" oninput="updateBar()"/>Se han
               adquirido pocos clientes nuevos
             </label>
             <label>
-              <input type="radio" name="Q8" value="1" required />No se han
+              <input type="radio" name="Q8" class="question18" value="1" required min="0" max="100" oninput="updateBar()"/>No se han
               adquirido nuevos clientes
             </label>
           </fieldset>
@@ -374,16 +373,16 @@
               9. ¿Cómo se encuentra la relación con tus empleados?
             </legend>
             <label>
-              <input type="radio" name="Q9" value="4" required />Muy buena
+              <input type="radio" name="Q9" class="question19" value="4" required min="0" max="100" oninput="updateBar()"/>Muy buena
             </label>
             <label>
-              <input type="radio" name="Q9" value="3" required />Buena
+              <input type="radio" name="Q9" class="question19" value="3" required min="0" max="100" oninput="updateBar()"/>Buena
             </label>
             <label>
-              <input type="radio" name="Q9" value="2" required />Regular
+              <input type="radio" name="Q9" class="question19" value="2" required min="0" max="100" oninput="updateBar()"/>Regular
             </label>
             <label>
-              <input type="radio" name="Q9" value="1" required />Se necesita
+              <input type="radio" name="Q9" class="question19" value="1" required min="0" max="100" oninput="updateBar()"/>Se necesita
               mejoría
             </label>
           </fieldset>
@@ -393,19 +392,19 @@
               nacional?
             </legend>
             <label>
-              <input type="radio" name="Q10" value="4" required />Altamente
+              <input type="radio" name="Q10" class="question20" value="4" required min="0" max="100" oninput="updateBar()"/>Altamente
               posicionada
             </label>
             <label>
-              <input type="radio" name="Q10" value="3" required />Muy bien
+              <input type="radio" name="Q10" class="question20" value="3" required min="0" max="100" oninput="updateBar()"/>Muy bien
               posicionada
             </label>
             <label>
-              <input type="radio" name="Q10" value="2" required />Medianamente
+              <input type="radio" name="Q10" class="question20" value="2" required min="0" max="100" oninput="updateBar()"/>Medianamente
               posicionada
             </label>
             <label>
-              <input type="radio" name="Q10" value="1" required />No está
+              <input type="radio" name="Q10" class="question20" value="1" required min="0" max="100" oninput="updateBar()"/>No está
               posicionada
             </label>
           </fieldset>
@@ -430,16 +429,16 @@
               todas nuestras decisiones.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q1" class="question21" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q1" class="question21" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q1" class="question21" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q1" class="question21" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -448,16 +447,16 @@
               fundamental de nuestra empresa.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q2" class="question22" value="4"required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q2" class="question22" value="3"required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q2" class="question22" value="2"required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q2" class="question22" value="1"required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -466,16 +465,16 @@
               tanto interna como externamente.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q3" class="question23" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q3" class="question23" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q3" class="question23" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q3" class="question23" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <h3>Proceso, el Como</h3>
@@ -485,16 +484,16 @@
               propósito y valores.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q4" class="question24" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q4" class="question24" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q4" class="question24" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q4" class="question24" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -503,16 +502,16 @@
               consistentemente productos y servicios de alta calidad.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q5" class="question25" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q5" class="question25" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q5" class="question25" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q5" class="question25" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -521,16 +520,16 @@
               con nuestras metas estratégicas.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q6" class="question26" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q6" class="question26" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q6" class="question26" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q6" class="question26" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <h3>Producto, El Que</h3>
@@ -540,16 +539,16 @@
               propósito fundamental de nuestra empresa.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q7" class="question27" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q7" class="question27" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q7" class="question27" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q7" class="question27" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -558,16 +557,16 @@
               productos/servicios y nuestro propósito.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q8" class="question28" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q8" class="question28" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q8" class="question28" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q8" class="question28" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -576,16 +575,16 @@
               nuestros productos y servicios en línea con nuestro propósito.
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q9" class="question29" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q9" class="question29" value="3" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q9" class="question29" value="2" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q9" class="question29" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
           </fieldset>
         </form>
@@ -610,11 +609,11 @@
               organización?
             </legend>
             <label>
-              <input type="radio" name="Q1" required /> No hay claridad
+              <input type="radio" name="Q1" class="question30" value="4" required min="0" max="100" oninput="updateBar()"/> No hay claridad
             </label>
-            <label> <input type="radio" name="Q1" required /> Muy poca </label>
-            <label> <input type="radio" name="Q1" required /> Muy buena </label>
-            <label> <input type="radio" name="Q1" required /> Excelente </label>
+            <label> <input type="radio" name="Q10" class="question30" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poca </label>
+            <label> <input type="radio" name="Q10" class="question30" value="2" required min="0" max="100" oninput="updateBar()"/> Muy buena </label>
+            <label> <input type="radio" name="Q10" class="question30" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -622,11 +621,11 @@
               estrategia a todos los niveles de la empresa?
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> No hay comunicación
+              <input type="radio" name="Q11 class="question31" value="4" required min="0" max="100" oninput="updateBar()"/> No hay comunicación
             </label>
-            <label> <input type="radio" name="Q2" required /> Muy poca </label>
-            <label> <input type="radio" name="Q2" required /> Muy buena </label>
-            <label> <input type="radio" name="Q2" required /> Excelente </label>
+            <label> <input type="radio" name="Q11" class="question31" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poca </label>
+            <label> <input type="radio" name="Q11" class="question31" value="2" required min="0" max="100" oninput="updateBar()"/> Muy buena </label>
+            <label> <input type="radio" name="Q11" class="question31" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
 
           <fieldset>
@@ -635,26 +634,26 @@
               con los objetivos estratégicos de la empresa?
             </legend>
             <label>
-              <input type="radio" name="Q3" required /> No hay objetivos
+              <input type="radio" name="Q12 class="question32" value="4" required min="0" max="100" oninput="updateBar()"/> No hay objetivos
             </label>
-            <label> <input type="radio" name="Q3" required /> Muy poco </label>
+            <label> <input type="radio" name="Q12" class="question32" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
             <label>
-              <input type="radio" name="Q3" required /> Medianamente
+              <input type="radio" name="Q12" class="question32" value="2" required min="0" max="100" oninput="updateBar()"/> Medianamente
             </label>
-            <label> <input type="radio" name="Q3" required /> Excelente </label>
+            <label> <input type="radio" name="Q12" class="question32" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
               ¿Qué tan frecuentemente se evalúa la comprensión y adopción de la
               estrategia por parte de los empleados?
             </legend>
-            <label> <input type="radio" name="Q4" required /> Nunca </label>
-            <label> <input type="radio" name="Q4" required /> Muy poco </label>
+            <label> <input type="radio" name="Q13" class="question33" value="4" required min="0" max="100" oninput="updateBar()"/> Nunca </label>
+            <label> <input type="radio" name="Q13" class="question33" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
             <label>
-              <input type="radio" name="Q4" required /> Frecuentemente
+              <input type="radio" name="Q13" class="question33" value="2" required min="0" max="100" oninput="updateBar()"/> Frecuentemente
             </label>
             <label>
-              <input type="radio" name="Q4" required /> Semanalmente
+              <input type="radio" name="Q13" class="question33" value="1" required min="0" max="100" oninput="updateBar()"/> Semanalmente
             </label>
           </fieldset>
           <fieldset>
@@ -662,10 +661,10 @@
               Cómo valorarías el nivel de colaboración y trabajo en equipo para
               lograr los objetivos estratégicos
             </legend>
-            <label> <input type="radio" name="Q5" required /> No existe </label>
-            <label> <input type="radio" name="Q5" required /> Muy poco </label>
-            <label> <input type="radio" name="Q5" required /> Muy bueno </label>
-            <label> <input type="radio" name="Q5" required /> Excelente </label>
+            <label> <input type="radio" name="Q14" class="question34" value="4" required min="0" max="100" oninput="updateBar()"/> No existe </label>
+            <label> <input type="radio" name="Q14" class="question34" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
+            <label> <input type="radio" name="Q14" class="question34" value="2" required min="0" max="100" oninput="updateBar()"/> Muy bueno </label>
+            <label> <input type="radio" name="Q14" class="question34" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -673,11 +672,11 @@
               estrategia ante cambios internos y externos?
             </legend>
             <label>
-              <input type="radio" name="Q6" required /> No se implementa
+              <input type="radio" name="Q15" class="question35" value="4" required min="0" max="100" oninput="updateBar()"/> No se implementa
             </label>
-            <label> <input type="radio" name="Q6" required /> Muy poco </label>
-            <label> <input type="radio" name="Q6" required /> Muy bueno </label>
-            <label> <input type="radio" name="Q6" required /> Excelente </label>
+            <label> <input type="radio" name="Q15" class="question35" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
+            <label> <input type="radio" name="Q15" class="question35" value="2" required min="0" max="100" oninput="updateBar()"/> Muy bueno </label>
+            <label> <input type="radio" name="Q15" class="question35" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -685,14 +684,14 @@
               de la estrategia empresarial?
             </legend>
             <label>
-              <input type="radio" name="Q7" required /> No se involucra
+              <input type="radio" name="Q16" class="question36" value="4" required min="0" max="100" oninput="updateBar()"/> No se involucra
             </label>
-            <label> <input type="radio" name="Q7" required /> Muy poco </label>
+            <label> <input type="radio" name="Q16" class="question36" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
             <label>
-              <input type="radio" name="Q7" required /> involucrados
+              <input type="radio" name="Q16" class="question36" value="2" required min="0" max="100" oninput="updateBar()"/> involucrados
             </label>
             <label>
-              <input type="radio" name="Q7" required /> Muy involucrados
+              <input type="radio" name="Q16" class="question36" value="1" required min="0" max="100" oninput="updateBar()"/> Muy involucrados
             </label>
           </fieldset>
           <fieldset>
@@ -701,11 +700,11 @@
               monitorear el progreso hacia los objetivos estratégicos
             </legend>
             <label>
-              <input type="radio" name="Q8" required /> No se evalua
+              <input type="radio" name="Q17" class="question37" value="4" required min="0" max="100" oninput="updateBar()"/> No se evalua
             </label>
-            <label> <input type="radio" name="Q8" required /> Muy poco </label>
-            <label> <input type="radio" name="Q8" required /> Muy bueno </label>
-            <label> <input type="radio" name="Q8" required /> Excelente </label>
+            <label> <input type="radio" name="Q17" class="question37" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
+            <label> <input type="radio" name="Q17" class="question37" value="2" required min="0" max="100" oninput="updateBar()"/> Muy bueno </label>
+            <label> <input type="radio" name="Q17" class="question37" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -713,11 +712,11 @@
               la alineación interna
             </legend>
             <label>
-              <input type="radio" name="Q9" required /> No hay compromiso
+              <input type="radio" name="Q18" class="question38" value="4" required min="0" max="100" oninput="updateBar()"/> No hay compromiso
             </label>
-            <label> <input type="radio" name="Q9" required /> Muy poco </label>
-            <label> <input type="radio" name="Q9" required /> Muy bueno </label>
-            <label> <input type="radio" name="Q9" required /> Excelente </label>
+            <label> <input type="radio" name="Q18" class="question38" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
+            <label> <input type="radio" name="Q18" class="question38" value="2" required min="0" max="100" oninput="updateBar()"/> Muy bueno </label>
+            <label> <input type="radio" name="Q18" class="question38" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente </label>
           </fieldset>
           <fieldset>
             <legend>
@@ -725,14 +724,14 @@
               apoye la ejecución de la estrategia empresarial
             </legend>
             <label>
-              <input type="radio" name="Q10" required /> No existe
+              <input type="radio" name="Q19" class="question39" value="4" required min="0" max="100" oninput="updateBar()"/> No existe
             </label>
-            <label> <input type="radio" name="Q10" required /> Muy poco </label>
+            <label> <input type="radio" name="Q19" class="question39" value="3" required min="0" max="100" oninput="updateBar()"/> Muy poco </label>
             <label>
-              <input type="radio" name="Q10" required /> Muy buena
+              <input type="radio" name="Q19" class="question39" value="2" required min="0" max="100" oninput="updateBar()"/> Muy buena
             </label>
             <label>
-              <input type="radio" name="Q10" required /> Excelente
+              <input type="radio" name="Q19" class="question39" value="1" required min="0" max="100" oninput="updateBar()"/> Excelente
             </label>
           </fieldset>
         </form>
@@ -761,16 +760,16 @@
               "Nuestra empresa tiene un propósito claro y bien definido"?
             </legend>
             <label>
-              <input type="radio" name="Q1" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q20" class="question40" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q1" required /> En desacuerdo
+              <input type="radio" name="Q20" class="question40" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q1" required /> De acuerdo
+              <input type="radio" name="Q20" class="question40" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q1" required /> Totalmente de acuerdo
+              <input type="radio" name="Q20" class="question40" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -779,17 +778,17 @@
               nuestra empresa?
             </legend>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q21" class="question41" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> En desacuerdo
+              <input type="radio" name="Q21" class="question41" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q2" required /> De acuerdo
+              <input type="radio" name="Q21" class="question41" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q2" required /> Totalmente de acuerdo
+              <input type="radio" name="Q21" class="question41" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -798,17 +797,17 @@
               decisiones estratégicas?
             </legend>
             <label>
-              <input type="radio" name="Q3" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q22" class="question42" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q3" required /> En desacuerdo
+              <input type="radio" name="Q22" class="question42" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q3" required /> De acuerdo
+              <input type="radio" name="Q22" class="question42" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q3" required /> Totalmente de acuerdo
+              <input type="radio" name="Q22" class="question42" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
 
@@ -818,17 +817,17 @@
               impacto positivo en la sociedad?
             </legend>
             <label>
-              <input type="radio" name="Q4" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q23" class="question43" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q4" required /> En desacuerdo
+              <input type="radio" name="Q23" class="question43" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q4" required /> De acuerdo
+              <input type="radio" name="Q23" class="question43" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q4" required /> Totalmente de acuerdo
+              <input type="radio" name="Q23" class="question43" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
 
@@ -845,17 +844,17 @@
               propósito"?
             </legend>
             <label>
-              <input type="radio" name="Q5" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q24" class="question44" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q5" required /> En desacuerdo
+              <input type="radio" name="Q24" class="question44" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q5" required /> De acuerdo
+              <input type="radio" name="Q24" class="question44" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q5" required /> Totalmente de acuerdo
+              <input type="radio" name="Q24" class="question44" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -864,17 +863,17 @@
               nuestras operaciones diarias?
             </legend>
             <label>
-              <input type="radio" name="Q6" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q25" class="question45" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q6" required /> En desacuerdo
+              <input type="radio" name="Q25" class="question45" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q6" required /> De acuerdo
+              <input type="radio" name="Q25" class="question45" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q6" required /> Totalmente de acuerdo
+              <input type="radio" name="Q25" class="question45" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -884,17 +883,17 @@
               sus procesos y procedimientos"?
             </legend>
             <label>
-              <input type="radio" name="Q7" required /> Totalmente en desacuerdo
+              <input type="radio" name="Q26" class="question46" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q7" required /> En desacuerdo
+              <input type="radio" name="Q26" class="question46" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q7" required /> De acuerdo
+              <input type="radio" name="Q26" class="question46" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q7" required /> Totalmente de acuerdo
+              <input type="radio" name="Q26" class="question46" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -902,11 +901,11 @@
               ¿Qué tan bien crees que nuestra empresa comunica cómo llevamos a
               cabo nuestro propósito a nuestros clientes?
             </legend>
-            <label> <input type="radio" name="Q8" required /> Muy mal </label>
-            <label> <input type="radio" name="Q8" required /> Mal </label>
+            <label> <input type="radio" name="Q27" class="question47" value="4" required min="0" max="100" oninput="updateBar()"/> Muy mal </label>
+            <label> <input type="radio" name="Q27" class="question47" value="3" required min="0" max="100" oninput="updateBar()"/> Mal </label>
 
-            <label> <input type="radio" name="Q8" required /> Bien </label>
-            <label> <input type="radio" name="Q8" required /> Muy bien </label>
+            <label> <input type="radio" name="Q27" class="question47" value="2" required min="0" max="100" oninput="updateBar()"/> Bien </label>
+            <label> <input type="radio" name="Q27" class="question47" value="1" required min="0" max="100" oninput="updateBar()"/> Muy bien </label>
           </fieldset>
 
           <h3>El ¿qué? (Resultado):</h3>
@@ -918,17 +917,17 @@
               servicios que ofrece nuestra empresa?
             </legend>
             <label>
-              <input type="radio" name="Q9" required /> Totalmente insatisfecho
+              <input type="radio" name="Q28" class="question48" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente insatisfecho
             </label>
             <label>
-              <input type="radio" name="Q9" required /> Insatisfecho
+              <input type="radio" name="Q28" class="question48" value="3" required min="0" max="100" oninput="updateBar()"/> Insatisfecho
             </label>
 
             <label>
-              <input type="radio" name="Q9" required /> Satisfecho
+              <input type="radio" name="Q28" class="question48" value="2" required min="0" max="100" oninput="updateBar()"/> Satisfecho
             </label>
             <label>
-              <input type="radio" name="Q9" required /> Totalmente satisfecho
+              <input type="radio" name="Q28" class="question48" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente satisfecho
             </label>
           </fieldset>
           <fieldset>
@@ -937,18 +936,18 @@
               con las expectativas de nuestros clientes?
             </legend>
             <label>
-              <input type="radio" name="Q10" required /> Totalmente en
+              <input type="radio" name="Q29" class="question49" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en
               desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q10" required /> En desacuerdo
+              <input type="radio" name="Q29" class="question49" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q10" required /> De acuerdo
+              <input type="radio" name="Q29" class="question49" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q10" required /> Totalmente de acuerdo
+              <input type="radio" name="Q29" class="question49" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -957,18 +956,18 @@
               cambiantes del mercado con sus productos o servicios?
             </legend>
             <label>
-              <input type="radio" name="Q11" required /> Totalmente en
+              <input type="radio" name="Q30" class="question50" value="4" required min="0" max="100" oninput="updateBar()"/> Totalmente en
               desacuerdo
             </label>
             <label>
-              <input type="radio" name="Q11" required /> En desacuerdo
+              <input type="radio" name="Q30" class="question50" value="3" required min="0" max="100" oninput="updateBar()"/> En desacuerdo
             </label>
 
             <label>
-              <input type="radio" name="Q11" required /> De acuerdo
+              <input type="radio" name="Q30" class="question50" value="2" required min="0" max="100" oninput="updateBar()"/> De acuerdo
             </label>
             <label>
-              <input type="radio" name="Q11" required /> Totalmente de acuerdo
+              <input type="radio" name="Q30" class="question50" value="1" required min="0" max="100" oninput="updateBar()"/> Totalmente de acuerdo
             </label>
           </fieldset>
           <fieldset>
@@ -976,11 +975,11 @@
               ¿Qué tan bien crees que nuestra empresa comunica las
               características y beneficios de sus productos o servicios?
             </legend>
-            <label> <input type="radio" name="Q8" required /> Muy mal </label>
-            <label> <input type="radio" name="Q8" required /> Mal </label>
+            <label> <input type="radio" name="Q31" class="question51" value="4" required min="0" max="100" oninput="updateBar()"/> Muy mal </label>
+            <label> <input type="radio" name="Q31" class="question51" value="3" required min="0" max="100" oninput="updateBar()"/> Mal </label>
 
-            <label> <input type="radio" name="Q8" required /> Bien </label>
-            <label> <input type="radio" name="Q8" required /> Muy bien </label>
+            <label> <input type="radio" name="Q31" class="question51" value="2" required min="0" max="100" oninput="updateBar()"/> Bien </label>
+            <label> <input type="radio" name="Q31" class="question51" value="1" required min="0" max="100" oninput="updateBar()"/> Muy bien </label>
           </fieldset>
         </form>
       </div>
