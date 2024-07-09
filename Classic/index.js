@@ -1,6 +1,13 @@
 
 'use strict';
 
+let answers = {}
+let numberOfQuestions = 8;
+
+function getProgress() {
+  return Math.floor(Object.keys(answers).length / numberOfQuestions * 100);
+}
+
 const startTest = document.querySelector(".start-test");
 const start = document.querySelector(".btn-back");
 
@@ -142,9 +149,9 @@ const revealSection = function (entries, observer) {
 
   if (!entry.isIntersecting) return;
 
-  document.querySelectorAll(".nav__link").forEach(link =>link.classList.remove("selected-link"))
+  document.querySelectorAll(".nav__link").forEach(link => link.classList.remove("selected-link"))
 
-  
+
 
   const id = entry.target.id;
   document.querySelector(`.nav__link[href="#${id}"]`).classList.add("selected-link");
@@ -178,28 +185,157 @@ allSections.forEach(function (section) {
 //      valor = parseInt(radios[j].value);
 //      break;
 //    }
-      
+
 //  }
 
 //  valorSumado += valor;
 
 //}
-  
-//let average = (valorSumado / allQuestion) *100;
 
+//let average = (valorSumado / allQuestion) *100;
+const progress = document.getElementById('progreso');
 //document.querySelector('.progreso').value = average;
 //}
-function update() {
-  let progress = document.getElementById('progreso');
-  let scrollY = window.scrollY;
-  let scrollHeight = document.body.scrollHeight;
-  let innerHeight = window.innerHeight;
+// function update() {
+//   let progress = document.getElementById('progreso');
+//   let scrollY = window.scrollY;
+//   let scrollHeight = document.body.scrollHeight;
+//   let innerHeight = window.innerHeight;
 
-  let percentage = (scrollY / (scrollHeight - innerHeight)) * 100;
+//   let percentage = (scrollY / (scrollHeight - innerHeight)) * 100;
 
-  progress.style.width = `${percentage}%`;
+//   progress.style.width = `${percentage}%`;
 
-  requestAnimationFrame(update);
+//   requestAnimationFrame(update);
+// }
+
+// update();
+
+//Implement forms from json server
+
+
+const createSection = function (data, id) {
+
+  const formElement = document.createElement('form');
+  formElement.classList.add(`form--${id}`)
+
+
+
+  data.forEach((q) => {
+
+    const fieldset = document.createElement('fieldset');
+    fieldset.classList.add('questions')
+    fieldset.classList.add(`question--${q.id}`)
+    fieldset.setAttribute("data-question-id", q.id);
+    const legend = document.createElement('legend');
+    legend.textContent = q.question;
+
+
+
+    fieldset.append(legend);
+    formElement.append(fieldset)
+    q.options.forEach((op, index) => {
+      const label = document.createElement('label');
+      const input = document.createElement('input');
+      input.setAttribute("type", 'radio');
+      input.setAttribute("name", `$Q${q.id}`);
+      input.setAttribute("value", index);
+      // label.append(input)
+      label.innerHTML = `
+      <input type="radio" name="Q${q.id}" value=${index + 1} class="radioinput radioinput__section--${id}" data-id="${q.id}-${index + 1}">${op}
+      `;
+      // label.insertAdjacentHTML('afterend', op);
+
+      fieldset.append(label)
+
+    })
+
+  })
+  return formElement;
+
 }
 
-update();
+function renderForm(data, id) {
+  const form = createSection(data, id);
+  const formContainer = document.querySelector(`#section--${id} .form-container`)
+  formContainer.append(form)
+
+  return form
+
+}
+
+
+function setLocalStorage(id, value) {
+  answers[id] = value;
+  localStorage.setItem('estramipyme', JSON.stringify(answers))
+}
+
+function getLocalStorage() {
+  const data = JSON.parse(localStorage.getItem('estramipyme'));
+  if (!data) return;
+
+  answers = data;
+
+  for (const prop in answers) {
+    if (answers.hasOwnProperty(prop)) {
+
+
+      const input = document.querySelector(`.radioinput[data-id="${prop}-${answers[prop]}"]`)
+      input.checked = true;
+    }
+  }
+
+
+}
+function reset() {
+  localStorage.removeItem('estramipyme');
+  progress.style.width ="0%"
+}
+
+
+
+
+const loadForms = function () {
+  fetch('http://localhost:3000/questions').then(
+    response => {
+      if (!response.ok) throw new Error('there is no data');
+      return response.json();
+    }
+  ).then(data => {
+    console.log(data)
+    const clientData = data.filter((e) => e.section === 'cliente');
+    const businessData = data.filter((e) => e.section === 'negocio');
+    // console.log(clientData)
+    return [renderForm(clientData, 1),renderForm(businessData,2)]
+    // return document.querySelectorAll(".questions")
+  }
+  ).then(forms => {
+    //get local storage
+
+    getLocalStorage()
+    progress.style.width = `${getProgress()}%`;
+
+
+
+    // Add event listener to the forms
+
+    forms.forEach(form => {
+      form.addEventListener('input', (e) => {
+        // console.log(e.target.closest(".questions"))
+        // console.log("respuesta")
+        // console.log(e.target.value)
+        const question = e.target.closest(".questions");
+        setLocalStorage(question.dataset.questionId, e.target.value)
+
+        progress.style.width = `${getProgress()}%`;
+      })
+    }
+    )
+  })
+}
+loadForms();
+
+
+
+
+

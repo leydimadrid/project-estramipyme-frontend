@@ -1,0 +1,52 @@
+{
+  "questions": [
+    {
+      "id": 1,
+      "section": "cliente",
+      "question": "¿Qué tan precisa es la información demográfica de sus clientes?",
+      "options": ["No tengo", "Muy poco", "Buena", "Excelente"]
+    },
+    {
+      "id": 2,
+      "section": "cliente",
+      "question": "¿Qué tan bien comprende el historial de compras, las preferencias y los patrones de gasto de sus clientes?",
+      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+    },
+    {
+      "id": 3,
+      "section": "cliente",
+      "question": "¿Qué tan bien identifica las necesidades, deseos y motivaciones de sus diferentes segmentos de clientes?",
+      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+    },
+    {
+      "id": 4,
+      "section": "negocio",
+      "question": "¿Qué tan bien identifica las necesidades, deseos y motivaciones de sus diferentes segmentos de clientes?",
+      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+    },
+    {
+      "id": 5,
+      "section": "negocio",
+      "question": "¿Qué tan precisa es la información demográfica de sus clientes?",
+      "options": ["No tengo", "Muy poco", "Buena", "Excelente"]
+    },
+    {
+      "id": 6,
+      "section": "negocio",
+      "question": "¿Qué tan bien comprende el historial de compras, las preferencias y los patrones de gasto de sus clientes?",
+      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+    },
+    {
+      "id": 7,
+      "section": "negocio",
+      "question": "¿Qué tan bien identifica las necesidades, deseos y motivaciones de sus diferentes segmentos de clientes?",
+      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+    },
+    {
+      "id": 8,
+      "section": "negocio",
+      "question": "¿Qué tan bien identifica las necesidades, deseos y motivaciones de sus diferentes segmentos de clientes?",
+      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+    }
+  ]
+}
