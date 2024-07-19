@@ -308,10 +308,14 @@ fieldset label::before {
   background: #58b0a8;
 }
 
-.progreso {
+/* .progreso {
   width: 100%;
-}
+} */
 
+#progreso{
+  transition-property: width;
+  transition-duration: .5s;
+}
 .contened .tuProgreso .progreso {
   position: relative;
   /*width: 100%;*/
