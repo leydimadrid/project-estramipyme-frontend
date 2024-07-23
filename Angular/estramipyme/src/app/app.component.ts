@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
+import {GraphsComponent} from './components/graphs/graphs.component'
 import {Element} from "@angular/compiler";
 import {isEmpty} from "rxjs";
 import Chart from 'chart.js/auto'
@@ -19,7 +20,7 @@ type Answers = {} | {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet],
+  imports: [CommonModule, RouterOutlet, GraphsComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -137,11 +138,11 @@ export class AppComponent implements OnInit {
     this.#radarCtx = this.el.nativeElement.querySelector(".myChart").getContext("2d");
 
 
-    const radarChart = new Chart(this.#radarCtx, {
-      type: "radar",
-      data: this.radarData,
-      options: this.radarOptions,
-    });
+    // const radarChart = new Chart(this.#radarCtx, {
+    //   type: "radar",
+    //   data: this.radarData,
+    //   options: this.radarOptions,
+    // });
 
     console.log("#radarCtx")
     console.log(this.#radarCtx)
