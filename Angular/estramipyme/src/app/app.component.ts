@@ -1,8 +1,9 @@
-import {Component, ElementRef, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
 import {Element} from "@angular/compiler";
 import {isEmpty} from "rxjs";
+import Chart from 'chart.js/auto'
 
 interface Question {
   id: number;
@@ -32,7 +33,88 @@ export class AppComponent implements OnInit {
   #header: HTMLHtmlElement | any;
   #allSections: HTMLHtmlElement | any;
   #progress: HTMLHtmlElement | any;
+  #radarCtx: HTMLHtmlElement | any;
+  #navLinks: HTMLHtmlElement | any;
 
+
+  radarData = {
+    labels: [
+      "Coherencia del modelo de negocio",
+      "Salud financiera",
+      "Conocimiento del cliente",
+      "Alineación en la comunicación interna",
+      "Conocimiento del negocio",
+    ],
+    datasets: [
+      {
+        label: "Tu Radar",
+        data: [2, 1, 2, 3, 2],
+        fill: true,
+        backgroundColor: "rgba(91, 100, 175, 0.2)",
+        borderColor: "#5B64AF",
+        pointBackgroundColor: "#5B64AF",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "#5B64AF",
+      },
+      {
+        label: "Ideal",
+        data: [4, 4, 4, 4, 4],
+        fill: false,
+        backgroundColor: "rgba(88, 176, 168, 0.2)",
+        borderColor: "#58B0A8",
+        pointBackgroundColor: "#58B0A8",
+        pointBorderColor: "#fff",
+        pointHoverBackgroundColor: "#fff",
+        pointHoverBorderColor: "#58B0A8",
+      },
+    ],
+  };
+  radarOptions = {
+    elements: {
+      line: {
+        borderWidth: 2,
+      },
+    },
+    plugins: {
+      tooltip: {
+        callbacks: {
+          label: (context: any) => {
+            return context.dataset.label + ": " + context.raw;
+          },
+        },
+      },
+      legend: {
+        labels: {
+          font: {
+            size: 16,
+            family: "Lato",
+          },
+        },
+      },
+    },
+    scales: {
+      r: {
+        ticks: {
+          z: 10,
+          beginAtZero: true,
+          max: 4,
+          stepSize: 1,
+          font: {
+            size: 16,
+            family: "Lato",
+          },
+        },
+        pointLabels: {
+          font: {
+            size: 16,
+            color: "black",
+            family: "Lato",
+          },
+        },
+      },
+    },
+  };
 
   constructor(el: ElementRef) {
     this.el = el;
@@ -45,13 +127,24 @@ export class AppComponent implements OnInit {
 
     //const startTest = document.querySelector(".start-test");
     console.log("elemento nava")
+    this.#navLinks = this.el.nativeElement.querySelector(".nav__links");
     this.#nav = this.el.nativeElement.querySelector(".nav");
     this.#navHeight = this.#nav.getBoundingClientRect().height;
     const startTest = this.el.nativeElement.querySelector(".start-test")
     this.#header = this.el.nativeElement.querySelector(".header");
     this.#allSections = this.el.nativeElement.querySelectorAll(".section");
     this.#progress = document.getElementById("progreso");
+    this.#radarCtx = this.el.nativeElement.querySelector(".myChart").getContext("2d");
 
+
+    const radarChart = new Chart(this.#radarCtx, {
+      type: "radar",
+      data: this.radarData,
+      options: this.radarOptions,
+    });
+
+    console.log("#radarCtx")
+    console.log(this.#radarCtx)
     startTest.addEventListener("click", this._handlerStartTest.bind(this))
     //cargar formularios desde json server
     this._fetchData()
@@ -62,6 +155,15 @@ export class AppComponent implements OnInit {
     const sectionObserver = new IntersectionObserver(this._revealSection.bind(this), {
       root: null,
       threshold: 0.15,
+    });
+    this.#navLinks.addEventListener("click", function (e: any) {
+      e.preventDefault();
+
+      // Matching strategy
+      if (e.target.classList.contains("nav__link")) {
+        const id = e.target.getAttribute("href");
+        document.querySelector(id).scrollIntoView({behavior: "smooth"});
+      }
     });
     this.#allSections.forEach(function (section: HTMLHtmlElement) {
       sectionObserver.observe(section);
@@ -235,6 +337,8 @@ export class AppComponent implements OnInit {
     if (entry.isIntersecting) this.#nav.classList.add("hidden");
     else this.#nav.classList.remove("hidden");
   };
+
+
 }
 
 
