@@ -1,6 +1,7 @@
 import {Component, ElementRef, Input, OnInit} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import Chart from "chart.js/auto";
+import {DataProcService} from './../../services/data-proc.service';
 
 @Component({
   selector: 'app-graphs',
@@ -22,6 +23,10 @@ export class GraphsComponent implements OnInit {
       data: this.radarData,
       options: this.radarOptions,
     });
+
+    // this.dataService.getData().subscribe((data: any[]) => {
+    //   this.data = data;
+    // });
 
   }
 
