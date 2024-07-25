@@ -5,7 +5,7 @@
 #5B64AF
 #00005D
 */
-/*
+
 * {
   margin: 0;
   padding: 0;
@@ -21,7 +21,7 @@ body {
   background-color: #f3f3f3;
   /* padding: 30px; */
 }
-/*
+
 .nav {
   display: flex;
   justify-content: space-between;
@@ -67,6 +67,7 @@ body {
   font-weight: 400;
   letter-spacing: 35px;
 }
+
 .heading-primary-sub {
   display: block;
   font-size: 20px;
@@ -138,7 +139,7 @@ body {
   content: "";
   margin-right: 5px;
   } */
-/*
+
 fieldset {
   border: none;
   margin-top: 30px;
@@ -208,8 +209,9 @@ fieldset label::before {
   top: 44%;
   left: 2%;
 }
-.nav__link{
-  color:#444
+
+.nav__link {
+  color: #444
 
 }
 
@@ -234,7 +236,7 @@ fieldset label::before {
   /* background-color: var(--color-primary); */
   /* color: #222; */
 }
-/*
+
 .selected-link {
   color: #4EAAD2;
   /* text-decoration: underline; */
@@ -279,15 +281,17 @@ fieldset label::before {
 .contened .tuProgreso {
   margin: -15px 0;
 }
-.tuProgreso{
+
+.tuProgreso {
   display: flex;
   /* background-color: red; */
   /* padding: 0;
   height: 100%;
   margin: 0; */
 }
-.bar-remaining{
-  display:block;
+
+.bar-remaining {
+  display: block;
   /* width: auto%ç; */
   /* width: auto; */
 }
@@ -304,21 +308,16 @@ fieldset label::before {
   background: #58b0a8;
 }
 
-/*.progreso {
-  width: 50%;
-}*/
-
-#progreso{
-  transition-property: width;
-  transition-duration: 1s;
+.progreso {
+  width: 100%;
 }
 
 .contened .tuProgreso .progreso {
   position: relative;
-  /*width: 50%;*/
+  /*width: 100%;*/
   height: 6px;
   border-radius: 6px;
-  overflow: hidden;  /*ocultar contenido de los contenedores*/
+  overflow: hidden; /*ocultar contenido de los contenedores*/
 }
 
 .contened .tuProgreso .progreso::before {
@@ -328,7 +327,7 @@ fieldset label::before {
 }
 
 .progreso::-webkit-progress-bar {
-  background-color: #20095f; /* Color de fondo de la barra en navegadores WebKit */
+  background-color: #00005d; /* Color de fondo de la barra en navegadores WebKit */
 }
 
 /* .tuProgreso{
@@ -378,4 +377,5 @@ fieldset label::before {
   padding: 6px;
   font-size: 14px;
   font-family: "Lato", sans-serif;
-}/*
+}
+ */
