@@ -9,6 +9,7 @@ import Chart from 'chart.js/auto'
 import {DataProcService} from './services/data-proc.service'
 import {Question} from "@models/question.model";
 import {RenderFormDirective} from "./directives/render-form.directive";
+import {FooterComponent} from "./pages/components/footer/footer.component";
 
 
 type Answers = {} | {
@@ -18,7 +19,7 @@ type Answers = {} | {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective],
+  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective, FooterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
