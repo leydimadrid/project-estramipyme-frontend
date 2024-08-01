@@ -1,15 +1,13 @@
-import {Component, ElementRef, OnInit, signal} from '@angular/core';
+import {Component, ElementRef, inject, OnInit, signal} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from '@angular/router';
 import {GraphsComponent} from './components/graphs/graphs.component'
-import {Element} from "@angular/compiler";
-import {isEmpty} from "rxjs";
-import Chart from 'chart.js/auto'
 
-import {DataProcService} from './services/data-proc.service'
+
 import {Question} from "@models/question.model";
 import {RenderFormDirective} from "./directives/render-form.directive";
 import {FooterComponent} from "./pages/components/footer/footer.component";
+import {GlobalProviderService} from "@services/global-provider.service";
 
 
 type Answers = {} | {
@@ -35,6 +33,7 @@ export class AppComponent implements OnInit {
   #progress: HTMLHtmlElement | any;
   #navLinks: HTMLHtmlElement | any;
 
+  private provider = inject(GlobalProviderService)
 
   constructor(el: ElementRef) {
     this.el = el;
@@ -129,16 +128,6 @@ export class AppComponent implements OnInit {
     this.el.nativeElement.querySelector(id).scrollIntoView({behavior: "smooth"});
   }
 
-  // _createForm(data: Question[], id: String | number) {
-  //   // console.log(data)
-  //   const form = this._createFormElement(data, id);
-  //   const formContainer = this.el.nativeElement.querySelector(
-  //     `#section--${id} .form-container`
-  //   );
-  //   formContainer.append(form);
-  //   return form;
-  // }
-
   _getProgress() {
     if (!this.answers) return 0;
     if (!this.numberOfQuestions) return 0;
@@ -152,95 +141,9 @@ export class AppComponent implements OnInit {
         return response.json();
       })
       .then((data: Question[]) => {
-        this.numberOfQuestions = data.length;
-        //console.log(data);
-        const clientData = data.filter((e: Question) => e.section === "cliente");
-        const businessData = data.filter((e: Question) => e.section === "negocio");
-        const coherencia = data.filter((e: Question) => e.section === "coherencia");
-        const alineacion = data.filter((e: Question) => e.section === "alineacion");
-        const circulo = data.filter((e: Question) => e.section === "circulo");
-        return [
-          //this._createForm(clientData, 1),
-          //this._createForm(businessData, 2),
-          //this._createForm(coherencia, 3),
-          //this._createForm(alineacion, 4),
-          //this._createForm(circulo, 5),
-        ];
-      })
-      .then((forms: HTMLFormElement[]) => {
-        //get local storage
-        this._getLocalStorage();
-        this.#progress.style.width = `${this._getProgress()}%`;
-
-        // Add event listener to the forms
-        forms.forEach((form) => {
-          form.addEventListener("input", (e) => {
-            const target = e.target as unknown as HTMLInputElement;
-            const question: HTMLElement | null = target.closest(".questions");
-            if (question) this._setLocalStorage(question.dataset["questionId"], target.value);
-            this.#progress.style.width = `${this._getProgress()}%`;
-          });
-        });
+        this.provider.numberOfQuestions = data.length;
       });
   }
-
-  _setLocalStorage(id: any, value: any) {
-
-    this.answers[id] = value;
-    localStorage.setItem("estramipyme", JSON.stringify(this.answers));
-  }
-
-  _getLocalStorage() {
-    const storedDataString = localStorage.getItem("estramipyme");
-    if (storedDataString == null) return;
-    const data: object = JSON.parse(storedDataString);
-    if (!data) return;
-    this.answers = data;
-    if (!this.answers) return;
-    for (const prop in this.answers) {
-      if (this.answers.hasOwnProperty(prop)) {
-        const input: HTMLInputElement = this.el.nativeElement.querySelector(
-          `.radioinput[data-id="${prop}-${this.answers[prop as keyof typeof this.answers]}"]`
-        );
-        input.checked = true;
-      }
-    }
-  }
-
-  // _createFormElement(data: Question[], id: String | number) {
-  //   const formElement = document.createElement("form");
-  //   formElement.classList.add(`form--${id}`);
-  //   data.forEach((q: Question) => {
-  //     const fieldset = document.createElement("fieldset");
-  //     fieldset.classList.add("questions");
-  //     fieldset.classList.add(`question--${q.id}`);
-  //     fieldset.setAttribute("data-question-id", String(q.id));
-  //     const legend = document.createElement("legend");
-  //     legend.textContent = q.question;
-  //
-  //     fieldset.append(legend);
-  //     formElement.append(fieldset);
-  //     q.options.forEach((op: String, index: any) => {
-  //       const label = document.createElement("label");
-  //       const input = document.createElement("input");
-  //       input.setAttribute("type", "radio");
-  //       input.setAttribute("name", `$Q${q.id}`);
-  //       input.setAttribute("value", index);
-  //       // label.append(input)
-  //       label.innerHTML = `
-  //     <input type="radio" name="Q${q.id}" value=${
-  //         index + 1
-  //       } class="radioinput radioinput__section--${id}" data-id="${q.id}-${
-  //         index + 1
-  //       }">${op}
-  //     `;
-  //       // label.insertAdjacentHTML('afterend', op);
-  //
-  //       fieldset.append(label);
-  //     });
-  //   });
-  //   return formElement;
-  // };
 
   _createStickyNav(entries: any) {
     const [entry] = entries;

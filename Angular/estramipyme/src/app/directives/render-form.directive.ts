@@ -1,6 +1,7 @@
 import {Directive, inject, ElementRef, signal, Input} from '@angular/core';
 import {DataProcService} from "@services/data-proc.service";
 import {Question} from "@models/question.model";
+import {GlobalProviderService} from "@services/global-provider.service";
 
 @Directive({
   selector: '[appRenderForm]',
@@ -12,25 +13,37 @@ export class RenderFormDirective {
   @Input({required: true}) url!: string;
 
   private dataProc = inject(DataProcService)
+  private provider = inject(GlobalProviderService)
+  private form!: HTMLFormElement | undefined;
 
   ngOnInit() {
     //const url = "http://localhost:3000/questions"
     this.dataProc.getItems(this.url).subscribe({
       next: questions => {
         this.questions.set(questions)
-
         //const clientData = questions.filter((e: Question) => e.section === "cliente");
-        this._createForm(questions, 1)
+        this._createForm(questions, 1);
+        this._getLocalStorage();
+
+        this.element.nativeElement.querySelector('.form--1').addEventListener('input', (e: Event) => {
+          const target = e.target as unknown as HTMLInputElement;
+          const question: HTMLElement | null = target.closest(".questions");
+          if (question) this.provider.setLocalStorage(question.dataset["questionId"]!, target.value);
+          //this.#progress.style.width = `${this.provider.getProgress()}%`;
+        })
+
+
       },
       error: err => {
         console.log(err)
       }
     })
+    //this._getLocalStorage()
+
 
   }
 
   _createForm(data: Question[], id: String | number) {
-    // console.log(data)
     const form = this._createFormElement(data, id);
     const formContainer = this.element.nativeElement as HTMLElement;
     formContainer.append(form);
@@ -71,4 +84,21 @@ export class RenderFormDirective {
     });
     return formElement;
   };
+
+  _getLocalStorage() {
+    //console.log(this.element.nativeElement)
+    this.provider.getLocalStorage()
+    if (!this.provider.answers()) return;
+    for (const prop in this.provider.answers()) {
+      if (this.provider.answers().hasOwnProperty(prop)) {
+        const answer = this.provider.answers()
+        const input: HTMLInputElement = this.element.nativeElement.querySelector(
+          `.radioinput[data-id="${prop}-${answer[prop as keyof typeof answer]}"]`
+        ) as HTMLInputElement;
+        if (input) {
+          input.checked = true;
+        }
+      }
+    }
+  }
 }
