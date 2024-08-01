@@ -129,15 +129,15 @@ export class AppComponent implements OnInit {
     this.el.nativeElement.querySelector(id).scrollIntoView({behavior: "smooth"});
   }
 
-  _createForm(data: Question[], id: String | number) {
-    // console.log(data)
-    const form = this._createFormElement(data, id);
-    const formContainer = this.el.nativeElement.querySelector(
-      `#section--${id} .form-container`
-    );
-    formContainer.append(form);
-    return form;
-  }
+  // _createForm(data: Question[], id: String | number) {
+  //   // console.log(data)
+  //   const form = this._createFormElement(data, id);
+  //   const formContainer = this.el.nativeElement.querySelector(
+  //     `#section--${id} .form-container`
+  //   );
+  //   formContainer.append(form);
+  //   return form;
+  // }
 
   _getProgress() {
     if (!this.answers) return 0;
@@ -161,10 +161,10 @@ export class AppComponent implements OnInit {
         const circulo = data.filter((e: Question) => e.section === "circulo");
         return [
           //this._createForm(clientData, 1),
-          this._createForm(businessData, 2),
-          this._createForm(coherencia, 3),
-          this._createForm(alineacion, 4),
-          this._createForm(circulo, 5),
+          //this._createForm(businessData, 2),
+          //this._createForm(coherencia, 3),
+          //this._createForm(alineacion, 4),
+          //this._createForm(circulo, 5),
         ];
       })
       .then((forms: HTMLFormElement[]) => {
@@ -207,40 +207,40 @@ export class AppComponent implements OnInit {
     }
   }
 
-  _createFormElement(data: Question[], id: String | number) {
-    const formElement = document.createElement("form");
-    formElement.classList.add(`form--${id}`);
-    data.forEach((q: Question) => {
-      const fieldset = document.createElement("fieldset");
-      fieldset.classList.add("questions");
-      fieldset.classList.add(`question--${q.id}`);
-      fieldset.setAttribute("data-question-id", String(q.id));
-      const legend = document.createElement("legend");
-      legend.textContent = q.question;
-
-      fieldset.append(legend);
-      formElement.append(fieldset);
-      q.options.forEach((op: String, index: any) => {
-        const label = document.createElement("label");
-        const input = document.createElement("input");
-        input.setAttribute("type", "radio");
-        input.setAttribute("name", `$Q${q.id}`);
-        input.setAttribute("value", index);
-        // label.append(input)
-        label.innerHTML = `
-      <input type="radio" name="Q${q.id}" value=${
-          index + 1
-        } class="radioinput radioinput__section--${id}" data-id="${q.id}-${
-          index + 1
-        }">${op}
-      `;
-        // label.insertAdjacentHTML('afterend', op);
-
-        fieldset.append(label);
-      });
-    });
-    return formElement;
-  };
+  // _createFormElement(data: Question[], id: String | number) {
+  //   const formElement = document.createElement("form");
+  //   formElement.classList.add(`form--${id}`);
+  //   data.forEach((q: Question) => {
+  //     const fieldset = document.createElement("fieldset");
+  //     fieldset.classList.add("questions");
+  //     fieldset.classList.add(`question--${q.id}`);
+  //     fieldset.setAttribute("data-question-id", String(q.id));
+  //     const legend = document.createElement("legend");
+  //     legend.textContent = q.question;
+  //
+  //     fieldset.append(legend);
+  //     formElement.append(fieldset);
+  //     q.options.forEach((op: String, index: any) => {
+  //       const label = document.createElement("label");
+  //       const input = document.createElement("input");
+  //       input.setAttribute("type", "radio");
+  //       input.setAttribute("name", `$Q${q.id}`);
+  //       input.setAttribute("value", index);
+  //       // label.append(input)
+  //       label.innerHTML = `
+  //     <input type="radio" name="Q${q.id}" value=${
+  //         index + 1
+  //       } class="radioinput radioinput__section--${id}" data-id="${q.id}-${
+  //         index + 1
+  //       }">${op}
+  //     `;
+  //       // label.insertAdjacentHTML('afterend', op);
+  //
+  //       fieldset.append(label);
+  //     });
+  //   });
+  //   return formElement;
+  // };
 
   _createStickyNav(entries: any) {
     const [entry] = entries;
