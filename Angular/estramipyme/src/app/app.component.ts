@@ -7,13 +7,9 @@ import {isEmpty} from "rxjs";
 import Chart from 'chart.js/auto'
 
 import {DataProcService} from './services/data-proc.service'
+import {Question} from "@models/question.model";
+import {RenderFormDirective} from "./directives/render-form.directive";
 
-interface Question {
-  id: number;
-  section: "cliente" | "negocio" | "coherencia" | "alineacion" | "circulo";
-  question: string;
-  options: string[];
-}
 
 type Answers = {} | {
   [key: string | number]: string;
@@ -22,7 +18,7 @@ type Answers = {} | {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, GraphsComponent],
+  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -157,14 +153,13 @@ export class AppComponent implements OnInit {
       .then((data: Question[]) => {
         this.numberOfQuestions = data.length;
         //console.log(data);
-        const
-          clientData = data.filter((e: Question) => e.section === "cliente");
+        const clientData = data.filter((e: Question) => e.section === "cliente");
         const businessData = data.filter((e: Question) => e.section === "negocio");
         const coherencia = data.filter((e: Question) => e.section === "coherencia");
         const alineacion = data.filter((e: Question) => e.section === "alineacion");
         const circulo = data.filter((e: Question) => e.section === "circulo");
         return [
-          this._createForm(clientData, 1),
+          //this._createForm(clientData, 1),
           this._createForm(businessData, 2),
           this._createForm(coherencia, 3),
           this._createForm(alineacion, 4),
