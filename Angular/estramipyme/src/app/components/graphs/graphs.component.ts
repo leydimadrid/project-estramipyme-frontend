@@ -1,7 +1,8 @@
-import {Component, ElementRef, Input, OnInit} from '@angular/core';
+import {Component, ElementRef, inject, Input, OnInit, signal, SimpleChanges} from '@angular/core';
 import {CommonModule} from "@angular/common";
 import Chart from "chart.js/auto";
 import {DataProcService} from './../../services/data-proc.service';
+import {GlobalProviderService} from "@services/global-provider.service";
 
 @Component({
   selector: 'app-graphs',
@@ -14,9 +15,17 @@ export class GraphsComponent implements OnInit {
   private el: ElementRef;
   radarCtx: HTMLHtmlElement | any;
 
+  private provider = inject(GlobalProviderService)
+
+  data = signal([1, 1, 1, 1])
 
   ngOnInit() {
+
     this.radarCtx = this.el.nativeElement.querySelector(".myChart").getContext("2d")
+
+    // console.log("this.provider.scores()");
+    // console.log(this.provider.scores());
+    this.data.set(this.provider.scores())
 
     const radarChart = new Chart(this.radarCtx, {
       type: "radar",
@@ -30,6 +39,10 @@ export class GraphsComponent implements OnInit {
 
   }
 
+  ngOnChanges(changes: SimpleChanges) {
+    console.log("changes")
+    console.log(changes)
+  }
 
   radarData = {
     labels: [
