@@ -309,7 +309,7 @@
     },
     {
       "id": 29,
-      "section": "coherncia",
+      "section": "coherencia",
       "question": "Nuestra empresa está constantemente innovando y mejorando nuestros productos y servicios en línea con nuestro propósito.",
       "options": [
         "Totalmente de acuerdo",
@@ -624,17 +624,6 @@
         "Menor",
         "Mayor",
         "Mucho mayor"
-      ]
-    },
-    {
-      "id": 58,
-      "section": "financiera",
-      "question": "¿Cuál es la capacidad de la empresa para generar flujo de caja operativo positivo?",
-      "options": [
-        "Muy baja ",
-        "Baja",
-        "Alta",
-        "Muy alta"
       ]
     },
     {

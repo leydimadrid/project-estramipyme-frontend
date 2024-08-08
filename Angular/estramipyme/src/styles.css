@@ -162,7 +162,7 @@ fieldset label::before {
 }
 
 .section {
-  padding: 10rem 3rem;
+  padding: 1rem 3rem;
   border-top: 1px solid #ddd;
 
   transition: transform 1s, opacity 1s;
@@ -170,7 +170,7 @@ fieldset label::before {
 
 .section-intro {
   max-width: 80rem;
-  margin: 0 auto 5rem auto;
+  margin: 0 auto 1rem auto;
 }
 
 .section-title {
@@ -373,3 +373,9 @@ fieldset label::before {
   font-family: "Lato", sans-serif;
 }
  */
+
+
+@media (max-width: 124px) {
+
+}
+
