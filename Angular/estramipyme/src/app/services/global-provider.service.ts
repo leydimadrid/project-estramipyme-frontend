@@ -1,6 +1,6 @@
 import {computed, effect, inject, Injectable, signal} from '@angular/core';
 import {DataProcService} from "@services/data-proc.service";
-
+import {BehaviorSubject} from "rxjs";
 
 type Answer = {} | {
   [key: number]: string;
@@ -14,6 +14,8 @@ export class GlobalProviderService {
   numberOfQuestions = 51;
   private dataProc = inject(DataProcService)
 
+  private RadarData: BehaviorSubject<number[]> = new BehaviorSubject([1, 2, 3, 4, 5])
+  RadarData$ = this.RadarData.asObservable();
   cliente: string[] = [];
   negocio: string[] = [];
   coherencia: string[] = [];
@@ -54,6 +56,7 @@ export class GlobalProviderService {
       return {...prevValue, ...newValue}
     })
     localStorage.setItem("estramipyme", JSON.stringify(this.answers()));
+    this.getRadarData()
   }
 
   getLocalStorage() {
@@ -112,5 +115,11 @@ export class GlobalProviderService {
       alineacionAcc / (tAlineacion * 4) * 4,
       negocioAcc / (tNegocio * 4) * 4
     ];
+  }
+
+  getRadarData() {
+    this.RadarData.next(
+      this.getScores()
+    )
   }
 }
