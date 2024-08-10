@@ -1,4 +1,5 @@
 <header class="header">
+  <button (click)="toggleLogin()">login</button>
   <nav class="nav">
     <!--    <div class="contened">-->
     <!--      <div class="tuProgreso">-->
@@ -59,6 +60,14 @@
 
 
   </nav>
+  @if (login()) {
+    <div class="loging-form">
+      <!--      <app-login/>-->
+      <app-register/>
+    </div>
+
+  }
+
   <div class="text-box">
     <h1 class="heading-primary">
       <span class="heading-primary-main"> Estramipyme </span>

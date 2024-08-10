@@ -1,0 +1,114 @@
+<!-- <header>
+  <div class="header-container">
+    <img
+      src="assets/images/logo_eafit.png"
+      alt="EAFIT logo"
+      class="nav__logo"
+      id="logo"
+    />
+    <div class="header-titles">
+      <div class="heading-primary">ESTRAMIPYME</div>
+      <div class="heading-secondary">Planeación Estratégica</div>
+    </div>
+    <nav class="navigation">
+      <a routerLink="/">Inicio</a>
+      <a routerLink="/login">Iniciar sesión</a>
+      <a routerLink="/register">Registrarse</a>
+    </nav>
+  </div>
+</header> -->
+
+<div id="register-section">
+  <div class="container">
+    <h2>Registrarse</h2>
+    <form id="register-form">
+      <label for="register-names">Nombres:</label>
+      <input type="text" id="register-names" required/>
+
+      <label for="register-surnames">Apellidos:</label>
+      <input type="text" id="register-surnames" required/>
+
+      <label for="register-person-type">Tipo de Persona:</label>
+      <select id="register-person-type" required>
+        <option value="sel">Selecciona</option>
+        <option value="natural">Natural</option>
+        <option value="jurídica">Jurídica</option>
+      </select>
+
+      <label for="register-doc-type">Tipo de Documento:</label>
+      <select id="register-doc-type" required>
+        <option value="sel">Selecciona</option>
+        <option value="CC">CC</option>
+        <option value="CE">CE</option>
+        <option value="NIT">NIT</option>
+      </select>
+
+      <label for="register-doc-number">Número de Documento:</label>
+      <input type="text" id="register-doc-number" required/>
+
+      <label for="register-business-name">Razón Social:</label>
+      <input type="text" id="register-business-name" required/>
+
+      <label for="register-sector">Sector:</label>
+      <select id="register-sector" required>
+        <option value="sel">Selecciona</option>
+        <option value="agricultura">Agricultura y Alimentación</option>
+        <option value="aeroespacial">Aeroespacial</option>
+        <option value="automotriz">Automotriz</option>
+        <option value="bienes">Bienes Raíces</option>
+        <option value="banca">Banca y Finanzas</option>
+        <option value="construcción">Construcción e Infraestructura</option>
+        <option value="consultoria">Consultoría</option>
+        <option value="deportes">Deportes y Recreación</option>
+        <option value="electronica">Electrónica y Tecnología de Consumo</option>
+        <option value="energia">Energía</option>
+        <option value="educacion">Educación</option>
+        <option value="finanzas">Finanzas y Banca</option>
+        <option value="naval">Industria Naval</option>
+        <option value="informatica">Informática y Software</option>
+        <option value="transporte">Logística y Transporte</option>
+        <option value="manufactura">Manufactura</option>
+        <option value="ambiente">Medio Ambiente y Sustentabilidad</option>
+        <option value="medios">Medios y Entretenimiento</option>
+        <option value="moda">Moda y Textiles</option>
+        <option value="publicidad">Publicidad y Marketing</option>
+        <option value="quimicos">Químicos y Farmacéuticos</option>
+        <option value="retail">Retail y Comercio</option>
+        <option value="salud">Salud</option>
+        <option value="seguridad">Seguridad y Protección</option>
+        <option value="eventos">Servicios de Catering y Eventos</option>
+        <option value="diseño">Servicios de Diseño y Creatividad</option>
+        <option value="servicios">Servicios Públicos</option>
+        <option value="tecnologia">Tecnología y Telecomunicaciones</option>
+        <option value="turismo">Turismo y Hospitalidad</option>
+        <option value="otro">Otro</option>
+      </select>
+
+      <label for="register-otro">Otro Sector:</label>
+      <input type="text" id="register-otro" required/>
+
+      <label for="register-email">Correo Electrónico:</label>
+      <input type="email" id="register-email" required/>
+
+      <label for="register-password">Contraseña:</label>
+      <input type="password" id="register-password" required/>
+
+      <label for="register-confirm-password">Confirmar Contraseña:</label>
+      <input type="password" id="register-confirm-password" required/>
+
+      <label>
+        <input type="checkbox" id="register-accept-data" required/>
+        Acepto el
+        <a href="#" id="open-modal">tratamiento de datos personales</a>
+      </label>
+
+      <button type="submit" id="registerButton">Registrarse</button>
+
+      <p class="login-link">
+        ¿Ya tienes una cuenta?
+        <a routerLink="/login" id="show-login">Inicia sesión aquí</a>
+      </p>
+      <button type="button" id="go-back">Regresar</button>
+    </form>
+  </div>
+</div>

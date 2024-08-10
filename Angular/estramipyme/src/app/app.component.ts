@@ -9,6 +9,8 @@ import {RenderFormDirective} from "./directives/render-form.directive";
 import {FooterComponent} from "./pages/components/footer/footer.component";
 import {GlobalProviderService} from "@services/global-provider.service";
 import {GraphCircleComponent} from "./components/graph-circle/graph-circle.component";
+import {LoginComponent} from "./pages/login/login.component";
+import {RegisterComponent} from "./pages/register/register.component";
 
 
 type Answers = {} | {
@@ -18,11 +20,13 @@ type Answers = {} | {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective, FooterComponent, GraphCircleComponent],
+  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective, FooterComponent, GraphCircleComponent, LoginComponent, RegisterComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
+
+  login = signal<boolean>(false);
   title: String = 'estramipyme';
   private answers: any = {};
   private el: ElementRef;
@@ -41,6 +45,9 @@ export class AppComponent implements OnInit {
     console.log("constructor de la clase app");
   }
 
+  toggleLogin() {
+    this.login.update(prevValue => !prevValue)
+  }
 
   ngOnInit() {
     console.log("ngOnInit");
