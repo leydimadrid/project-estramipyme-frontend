@@ -1,15 +1,22 @@
 <header class="header">
   <nav class="nav">
-    <div class="contened">
-      <div class="tuProgreso">
-        <progress
-          id="progreso"
-          class="progreso"
-          value="0"
-          max="100"
-        ></progress>
-      </div>
-    </div>
+    <!--    <div class="contened">-->
+    <!--      <div class="tuProgreso">-->
+    <!--        <progress-->
+    <!--          id="progreso"-->
+    <!--          class="progreso"-->
+    <!--          value="0"-->
+    <!--          max="100"-->
+    <!--        ></progress>-->
+    <!--      </div>-->
+    <!--    </div>-->
+
+    <img
+      src="./assets/images/logo_eafit.png"
+      alt="EAFIT logo"
+      class="nav__logo"
+      id="logo"
+    />
 
     <ul class="nav__links">
       <li class="nav__item">
@@ -36,12 +43,21 @@
       <!--        >-->
       <!--      </li>-->
     </ul>
-    <img
-      src="./assets/images/logo_eafit.png"
-      alt="EAFIT logo"
-      class="nav__logo"
-      id="logo"
-    />
+    <button class="mobile-menu-btn">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon-mov-nav" name="menu-outline"
+           viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
+              stroke-width="32" d="M80 160h352M80 256h352M80 352h352"/>
+      </svg>
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon-mov-nav" name="close-outline"
+           viewBox="0 0 512 512">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+              stroke-width="32" d="M368 368L144 144M368 144L144 368"/>
+      </svg>
+
+    </button>
+
+
   </nav>
   <div class="text-box">
     <h1 class="heading-primary">
