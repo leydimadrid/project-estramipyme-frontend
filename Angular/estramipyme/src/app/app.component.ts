@@ -8,6 +8,7 @@ import {Question} from "@models/question.model";
 import {RenderFormDirective} from "./directives/render-form.directive";
 import {FooterComponent} from "./pages/components/footer/footer.component";
 import {GlobalProviderService} from "@services/global-provider.service";
+import {GraphCircleComponent} from "./components/graph-circle/graph-circle.component";
 
 
 type Answers = {} | {
@@ -17,7 +18,7 @@ type Answers = {} | {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective, FooterComponent],
+  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective, FooterComponent, GraphCircleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
