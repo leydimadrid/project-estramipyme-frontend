@@ -431,6 +431,7 @@
     {
       "id": 40,
       "section": "circulo",
+      "subsection": "por que",
       "question": "¿En qué medida estás de acuerdo con la siguiente afirmación: Nuestra empresa tiene un propósito claro y bien definido",
       "options": [
         "totalmente en desacuerdo",
@@ -442,6 +443,7 @@
     {
       "id": 41,
       "section": "circulo",
+      "subsection": "por que",
       "question": "¿Crees que nuestros clientes entienden y valoran el propósito denuestra empresa?",
       "options": [
         "totalmente en desacuerdo",
@@ -453,6 +455,7 @@
     {
       "id": 42,
       "section": "circulo",
+      "subsection": "por que",
       "question": "¿Consideras que el propósito de nuestra empresa guía nuestras decisiones estratégicas?",
       "options": [
         "totalmente en desacuerdo",
@@ -464,6 +467,7 @@
     {
       "id": 43,
       "section": "circulo",
+      "subsection": "por que",
       "question": "¿En qué medida crees que el propósito de nuestra empresa tiene un impacto positivo en la sociedad?",
       "options": [
         "totalmente en desacuerdo",
@@ -475,6 +479,7 @@
     {
       "id": 44,
       "section": "circulo",
+      "subsection": "como",
       "question": "¿En qué medida estás de acuerdo con la siguiente afirmación: Nuestra empresa implementa procesos efectivos que apoyan nuestro propósito",
       "options": [
         "totalmente en desacuerdo",
@@ -486,6 +491,7 @@
     {
       "id": 45,
       "section": "circulo",
+      "subsection": "como",
       "question": "¿Consideras que los valores de nuestra empresa están reflejados en nuestras operaciones diarias?",
       "options": [
         "totalmente en desacuerdo",
@@ -497,6 +503,7 @@
     {
       "id": 46,
       "section": "circulo",
+      "subsection": "como",
       "question": "¿En qué medida estás de acuerdo con la siguiente afirmación: Nuestra empresa se distingue de la competencia por la calidad desus procesos y procedimientos?",
       "options": [
         "totalmente en desacuerdo",
@@ -508,6 +515,7 @@
     {
       "id": 47,
       "section": "circulo",
+      "subsection": "como",
       "question": "¿Qué tan bien crees que nuestra empresa comunica cómo llevamos cabo nuestro propósito a nuestros clientes?",
       "options": [
         "Muy mal",
@@ -519,6 +527,7 @@
     {
       "id": 48,
       "section": "circulo",
+      "subsection": "que",
       "question": "¿Qué tan satisfecho estás con la calidad de los productos o servicios que ofrece nuestra empresa?",
       "options": [
         "totalmente en desacuerdo",
@@ -530,6 +539,7 @@
     {
       "id": 49,
       "section": "circulo",
+      "subsection": "que",
       "question": "¿En qué medida crees que nuestros productos o servicios cumplen con las expectativas de nuestros clientes?",
       "options": [
         "totalmente en desacuerdo",
@@ -541,6 +551,7 @@
     {
       "id": 50,
       "section": "circulo",
+      "subsection": "que",
       "question": "¿Consideras que nuestra empresa se adapta bien a las necesidades cambiantes del mercado con sus productos o servicios?",
       "options": [
         "totalmente en desacuerdo",
@@ -552,6 +563,7 @@
     {
       "id": 51,
       "section": "circulo",
+      "subsection": "que",
       "question": " ¿Qué tan bien crees que nuestra empresa comunica la características y beneficios de sus productos o servicios?",
       "options": [
         "totalmente en desacuerdo",

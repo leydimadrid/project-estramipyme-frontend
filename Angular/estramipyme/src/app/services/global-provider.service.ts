@@ -6,6 +6,13 @@ type Answer = {} | {
   [key: number]: string;
 }
 
+export interface Circle {
+  what: number[];
+  how: number[];
+  why: number[];
+}
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,13 +22,22 @@ export class GlobalProviderService {
   private dataProc = inject(DataProcService)
 
   private RadarData: BehaviorSubject<number[]> = new BehaviorSubject([1, 2, 3, 4, 5])
+  private CircleData: BehaviorSubject<Circle> = new BehaviorSubject({
+    what: [90, 10],
+    how: [90, 10],
+    why: [90, 10],
+  })
+
   RadarData$ = this.RadarData.asObservable();
+  CircleData$ = this.CircleData.asObservable();
   cliente: string[] = [];
   negocio: string[] = [];
   coherencia: string[] = [];
   alineacion: string[] = [];
   financiera: string[] = [];
-
+  circuloQue!: string[];
+  circuloComo!: string[];
+  circuloPorQue!: string[];
   scores = computed(() => {
     console.log("compute scores")
     console.log(this.answers())
@@ -38,6 +54,12 @@ export class GlobalProviderService {
         this.coherencia = questions.filter(e => e.section === 'coherencia').map(q => String(q.id));
         this.alineacion = questions.filter(e => e.section === 'alineacion').map(q => String(q.id));
         this.financiera = questions.filter(e => e.section === 'financiera').map(q => String(q.id));
+        this.circuloQue = questions.filter(e => e.section === 'circulo' && e.subsection === "que").map(q => String(q.id));
+        this.circuloComo = questions.filter(e => e.section === 'circulo' && e.subsection === "como").map(q => String(q.id));
+        this.circuloPorQue = questions.filter(e => e.section === 'circulo' && e.subsection === "por que").map(q => String(q.id));
+
+        console.log(this.circuloComo)
+        console.log("circuloComo")
         //console.log(this.answers())
         //console.log("ruuun")
       },
@@ -57,6 +79,7 @@ export class GlobalProviderService {
     })
     localStorage.setItem("estramipyme", JSON.stringify(this.answers()));
     this.getRadarData()
+    this.getCircleData();
   }
 
   getLocalStorage() {
@@ -117,9 +140,51 @@ export class GlobalProviderService {
     ];
   }
 
+  getCircle() {
+
+    let comoAcc = 0;
+    let queAcc = 0;
+    let porQueAcc = 0;
+    const total = 4;
+
+
+    Object.entries(this.answers()).forEach(([key, value]) => {
+      //console.log(key, value);
+
+      if (this.circuloQue.includes(key)) {
+        queAcc += Number(value);
+      }
+      if (this.circuloComo.includes(key)) {
+        comoAcc += Number(value);
+      }
+      if (this.circuloPorQue.includes(key)) {
+        porQueAcc += Number(value);
+      }
+
+    })
+
+    console.log("conteo")
+    console.log(this.circuloQue)
+    console.log(porQueAcc)
+    console.log(comoAcc)
+
+
+    return {
+      what: [queAcc / (total * 4) * 100, 100 - (queAcc / (total * 4) * 100)],
+      how: [comoAcc / (total * 4) * 100, 100 - (comoAcc / (total * 4) * 100)],
+      why: [porQueAcc / (total * 4) * 100, 100 - (porQueAcc / (total * 4) * 100)],
+    }
+  }
+
   getRadarData() {
     this.RadarData.next(
       this.getScores()
+    )
+  }
+
+  getCircleData() {
+    this.CircleData.next(
+      this.getCircle()
     )
   }
 }

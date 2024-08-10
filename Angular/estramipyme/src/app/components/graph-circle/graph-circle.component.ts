@@ -1,6 +1,12 @@
 import {Component, ElementRef, ViewChild} from '@angular/core';
 import * as echarts from 'echarts';
+import {GlobalProviderService} from "@services/global-provider.service";
 
+export interface Circle {
+  what: number[];
+  how: number[];
+  why: number[];
+}
 
 @Component({
   selector: 'app-graph-circle',
@@ -12,11 +18,22 @@ import * as echarts from 'echarts';
 export class GraphCircleComponent {
   chart!: echarts.ECharts
   @ViewChild("circle") circleEl!: ElementRef;
+  globalProvider!: GlobalProviderService;
 
-  constructor(private el: ElementRef) {
+
+  constructor(private el: ElementRef, globalProvider: GlobalProviderService) {
+    this.globalProvider = globalProvider;
   }
 
-  ngAfterViewInit() {
+  ngOnInit() {
+    this.globalProvider.CircleData$.subscribe((value: Circle) => {
+      console.log("valores el circulo")
+      console.log(value)
+      if (this.circleEl) this.renderCicle(value)
+    });
+  }
+
+  renderCicle(value: Circle) {
     this.chart = echarts.init(this.circleEl.nativeElement);
     console.log("native element")
     console.log(this.circleEl.nativeElement)
@@ -47,52 +64,24 @@ export class GraphCircleComponent {
             show: false
           },
           data: [
-            {value: 90, name: '¿Por qué?'},
-            {value: 10, name: ''}
+            {value: value.why[0], name: '¿Por qué?'},
+            {value: value.why[1], name: '', itemStyle: {color: "none"}}
           ]
         },
         {
           name: '¿Cómo?',
           type: 'pie',
           radius: ['30%', '50%'],
-          labelLine: {
-            length: 30
-          },
           label: {
-            formatter: '{a|{a}}{abg|}\n{hr|}\n  {b|{b}：}{c}  {per|{d}%}  ',
-            backgroundColor: '#F6F8FC',
-            borderColor: '#4eaad2',
-            borderWidth: 1,
-            borderRadius: 4,
-            rich: {
-              a: {
-                color: '#6E7079',
-                lineHeight: 22,
-                align: 'center'
-              },
-              hr: {
-                borderColor: '#8C8D8E',
-                width: '100%',
-                borderWidth: 1,
-                height: 0
-              },
-              b: {
-                color: '#4C5058',
-                fontSize: 14,
-                fontWeight: 'bold',
-                lineHeight: 33
-              },
-              per: {
-                color: '#fff',
-                backgroundColor: '#4C5058',
-                padding: [3, 4],
-                borderRadius: 4
-              }
-            }
+            position: 'inside',
+            fontSize: 14
+          },
+          labelLine: {
+            show: false
           },
           data: [
-            {value: 30, name: '¿Cómo?'},
-            {value: 70, name: ''}
+            {value: value.how[0], name: '¿Cómo?'},
+            {value: value.how[1], name: '', itemStyle: {color: "none"}}
           ]
         },
         {
@@ -107,8 +96,8 @@ export class GraphCircleComponent {
             show: false
           },
           data: [
-            {value: 90, name: '¿Qué?'},
-            {value: 10, name: ''}
+            {value: value.what[0], name: '¿Qué?'},
+            {value: value.what[1], name: '', itemStyle: {color: "none"}}
           ]
         }
       ]
@@ -122,6 +111,22 @@ export class GraphCircleComponent {
     this.chart.setOption(option);
   }
 }
+
+// label: {
+//   show: true,
+//   position: "inside",
+//   formatter: "¿Por Qué?",
+//   fontSize: 10,
+//   fontFamily: "Inter",
+//   color: "#000",
+// },
+// emphasis: {
+//   label: {
+//     show: true,
+//     fontSize: 20,
+//     fontFamily: "Inter",
+//     fontWeight: "bold",
+//   },
 
 // changeCircle1() {
 //   const answer = {
