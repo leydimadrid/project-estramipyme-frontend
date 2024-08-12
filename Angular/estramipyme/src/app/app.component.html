@@ -1,5 +1,9 @@
+<div class="modal">
+  <router-outlet/>
+</div>
 <header class="header">
   <button (click)="toggleLogin()">login</button>
+  <a href="login">link de prueba</a>
   <nav class="nav"
        [class.nav-open]="mobileOpen()"
   >
@@ -45,21 +49,17 @@
 
     </button>
   </nav>
-  @if (login()) {
-    <div class="loging-form">
-      <!--      <app-login/>-->
-      <app-register/>
-    </div>
-
-  }
   <div class="text-box">
     <h1 class="heading-primary">
       <span class="heading-primary-main"> Estramipyme </span>
       <span class="heading-primary-sub"> Planeación estratégica </span>
     </h1>
     <button class="start-test" href="#section--1">Comenzar Test</button>
+
   </div>
 </header>
+
+
 <section class="section" id="section--1">
   <div class="section-intro">
     <h2 class="section-title">Conocimiento del cliente</h2>
@@ -71,7 +71,8 @@
     </p>
   </div>
 
-  <div class="form-container" appRenderForm url="http://localhost:3000/questions/?section=cliente">
+  <div class="form-container" appRenderForm
+       url="http://localhost:3000/questions/?section=cliente">
     <!-- <form class="form--1">
       <fieldset class="questions question--1" data-question-id="1">
         <legend data-l-s="8232">
@@ -134,7 +135,8 @@
   <div class="section-intro">
     <h2 class="section-title">Alineación Financiera</h2>
     <p class="section-description">
-      En esta sesión, exploraremos la importancia de la alineación financiera en la organización. La
+      En esta sesión, exploraremos la importancia de la alineación financiera en la organización.
+      La
       alineación financiera implica asegurarnos de que las decisiones económicas estén en
       sincronía con los objetivos del negocio y los clientes, ayudando a alcanzar una mayor
       estabilidad y éxito financiero.
@@ -202,4 +204,3 @@
 <app-graph-circle></app-graph-circle>
 <!--  <canvas id="myChart" class="myChart"></canvas>-->
 <app-footer/>
-<router-outlet></router-outlet>

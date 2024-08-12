@@ -70,7 +70,7 @@ export class AppComponent implements OnInit {
 
     startTest.addEventListener("click", this._handlerStartTest.bind(this))
     //cargar formularios desde json server
-    this._fetchData()
+    // this._fetchData()
 
     // Hacer el fade in de la barra de navegacón
     this.#nav.addEventListener("mouseover", this._handleHover.bind(0.5));
@@ -147,16 +147,16 @@ export class AppComponent implements OnInit {
     return Math.ceil((Object.keys(this.answers).length / this.numberOfQuestions) * 100);
   }
 
-  _fetchData() {
-    fetch("http://localhost:3000/questions")
-      .then((response) => {
-        if (!response.ok) throw new Error("there is no data");
-        return response.json();
-      })
-      .then((data: Question[]) => {
-        this.provider.numberOfQuestions = data.length;
-      });
-  }
+  // _fetchData() {
+  //   fetch("http://localhost:3000/questions")
+  //     .then((response) => {
+  //       if (!response.ok) throw new Error("there is no data");
+  //       return response.json();
+  //     })
+  //     .then((data: Question[]) => {
+  //       this.provider.numberOfQuestions = data.length;
+  //     });
+  // }
 
   _createStickyNav(entries: any) {
     const [entry] = entries;
