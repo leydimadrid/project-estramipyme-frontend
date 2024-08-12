@@ -26,7 +26,7 @@ type Answers = {} | {
 })
 export class AppComponent implements OnInit {
 
-  login = signal<boolean>(false);
+  isLoged = signal<boolean>(false);
   mobileOpen = signal<boolean>(false);
   title: String = 'estramipyme';
   private answers: any = {};
@@ -47,7 +47,7 @@ export class AppComponent implements OnInit {
   }
 
   toggleLogin() {
-    this.login.update(prevValue => !prevValue)
+    this.isLoged.update(prevValue => !prevValue)
   }
 
   toggleMobileOpen() {
