@@ -130,21 +130,34 @@ body {
 }
 
 
-.nav-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
 .nav__links {
   list-style: none;
   display: flex;
 }
 
+/*MOBILE NAVIGATION*/
+.mobile-menu-btn {
+  display: flex;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  background: white;
+  display: none;
+  z-index: 20;
+}
+
+.icon-mov-nav {
+  width: 2.8rem;
+  height: 2.8rem;
+}
+
+.icon-mov-nav[name="close-outline"] {
+  display: none;
+}
+
 /** * * * * * * * * * * * * **/
 /* SECTION STYLES */
 /** * * * * * * * * * * * * **/
-
 .section {
   padding: 10rem 3rem;
   border-top: 1px solid #ddd;
@@ -254,6 +267,68 @@ fieldset label::before {
   height: auto;
   display: block;
   margin: 0 auto;
+}
+
+.section-radar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+#myChart {
+  max-width: 800px;
+  max-height: 800px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.section-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.radar-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  align-items: start;
+  width: 100%;
+}
+
+.radar-description-radar {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-title-radar {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-description-radar {
+  text-align: justify;
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+}
+
+.accordion-content {
+  display: none;
+  padding: 15px 0;
+  font-size: 1rem;
+}
+
+.accordion-item.active .accordion-content {
+  display: block;
 }
 
 /** * * * * * * * * * * * * **/

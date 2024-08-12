@@ -27,6 +27,7 @@ type Answers = {} | {
 export class AppComponent implements OnInit {
 
   login = signal<boolean>(false);
+  mobileOpen = signal<boolean>(false);
   title: String = 'estramipyme';
   private answers: any = {};
   private el: ElementRef;
@@ -47,6 +48,10 @@ export class AppComponent implements OnInit {
 
   toggleLogin() {
     this.login.update(prevValue => !prevValue)
+  }
+
+  toggleMobileOpen() {
+    this.mobileOpen.update(prevValue => !prevValue)
   }
 
   ngOnInit() {

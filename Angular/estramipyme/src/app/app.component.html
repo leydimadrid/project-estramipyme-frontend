@@ -1,6 +1,8 @@
 <header class="header">
   <button (click)="toggleLogin()">login</button>
-  <nav class="nav">
+  <nav class="nav"
+       [class.nav-open]="mobileOpen()"
+  >
 
     <img
       src="./assets/images/logo_eafit.png"
@@ -29,7 +31,7 @@
         <a class="nav__link" href="#section--5">Circulo dorado</a>
       </li>
     </ul>
-    <button class="mobile-menu-btn">
+    <button class="mobile-menu-btn" (click)="toggleMobileOpen()">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon-mov-nav" name="menu-outline"
            viewBox="0 0 512 512">
         <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10"
