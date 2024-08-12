@@ -161,9 +161,31 @@
   }
 
   .form-container {
-
     margin: 0 1rem;
   }
 
+  .heading-primary-main {
+    font-size: 1rem;
+  }
+
+  .heading-primary-sub {
+    font-size: 0.5rem;
+  }
+
+  .start-test {
+    font-size: 1rem;
+    padding: 1rem 3rem;
+  }
+
+  .section-see-results .btn {
+    font-size: 1rem;
+    padding: 1rem 3rem;
+  }
+}
+
+@media (max-width: 38em) {
+  footer {
+    display: none;
+  }
 }
 
