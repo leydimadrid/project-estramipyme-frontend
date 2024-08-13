@@ -682,5 +682,133 @@
         "Más del 80%"
       ]
     }
+  ],
+  "sectors": [
+    {
+      "value": "sel",
+      "option": "Selecciona"
+    },
+    {
+      "value": "agricultura",
+      "option": "Agricultura y Alimentación"
+    },
+    {
+      "value": "aeroespacial",
+      "option": "Aeroespacial"
+    },
+    {
+      "value": "automotriz",
+      "option": "Automotriz"
+    },
+    {
+      "value": "bienes",
+      "option": "Bienes Raíces"
+    },
+    {
+      "value": "banca",
+      "option": "Banca y Finanzas"
+    },
+    {
+      "value": "construcción",
+      "option": "Construcción e Infraestructura"
+    },
+    {
+      "value": "consultoria",
+      "option": "Consultoría"
+    },
+    {
+      "value": "deportes",
+      "option": "Deportes y Recreación"
+    },
+    {
+      "value": "electronica",
+      "option": "Electrónica y Tecnología de Consumo"
+    },
+    {
+      "value": "energia",
+      "option": "Energía"
+    },
+    {
+      "value": "educacion",
+      "option": "Educación"
+    },
+    {
+      "value": "finanzas",
+      "option": "Finanzas y Banca"
+    },
+    {
+      "value": "naval",
+      "option": "Industria Naval"
+    },
+    {
+      "value": "informatica",
+      "option": "Informática y Software"
+    },
+    {
+      "value": "transporte",
+      "option": "Logística y Transporte"
+    },
+    {
+      "value": "manufactura",
+      "option": "Manufactura"
+    },
+    {
+      "value": "ambiente",
+      "option": "Medio Ambiente y Sustentabilidad"
+    },
+    {
+      "value": "medios",
+      "option": "Medios y Entretenimiento"
+    },
+    {
+      "value": "moda",
+      "option": "Moda y Textiles"
+    },
+    {
+      "value": "publicidad",
+      "option": "Publicidad y Marketing"
+    },
+    {
+      "value": "quimicos",
+      "option": "Químicos y Farmacéuticos"
+    },
+    {
+      "value": "retail",
+      "option": "Retail y Comercio"
+    },
+    {
+      "value": "salud",
+      "option": "Salud"
+    },
+    {
+      "value": "seguridad",
+      "option": "Seguridad y Protección"
+    },
+    {
+      "value": "eventos",
+      "option": "Servicios de Catering y Eventos"
+    },
+    {
+      "value": "diseño",
+      "option": "Servicios de Diseño y Creatividad"
+    },
+    {
+      "value": "servicios",
+      "option": "Servicios Públicos"
+    },
+    {
+      "value": "tecnologia",
+      "option": "Tecnología y Telecomunicaciones"
+    },
+    {
+      "value": "turismo",
+      "option": "Turismo y Hospitalidad"
+    },
+    {
+      "value": "otro",
+      "option": "Otro"
+    }
+  ],
+  "users": [
   ]
 }
