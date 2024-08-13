@@ -28,6 +28,7 @@ export class AppComponent implements OnInit {
 
   isLoged = signal<boolean>(false);
   mobileOpen = signal<boolean>(false);
+  progress = signal(0);
   title: String = 'estramipyme';
   private answers: any = {};
   private el: ElementRef;
@@ -39,11 +40,12 @@ export class AppComponent implements OnInit {
   #progress: HTMLHtmlElement | any;
   #navLinks: HTMLHtmlElement | any;
 
-  private provider = inject(GlobalProviderService)
+  // private provider = inject(GlobalProviderService)
+  globalProvider!: GlobalProviderService;
 
-  constructor(el: ElementRef) {
+  constructor(el: ElementRef, globalProvider: GlobalProviderService) {
     this.el = el;
-    console.log("constructor de la clase app");
+    this.globalProvider = globalProvider;
   }
 
   toggleLogin() {
@@ -55,8 +57,14 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("ngOnInit");
+    this.globalProvider.IsLogged$.subscribe(value => {
+      console.log("is logged in provider")
+      this.isLoged.set(value)
+    })
 
+    this.globalProvider.Progress$.subscribe(value => {
+      this.progress.set(value);
+    })
     //const startTest = document.querySelector(".start-test");
     console.log("elemento nava")
     this.#navLinks = this.el.nativeElement.querySelector(".nav__links");

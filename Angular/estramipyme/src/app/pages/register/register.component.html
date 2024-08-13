@@ -20,24 +20,25 @@
 
 <div class="container">
   <h2>Registrarse</h2>
-  <form id="register-form">
+  <form id="register-form" (ngSubmit)="onSubmit(form)" #form="ngForm">
     <div class="register-form-cols">
 
       <fieldset>
 
         <label for="register-names">Nombres:</label>
-        <input type="text" id="register-names" required/>
+        <input type="text" id="register-names" name="name" ngModel required
+        />
       </fieldset>
       <fieldset>
 
         <label for="register-surnames">Apellidos:</label>
-        <input type="text" id="register-surnames" required/>
+        <input type="text" id="register-surnames" required name="surname" ngModel/>
       </fieldset>
 
       <fieldset>
 
         <label for="register-person-type">Tipo de Persona:</label>
-        <select id="register-person-type" required>
+        <select id="register-person-type" required name="personType" ngModel>
           <option value="sel">Selecciona</option>
           <option value="natural">Natural</option>
           <option value="jurídica">Jurídica</option>
@@ -46,7 +47,7 @@
       <fieldset>
 
         <label for="register-doc-type">Tipo de Documento:</label>
-        <select id="register-doc-type" required>
+        <select id="register-doc-type" required name="docType" ngModel>
           <option value="sel">Selecciona</option>
           <option value="CC">CC</option>
           <option value="CE">CE</option>
@@ -57,19 +58,19 @@
       <fieldset>
 
         <label for="register-doc-number">Número de Documento:</label>
-        <input type="number" id="register-doc-number" required/>
+        <input type="number" id="register-doc-number" required name="docNumber" ngModel/>
       </fieldset>
 
       <fieldset>
         <label for="register-business-name">Razón Social:</label>
-        <input type="text" id="register-business-name" required/>
+        <input type="text" id="register-business-name" required name="businessName"
+               ngModel/>
 
       </fieldset>
 
       <fieldset>
-
         <label for="register-sector">Sector:</label>
-        <select id="register-sector" required>
+        <select id="register-sector" required name="sector" ngModel>
           <option value="sel">Selecciona</option>
           <option value="agricultura">Agricultura y Alimentación</option>
           <option value="aeroespacial">Aeroespacial</option>
@@ -107,25 +108,25 @@
       <fieldset>
 
         <label for="register-otro">Otro Sector:</label>
-        <input type="text" id="register-otro"/>
+        <input type="text" id="register-otro" name="otroSector" ngModel/>
       </fieldset>
 
       <fieldset>
         <label for="register-email">Correo Electrónico:</label>
-        <input type="email" id="register-email" required/>
+        <input type="email" id="register-email" required name="email" ngModel/>
 
       </fieldset>
 
       <fieldset>
 
         <label for="register-password">Contraseña:</label>
-        <input type="password" id="register-password" required/>
+        <input type="password" id="register-password" required name="password" ngModel/>
       </fieldset>
 
-      <fieldset>
+      <fieldset [class.password-error]="passwordDoNotMatch()">
         <label for="register-confirm-password">Confirmar Contraseña:</label>
-        <input type="password" id="register-confirm-password" required/>
-
+        <input type="password" id="register-confirm-password" required
+               name="confirmPassword" ngModel/>
       </fieldset>
 
 
@@ -134,7 +135,8 @@
       <fieldset>
 
         <label>
-          <input type="checkbox" id="register-accept-data" required/>
+          <input type="checkbox" id="register-accept-data" required name="acceptDataProcPolicy"
+                 ngModel/>
           Acepto el
           <a href="#" id="open-modal">tratamiento de datos personales</a>
         </label>

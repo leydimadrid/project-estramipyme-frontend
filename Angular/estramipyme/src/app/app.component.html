@@ -17,7 +17,6 @@
   <nav class="nav"
        [class.nav-open]="mobileOpen()"
   >
-
     <img
       src="./assets/images/logo_eafit.png"
       alt="EAFIT logo"
@@ -58,6 +57,10 @@
       </svg>
 
     </button>
+
+    <div class="progress-bar">
+      <div class="progress" [style.width.%]="progress()"></div>
+    </div>
   </nav>
   <div class="text-box">
     <h1 class="heading-primary">

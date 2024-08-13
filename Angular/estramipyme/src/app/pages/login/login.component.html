@@ -20,15 +20,15 @@
 
 <div class="container">
   <h2>Iniciar Sesión</h2>
-  <form id="login-form">
+  <form id="login-form" (ngSubmit)="onSubmit(login)" #login="ngForm">
     <label for="login-email">Correo Electrónico:</label>
-    <input type="email" id="login-email" required/>
+    <input type="email" id="login-email" name="email" ngModel required/>
 
     <label for="login-password">Contraseña:</label>
-    <input type="password" id="login-password" required/>
+    <input type="password" id="login-password" name="password" ngModel required/>
 
     <label>
-      <input type="checkbox" id="remember-me"/>
+      <input type="checkbox" id="remember-me" name="rememberMe" ngModel/>
       Recordarme
     </label>
 
@@ -41,7 +41,7 @@
     </p>
     <p>
       ¿Aún no tienes cuenta?
-      <a routerLink="/register" id="show-register">Crea una aquí</a>
+      <a href="registro" id="show-register">Crea una aquí</a>
     </p>
     <button type="button" id="go-back" (click)="navigateTo('')">Regresar</button>
   </form>

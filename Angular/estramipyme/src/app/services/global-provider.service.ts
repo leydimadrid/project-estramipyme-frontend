@@ -18,6 +18,7 @@ export interface Circle {
 })
 export class GlobalProviderService {
   answers = signal<Answer>({})
+  private progress = new BehaviorSubject<number>(0)
   numberOfQuestions = 51;
   private dataProc = inject(DataProcService)
 
@@ -27,9 +28,11 @@ export class GlobalProviderService {
     how: [90, 10],
     why: [90, 10],
   })
-
+  private isLogged: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  Progress$ = this.progress.asObservable();
   RadarData$ = this.RadarData.asObservable();
   CircleData$ = this.CircleData.asObservable();
+  IsLogged$ = this.isLogged.asObservable();
   cliente: string[] = [];
   negocio: string[] = [];
   coherencia: string[] = [];
@@ -48,7 +51,8 @@ export class GlobalProviderService {
   constructor() {
     this.dataProc.getItems('http://localhost:3000/questions').subscribe({
       next: questions => {
-        //Obtener los ids
+
+        this.numberOfQuestions = questions.length;//Obtener los ids
         this.cliente = questions.filter(e => e.section === 'cliente').map(q => String(q.id));
         this.negocio = questions.filter(e => e.section === 'negocio').map(q => String(q.id));
         this.coherencia = questions.filter(e => e.section === 'coherencia').map(q => String(q.id));
@@ -78,6 +82,7 @@ export class GlobalProviderService {
       return {...prevValue, ...newValue}
     })
     localStorage.setItem("estramipyme", JSON.stringify(this.answers()));
+    this.getProgress()
     this.getRadarData()
     this.getCircleData();
   }
@@ -93,9 +98,9 @@ export class GlobalProviderService {
   }
 
   getProgress() {
-    if (!this.answers()) return 0;
-    if (!this.numberOfQuestions) return 0;
-    return Math.ceil((Object.keys(this.answers).length / this.numberOfQuestions) * 100);
+    if (!this.answers()) this.progress.next(Math.ceil((Object.keys(this.answers()).length / this.numberOfQuestions) * 100));
+    if (!this.numberOfQuestions) this.progress.next(Math.ceil((Object.keys(this.answers()).length / this.numberOfQuestions) * 100));
+    this.progress.next(Math.ceil((Object.keys(this.answers()).length / this.numberOfQuestions) * 100))
   }
 
   getScores() {
@@ -180,6 +185,10 @@ export class GlobalProviderService {
     this.RadarData.next(
       this.getScores()
     )
+  }
+
+  setLogging(value: boolean) {
+    this.isLogged.next(value)
   }
 
   getCircleData() {
