@@ -106,7 +106,7 @@ export class GlobalProviderService {
     this.progress.next(Math.ceil((Object.keys(this.answers()).length / this.numberOfQuestions) * 100))
   }
 
-  getScores() {
+  getScores(): number[] {
     let clientAcc = 0;
     let negocioAcc = 0;
     let coherenciaAcc = 0;
@@ -140,11 +140,11 @@ export class GlobalProviderService {
     })
 
     return [
-      Number(coherenciaAcc / (tCoherencia * 4) * 4).toFixed(2),
-      Number(financieraAcc / (tFinanciera * 4) * 4).toFixed(2),
-      Number(clientAcc / (tCliente * 4) * 4).toFixed(2),
-      Number(alineacionAcc / (tAlineacion * 4) * 4).toFixed(2),
-      Number(negocioAcc / (tNegocio * 4) * 4).toFixed(2)
+      Number((coherenciaAcc / (tCoherencia * 4) * 4).toFixed(2)),
+      Number((financieraAcc / (tFinanciera * 4) * 4).toFixed(2)),
+      Number((clientAcc / (tCliente * 4) * 4).toFixed(2)),
+      Number((alineacionAcc / (tAlineacion * 4) * 4).toFixed(2)),
+      Number((negocioAcc / (tNegocio * 4) * 4).toFixed(2))
     ];
   }
 
