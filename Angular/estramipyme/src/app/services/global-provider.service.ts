@@ -95,6 +95,9 @@ export class GlobalProviderService {
     this.answers.update(() => {
       return {...this.answers(), ...data}
     });
+    this.getProgress();
+    this.getRadarData();
+    this.getCircleData();
   }
 
   getProgress() {
@@ -137,11 +140,11 @@ export class GlobalProviderService {
     })
 
     return [
-      coherenciaAcc / (tCoherencia * 4) * 4,
-      financieraAcc / (tFinanciera * 4) * 4,
-      clientAcc / (tCliente * 4) * 4,
-      alineacionAcc / (tAlineacion * 4) * 4,
-      negocioAcc / (tNegocio * 4) * 4
+      Number(coherenciaAcc / (tCoherencia * 4) * 4).toFixed(2),
+      Number(financieraAcc / (tFinanciera * 4) * 4).toFixed(2),
+      Number(clientAcc / (tCliente * 4) * 4).toFixed(2),
+      Number(alineacionAcc / (tAlineacion * 4) * 4).toFixed(2),
+      Number(negocioAcc / (tNegocio * 4) * 4).toFixed(2)
     ];
   }
 
