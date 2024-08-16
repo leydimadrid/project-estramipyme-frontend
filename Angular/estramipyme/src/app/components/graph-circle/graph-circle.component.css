@@ -1,5 +1,6 @@
 .section-circle {
   padding: 4rem 2rem;
+  justify-content: center;
   background-color: #ffffff;
   display: flex;
   flex-direction: column;
@@ -19,6 +20,7 @@
 
 .section-description-circle {
   font-size: 1.2rem;
+  text-align: justify;
   color: #444;
   line-height: 1.6;
   max-width: 800px;

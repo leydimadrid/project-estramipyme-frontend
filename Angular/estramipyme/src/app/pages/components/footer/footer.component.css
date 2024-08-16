@@ -1,5 +1,6 @@
+/* Estilos generales del cuerpo */
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Inter", sans-serif;
   margin: 0;
   padding: 0;
   display: flex;
@@ -7,10 +8,12 @@ body {
   min-height: 100vh;
 }
 
+/* Estilos para la sección "Quiénes Somos" */
 .about-us {
-  background-color: #333;
-  padding: 40px 20px;
+  background-color: #000066;
+  padding: 10px 5px;
   text-align: center;
+  font-size: 16px;
 }
 
 .about-container {
@@ -19,73 +22,21 @@ body {
   padding: 0 20px;
 }
 
-.about-us h2, .about-us h3 {
-  color: #f5f1f1;
-}
-
 .about-us p {
   color: #ffffff;
   margin-bottom: 20px;
+  font-size: 16px;
 }
 
-.about-us ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about-us ul li {
-  color: #ffffff;
-  margin: 5px 0;
-  display: flex;
-  align-items: center;
-}
-
-.about-us ul li i {
-  margin-right: 10px;
-  color: #ffffff;
-}
-
-.team {
-  display: flex;
-  justify-content: space-around;
-  flex-wrap: wrap;
-}
-
-.team-member {
-  margin: 20px;
-  text-align: center;
-}
-
-.team-member img {
-  border-radius: 50%;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-}
-
-.team-member h4 {
-  color: #ffffff;
-  margin: 10px 0 5px;
-}
-
-.team-member p {
-  color: #ffffff;
-}
-
-.section-divider {
-  border: 0;
-  height: 2px;
-  background: #333;
-  margin: 40px 0;
-}
-
+/* Estilos del footer */
 footer {
-  background-color: #333;
+  background-color: #000066;
   color: white;
   padding: 20px 0;
   position: relative;
   bottom: 0;
   width: 100%;
+  font-size: 14px;
 }
 
 .footer-container {
@@ -104,6 +55,7 @@ footer {
 
 .footer-section h4 {
   margin-bottom: 10px;
+  font-size: 16px;
 }
 
 .footer-section a {
@@ -111,12 +63,24 @@ footer {
   text-decoration: none;
   display: block;
   margin-bottom: 5px;
+  font-size: 14px;
 }
 
 .footer-section a:hover {
   text-decoration: underline;
 }
 
+.footer-section .social-icons {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-section .social-icons a {
+  color: white;
+  font-size: 20px;
+}
+
 footer p {
   margin: 5px 0;
+  font-size: 14px;
 }

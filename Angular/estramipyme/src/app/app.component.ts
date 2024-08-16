@@ -12,17 +12,27 @@ import {GraphCircleComponent} from "./components/graph-circle/graph-circle.compo
 import {LoginComponent} from "./pages/login/login.component";
 import {RegisterComponent} from "./pages/register/register.component";
 
-
-type Answers = {} | {
-  [key: string | number]: string;
-}
+type Answers =
+  | {}
+  | {
+      [key: string | number]: string;
+    };
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, GraphsComponent, RenderFormDirective, FooterComponent, GraphCircleComponent, LoginComponent, RegisterComponent],
+  imports: [
+    CommonModule,
+    RouterOutlet,
+    GraphsComponent,
+    RenderFormDirective,
+    FooterComponent,
+    GraphCircleComponent,
+    LoginComponent,
+    RegisterComponent,
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrl: './app.component.css',
 })
 export class AppComponent implements OnInit {
 
@@ -107,6 +117,8 @@ export class AppComponent implements OnInit {
     });
     headerObserver.observe(this.#header);
 
+    this._setupResultsButton();
+    // this._setupBorrarButton();
   }
 
   _revealSection(entries: IntersectionObserverEntry[], observer: IntersectionObserver) {
@@ -168,11 +180,70 @@ export class AppComponent implements OnInit {
 
   _createStickyNav(entries: any) {
     const [entry] = entries;
-    if (entry.isIntersecting) this.#nav.classList.add("hidden");
-    else this.#nav.classList.remove("hidden");
-  };
+    if (entry.isIntersecting) this.#nav.classList.add('hidden');
+    else this.#nav.classList.remove('hidden');
+  }
 
+  _setupResultsButton() {
+    const showResultsButton = this.el.nativeElement.querySelector(
+      '.section-see-results .btn--show-modal'
+    );
 
+    if (!showResultsButton) {
+      console.error('Botón "Ver resultados" no encontrado.');
+      return;
+    }
+
+    showResultsButton.addEventListener('click', () => {
+      const fieldsets = Array.from(
+        this.el.nativeElement.querySelectorAll('.form-container fieldset')
+      ) as HTMLFieldSetElement[];
+
+      const fieldsetIds = fieldsets.map(
+        (fieldset) => fieldset.getAttribute('data-question-id') || ''
+      );
+
+      const unansweredFieldsets = fieldsetIds.filter(
+        (id) => !this.answers.hasOwnProperty(id)
+      );
+
+      // Resetear cualquier error previo
+      fieldsets.forEach((fieldset) => {
+        fieldset.classList.remove('fieldset-error');
+      });
+
+      if (unansweredFieldsets.length > 0) {
+        const unansweredElements = Array.from(
+          this.el.nativeElement.querySelectorAll(
+            `.form-container fieldset[data-question-id="${unansweredFieldsets.join(
+              '"], .form-container fieldset[data-question-id="'
+            )}"]`
+          )
+        ) as HTMLFieldSetElement[];
+
+        unansweredElements.forEach((fieldset) => {
+          if (fieldset) {
+            fieldset.classList.add('fieldset-error');
+          }
+        });
+
+        if (unansweredElements.length > 0 && unansweredElements[0]) {
+          unansweredElements[0].scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      } else {
+        console.log('Todas las preguntas han sido respondidas.');
+        const radarSection =
+          this.el.nativeElement.querySelector('.section-radar');
+        if (radarSection) {
+          radarSection.scrollIntoView({
+            behavior: 'smooth',
+            block: 'center',
+          });
+        }
+      }
+    });
+  }
 }
-
-

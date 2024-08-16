@@ -1,24 +1,20 @@
-import {
-  Component,
-  ElementRef,
-  ViewChild
-} from '@angular/core';
-import {CommonModule} from "@angular/common";
-import Chart, {} from "chart.js/auto";
-import {GlobalProviderService} from "@services/global-provider.service";
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import Chart from 'chart.js/auto';
+import { GlobalProviderService } from '@services/global-provider.service';
 
 @Component({
   selector: 'app-graphs',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './graphs.component.html',
-  styleUrl: './graphs.component.css'
+  styleUrl: './graphs.component.css',
 })
 export class GraphsComponent {
   private el: ElementRef;
   radarCtx: HTMLHtmlElement | any;
   // elemento en el template
-  @ViewChild("graph") radarEl!: ElementRef;
+  @ViewChild('graph') radarEl!: ElementRef;
 
   globalProvider!: GlobalProviderService;
 
@@ -30,41 +26,40 @@ export class GraphsComponent {
   }
 
   ngOnInit() {
-    this.globalProvider.RadarData$.subscribe(value => {
-      console.log("nuevo valor")
-      console.log(value)
+    this.globalProvider.RadarData$.subscribe((value) => {
+      console.log('nuevo valor');
+      console.log(value);
       if (this.radarEl) {
         if (this.radarChart) {
-          this.radarChart.destroy()
+          this.radarChart.destroy();
         }
-        this.renderChart(value)
+        this.renderChart(value);
       }
     });
   }
 
   renderChart(values: number[]) {
-
     //const radarCtx = document.getElementById("myChart").getContext("2d");
 
     const radarData = {
       labels: [
-        "Coherencia del modelo de negocio",
-        "Conocimiento del cliente",
-        "Conocimiento del negocio",
-        "Alineación en la comunicación interna",
-        "Salud financiera",
+        'Coherencia del modelo de negocio',
+        'Conocimiento del cliente',
+        'Conocimiento del negocio',
+        'Alineación en la comunicación interna',
+        'Salud financiera',
       ],
       datasets: [
         {
-          label: "Tu Radar",
+          label: 'Tu Radar',
           data: values,
           fill: true,
-          backgroundColor: "rgba(21, 95, 231, 0.2)",
-          borderColor: "#155FE7",
-          pointBackgroundColor: "#155FE7",
-          pointBorderColor: "#fff",
-          pointHoverBackgroundColor: "#fff",
-          pointHoverBorderColor: "#155FE7",
+          backgroundColor: 'rgba(21, 95, 231, 0.2)',
+          borderColor: '#155FE7',
+          pointBackgroundColor: '#155FE7',
+          pointBorderColor: '#fff',
+          pointHoverBackgroundColor: '#fff',
+          pointHoverBorderColor: '#155FE7',
         },
       ],
     };
@@ -79,10 +74,10 @@ export class GraphsComponent {
         tooltip: {
           callbacks: {
             title: function () {
-              return "";
+              return '';
             },
             label: function (context: any) {
-              const label = context.chart.data.labels[context.dataIndex] || "";
+              const label = context.chart.data.labels[context.dataIndex] || '';
               const value = context.raw;
               return `${label}: ${value}`;
             },
@@ -90,12 +85,12 @@ export class GraphsComponent {
         },
         legend: {
           display: true,
-          position: "top",
-          align: "center",
+          position: 'top',
+          align: 'center',
           labels: {
             font: {
               size: 14,
-              family: "Inter",
+              family: 'Inter',
             },
             padding: 300,
           },
@@ -110,14 +105,14 @@ export class GraphsComponent {
             stepSize: 1,
             font: {
               size: 14,
-              family: "Inter",
+              family: 'Inter',
             },
           },
           pointLabels: {
             font: {
               size: 14,
-              color: "black",
-              family: "Inter",
+              color: 'black',
+              family: 'Inter',
             },
           },
         },
@@ -130,7 +125,7 @@ export class GraphsComponent {
     };
 
     this.radarChart = new Chart(this.radarEl.nativeElement, {
-      type: "radar",
+      type: 'radar',
       data: radarData,
       options: radarOptions,
     });
