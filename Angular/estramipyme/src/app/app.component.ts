@@ -72,7 +72,7 @@ export class AppComponent implements OnInit {
     this.#navHeight = this.#nav.getBoundingClientRect().height;
     const startTest = this.el.nativeElement.querySelector(".start-test")
     this.#header = this.el.nativeElement.querySelector(".header");
-    this.#allSections = this.el.nativeElement.querySelectorAll(".section");
+    this.#allSections = this.el.nativeElement.querySelectorAll(".section__main");
     this.#progress = document.getElementById("progreso");
 
 
