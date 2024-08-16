@@ -27,11 +27,11 @@ body {
 .header {
   padding: 2rem;
   background-image: linear-gradient(
-    to right bottom,
-    rgb(0, 0, 102, 0.8),
-    rgb(0, 169, 224, 0.8)
-  ),
-  url("assets/images/background.webp");
+      to right bottom,
+      rgb(0, 0, 102, 0.8),
+      rgb(0, 169, 224, 0.8)
+    ),
+    url("assets/images/background.webp");
   height: 95vh;
   background-size: cover;
   background-position: top;
@@ -44,7 +44,6 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
 
 .heading-primary {
   color: #fff;
@@ -286,6 +285,8 @@ fieldset label::before {
 .section-see-results {
   background-color: #00a9e0;
   text-align: center;
+  font-size: 1.2rem;
+  color: #777;
 }
 
 /** * * * * * * * * * * * * **/
@@ -328,11 +329,14 @@ fieldset label::before {
 .radar-description-radar {
   display: flex;
   flex-direction: column;
+  font-family: "Inter", sans-serif;
   gap: 2rem;
+  text-align: justify;
 }
 
 .section-title-radar {
   text-align: center;
+  font-family: "Inter", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -342,16 +346,6 @@ fieldset label::before {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
   line-height: 1.6;
-}
-
-.accordion-content {
-  display: none;
-  padding: 15px 0;
-  font-size: 10rem;
-}
-
-.accordion-item.active .accordion-content {
-  display: block;
 }
 
 /** * * * * * * * * * * * * **/
