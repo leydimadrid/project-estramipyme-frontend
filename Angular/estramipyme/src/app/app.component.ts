@@ -80,7 +80,8 @@ export class AppComponent implements OnInit {
     this.#navHeight = this.#nav.getBoundingClientRect().height;
     const startTest = this.el.nativeElement.querySelector('.start-test');
     this.#header = this.el.nativeElement.querySelector('.header');
-    this.#allSections = this.el.nativeElement.querySelectorAll('.section');
+    this.#allSections =
+      this.el.nativeElement.querySelectorAll('.section__main');
     this.#progress = document.getElementById('progreso');
 
     startTest.addEventListener('click', this._handlerStartTest.bind(this));
@@ -120,6 +121,8 @@ export class AppComponent implements OnInit {
     );
     headerObserver.observe(this.#header);
 
+    this._setupResultsButton();
+    // this._setupBorrarButton();
     this._setupResultsButton();
     // this._setupBorrarButton();
   }

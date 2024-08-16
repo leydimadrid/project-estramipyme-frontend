@@ -166,7 +166,7 @@ body {
   display: flex;
   width: 100%;
   height: 5px;
-  background-color: #46c69f;
+  background-color: #508f7d;
   top: 110px;
   left: 0;
   z-index: 500;
@@ -174,7 +174,7 @@ body {
 
 .progress {
   width: 75%;
-  background-color: #508f7d;
+  background-color: #000066;
 }
 
 /*MOBILE NAVIGATION*/
@@ -482,4 +482,54 @@ label input[type="checkbox"] {
 
 #register-form a:hover {
   color: #00a9e0;
+}
+
+/** * * * * * * * * * * * * **/
+/* VALIDACIÓN RESPUESTAS */
+/** * * * * * * * * * * * * **/
+
+.fieldset-error {
+  border: 2px solid #f0142c;
+  padding: 20px;
+  position: relative;
+}
+
+.fieldset-error::before {
+  content: "Este campo no puede estar vacío";
+  color: #f0142c;
+  position: absolute;
+  top: -10px;
+  left: 40px;
+}
+
+/** * * * * * * * * * * * * **/
+/* BOTÓN BORRAR RESPUESTAS*/
+/** * * * * * * * * * * * * **/
+
+.section-undo {
+  padding: 10px 10px;
+  margin-top: -80px;
+  text-align: right;
+  background-color: #f3f3f3;
+}
+
+.button-container {
+  display: inline-block;
+  margin-right: 15%;
+}
+
+.btn--borrar-formulario {
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #777;
+  border: 1px solid #ff8f1b;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn--borrar-formulario:hover {
+  background-color: #ff8f1b;
+  color: white;
 }
