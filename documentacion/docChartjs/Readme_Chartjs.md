@@ -213,6 +213,7 @@ Navega a `localhost:1234` en tu navegador web para ver el gráfico.
   - Se puede añadir accesibilidad usando atributos ARIA en el elemento canvas.
 - Colores
   Hay tres opciones para personalizar el color
+
   - Cambia colores de fondo y borde.
 
     - Cambia el color de la fuente.
@@ -225,6 +226,7 @@ Navega a `localhost:1234` en tu navegador web para ver el gráfico.
     - **Configuración por dataset:** Especifica `backgroundColor` y `borderColor` para cada conjunto de datos.
     - **Formatos de Color:** Hexadecimal, RGB/RGBA, HSL/HSLA.
     - **Patrones y Gradientes:** Puedes usar `CanvasPattern` o `CanvasGradient` para efectos especiales.
+
 - Estructuras de Datos
 
   - **Propiedad `data` del dataset:** Puede pasarse en varios formatos.
@@ -275,7 +277,7 @@ Navega a `localhost:1234` en tu navegador web para ver el gráfico.
 
   # Radar Chart
 
-  ![Untitled](Documentacio%CC%81n%20Demo%20Chart%20JS%2065aa7a2ce7924d48b103e6e1c37977d3/Untitled.png)
+  ![Untitled](src/radarChart.png)
   Es una forma de mostrar múltiples puntos de datos y la variación entre ellos. Son útiles para comparar los puntos de dos o más conjuntos de datos diferentes.
 
   - **Estructura de Datos**
