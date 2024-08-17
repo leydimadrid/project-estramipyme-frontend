@@ -532,6 +532,9 @@ label input[type="checkbox"] {
 }
 
 .btn--borrar-formulario {
+  display: flex;
+  align-items: center;
+  gap: 2px;
   padding: 8px 15px;
   font-size: 14px;
   background-color: #ffffff;
@@ -545,4 +548,9 @@ label input[type="checkbox"] {
 .btn--borrar-formulario:hover {
   background-color: #ff8f1b;
   color: white;
+}
+
+.trashIcon {
+  width: 1.5rem;
+  height: 1.5rem;
 }
