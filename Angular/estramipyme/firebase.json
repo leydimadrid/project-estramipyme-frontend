@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/estramipyme",
+    "public": "dist/estramipyme/browser",
     "ignore": [
       "firebase.json",
       "**/.*",
