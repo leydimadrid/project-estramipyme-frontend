@@ -554,3 +554,13 @@ label input[type="checkbox"] {
   width: 1.5rem;
   height: 1.5rem;
 }
+
+/*.datos-personales {*/
+/*  display: flex;*/
+/*  flex-direction: column;*/
+/*}*/
+
+#register-accept-data {
+  display: flex;
+  flex-direction: column;
+}
