@@ -1,21 +1,21 @@
-import { Component, ElementRef, inject, OnInit, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
-import { GraphsComponent } from './components/graphs/graphs.component';
+import {Component, ElementRef, inject, OnInit, signal} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {RouterOutlet} from '@angular/router';
+import {GraphsComponent} from './components/graphs/graphs.component';
 
-import { Question } from '@models/question.model';
-import { RenderFormDirective } from './directives/render-form.directive';
-import { FooterComponent } from './pages/components/footer/footer.component';
-import { GlobalProviderService } from '@services/global-provider.service';
-import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import {Question} from '@models/question.model';
+import {RenderFormDirective} from './directives/render-form.directive';
+import {FooterComponent} from './pages/components/footer/footer.component';
+import {GlobalProviderService} from '@services/global-provider.service';
+import {GraphCircleComponent} from './components/graph-circle/graph-circle.component';
+import {LoginComponent} from './pages/login/login.component';
+import {RegisterComponent} from './pages/register/register.component';
 
 type Answers =
   | {}
   | {
-      [key: string | number]: string;
-    };
+  [key: string | number]: string;
+};
 
 @Component({
   selector: 'app-root',
@@ -104,7 +104,7 @@ export class AppComponent implements OnInit {
       // Matching strategy
       if (e.target.classList.contains('nav__link')) {
         const id = e.target.getAttribute('href');
-        document.querySelector(id).scrollIntoView({ behavior: 'smooth' });
+        document.querySelector(id).scrollIntoView({behavior: 'smooth'});
       }
     });
     this.#allSections.forEach(function (section: HTMLHtmlElement) {
@@ -142,10 +142,9 @@ export class AppComponent implements OnInit {
   //   });
   // }
 
-  // resetForm(): void {
-  //   this.answers = {}; // Limpia las respuestas
-  //   this.progress.set(0); // Reinicia el progreso
-  // }
+  resetForm(): void {
+    this.globalProvider.reset()
+  }
 
   _revealSection(
     entries: IntersectionObserverEntry[],
@@ -192,7 +191,7 @@ export class AppComponent implements OnInit {
     // console.log(id)
     this.el.nativeElement
       .querySelector(id)
-      .scrollIntoView({ behavior: 'smooth' });
+      .scrollIntoView({behavior: 'smooth'});
   }
 
   _getProgress() {
@@ -231,44 +230,61 @@ export class AppComponent implements OnInit {
     }
 
     showResultsButton.addEventListener('click', () => {
-      const fieldsets = Array.from(
-        this.el.nativeElement.querySelectorAll('.form-container fieldset')
-      ) as HTMLFieldSetElement[];
+      const fieldsets = this.el.nativeElement.querySelectorAll('.form-container fieldset')
 
-      const fieldsetIds = fieldsets.map(
-        (fieldset) => fieldset.getAttribute('data-question-id') || ''
-      );
-
-      const unansweredFieldsets = fieldsetIds.filter(
-        (id) => !this.answers.hasOwnProperty(id)
-      );
+      // const fieldsetIds = fieldsets.map(
+      //   (fieldset) => fieldset.getAttribute('data-question-id') || ''
+      // );
+      //
+      // const unansweredFieldsets = fieldsetIds.filter(
+      //   (id) => !this.answers.hasOwnProperty(id)
+      // );
 
       // Resetear cualquier error previo
-      fieldsets.forEach((fieldset) => {
+      fieldsets.forEach((fieldset: HTMLHtmlElement) => {
         fieldset.classList.remove('fieldset-error');
       });
 
-      if (unansweredFieldsets.length > 0) {
-        const unansweredElements = Array.from(
-          this.el.nativeElement.querySelectorAll(
-            `.form-container fieldset[data-question-id="${unansweredFieldsets.join(
-              '"], .form-container fieldset[data-question-id="'
-            )}"]`
-          )
-        ) as HTMLFieldSetElement[];
+      if (Object.entries(this.globalProvider.answers()).length < this.globalProvider.numberOfQuestions) {
+        const answerIds = Object.keys(this.globalProvider.answers());
 
-        unansweredElements.forEach((fieldset) => {
-          if (fieldset) {
-            fieldset.classList.add('fieldset-error');
+        // const unansweredElements = Array.from(
+        //   this.el.nativeElement.querySelectorAll(
+        //     `.form-container fieldset[data-question-id="${unansweredFieldsets.join(
+        //       '"], .form-container fieldset[data-question-id="'
+        //     )}"]`
+        //   )
+        // ) as HTMLFieldSetElement[];
+        fieldsets.forEach((fieldset: HTMLHtmlElement) => {
+          const current = fieldset.getAttribute("data-question-id");
+          if (current) {
+            if (!answerIds.includes(current))
+              fieldset.classList.add('fieldset-error');
           }
         });
 
-        if (unansweredElements.length > 0 && unansweredElements[0]) {
-          unansweredElements[0].scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
+        const questionsKeys = Array.from({length: this.globalProvider.numberOfQuestions}, (_, i) => String(i + 1));
+
+
+        const queue = questionsKeys.filter(element => !answerIds.includes(element));
+
+        const currentTarget: HTMLHtmlElement = this.el.nativeElement.querySelector(`.form-container fieldset[data-question-id="${queue[0]}"]`)
+        currentTarget.scrollIntoView({
+          behavior: 'smooth',
+          block: 'center',
+        })
+        // unansweredElements.forEach((fieldset) => {
+        //   if (fieldset) {
+        //     fieldset.classList.add('fieldset-error');
+        //   }
+        // });
+
+        // if (unansweredElements.length > 0 && unansweredElements[0]) {
+        //   unansweredElements[0].scrollIntoView({
+        //     behavior: 'smooth',
+        //     block: 'center',
+        //   });
+        // }
       } else {
         console.log('Todas las preguntas han sido respondidas.');
         const radarSection =

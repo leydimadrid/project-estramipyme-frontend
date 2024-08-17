@@ -1,5 +1,5 @@
 <div class="modal">
-  <router-outlet />
+  <router-outlet/>
 </div>
 <header class="header">
   <button (click)="toggleLogin()">login</button>
@@ -239,7 +239,7 @@
   </section>
   <section class="section section-undo">
     <div class="button-container">
-      <button class="btn--borrar-formulario" id="borrarBtn">
+      <button class="btn--borrar-formulario" id="borrarBtn" (click)="resetForm()">
         Borrar Respuestas
       </button>
     </div>
@@ -248,14 +248,14 @@
   <section class="section section-see-results">
     <div class="section-intro">
       <h3 class="section__header">
-        ¡Gracias por completar el formulario! <br />
+        ¡Gracias por completar el formulario! <br/>
         Apreciamos tu tiempo y colaboración.
       </h3>
     </div>
     <button class="btn btn--show-modal">Ver resultados!</button>
   </section>
-  <app-graphs />
+  <app-graphs/>
   <app-graph-circle></app-graph-circle>
   <!--  <canvas id="myChart" class="myChart"></canvas>-->
-  <app-footer />
+  <app-footer/>
 </main>

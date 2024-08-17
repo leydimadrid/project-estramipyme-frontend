@@ -1,12 +1,12 @@
-import { computed, effect, inject, Injectable, signal } from '@angular/core';
-import { DataProcService } from '@services/data-proc.service';
-import { BehaviorSubject } from 'rxjs';
+import {computed, effect, inject, Injectable, signal} from '@angular/core';
+import {DataProcService} from '@services/data-proc.service';
+import {BehaviorSubject} from 'rxjs';
 
 type Answer =
   | {}
   | {
-      [key: number]: string;
-    };
+  [key: number]: string;
+};
 
 export interface Circle {
   what: number[];
@@ -97,7 +97,7 @@ export class GlobalProviderService {
     };
 
     this.answers.update((prevValue) => {
-      return { ...prevValue, ...newValue };
+      return {...prevValue, ...newValue};
     });
     localStorage.setItem('estramipyme', JSON.stringify(this.answers()));
     this.getProgress();
@@ -111,7 +111,7 @@ export class GlobalProviderService {
     const data: object = JSON.parse(storedDataString);
     if (!data) return;
     this.answers.update(() => {
-      return { ...this.answers(), ...data };
+      return {...this.answers(), ...data};
     });
     this.getProgress();
     this.getRadarData();
@@ -224,5 +224,11 @@ export class GlobalProviderService {
 
   getCircleData() {
     this.CircleData.next(this.getCircle());
+  }
+
+  reset() {
+    this.answers.set({})
+    localStorage.removeItem("estramipyme");
+    this.progress.next(0)
   }
 }
