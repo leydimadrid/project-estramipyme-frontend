@@ -27,11 +27,11 @@ body {
 .header {
   padding: 2rem;
   background-image: linear-gradient(
-      to right bottom,
-      rgb(0, 0, 102, 0.8),
-      rgb(0, 169, 224, 0.8)
-    ),
-    url("assets/images/background.webp");
+    to right bottom,
+    rgb(0, 0, 102, 0.8),
+    rgb(0, 169, 224, 0.8)
+  ),
+  url("assets/images/background.webp");
   height: 95vh;
   background-size: cover;
   background-position: top;
@@ -416,10 +416,11 @@ fieldset label::before {
 
 #register-form input,
 #register-form select {
-  padding: 0.75rem;
+  padding: 0.3rem;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
+  width: 100%;
 }
 
 #register-form input[type="checkbox"] {
@@ -484,10 +485,22 @@ label input[type="checkbox"] {
   color: #00a9e0;
 }
 
+/*STYLES FORMS*/
+
+.register-form__item {
+  margin-top: 1rem;
+}
+
+.heading-form {
+  color: #ff8f1b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
 /** * * * * * * * * * * * * **/
 /* VALIDACIÓN RESPUESTAS */
 /** * * * * * * * * * * * * **/
-
 .fieldset-error {
   border: 2px solid #f0142c;
   padding: 20px;
