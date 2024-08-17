@@ -45,7 +45,6 @@ body {
   text-align: center;
 }
 
-
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -167,7 +166,7 @@ body {
   display: flex;
   width: 100%;
   height: 5px;
-  background-color: #46c69f;
+  background-color: #508f7d;
   top: 110px;
   left: 0;
   z-index: 500;
@@ -175,7 +174,7 @@ body {
 
 .progress {
   width: 75%;
-  background-color: #508f7d;
+  background-color: #000066;
 }
 
 /*MOBILE NAVIGATION*/
@@ -286,6 +285,8 @@ fieldset label::before {
 .section-see-results {
   background-color: #00a9e0;
   text-align: center;
+  font-size: 1.2rem;
+  color: #777;
 }
 
 /** * * * * * * * * * * * * **/
@@ -328,11 +329,14 @@ fieldset label::before {
 .radar-description-radar {
   display: flex;
   flex-direction: column;
+  font-family: "Inter", sans-serif;
   gap: 2rem;
+  text-align: justify;
 }
 
 .section-title-radar {
   text-align: center;
+  font-family: "Inter", sans-serif;
   font-size: 2rem;
   margin-bottom: 1rem;
 }
@@ -342,16 +346,6 @@ fieldset label::before {
   margin-bottom: 1.5rem;
   font-size: 1.2rem;
   line-height: 1.6;
-}
-
-.accordion-content {
-  display: none;
-  padding: 15px 0;
-  font-size: 10rem;
-}
-
-.accordion-item.active .accordion-content {
-  display: block;
 }
 
 /** * * * * * * * * * * * * **/
@@ -422,10 +416,11 @@ fieldset label::before {
 
 #register-form input,
 #register-form select {
-  padding: 0.75rem;
+  padding: 0.3rem;
   border: 1px solid #ddd;
   border-radius: 5px;
   font-size: 1rem;
+  width: 100%;
 }
 
 #register-form input[type="checkbox"] {
@@ -488,4 +483,74 @@ label input[type="checkbox"] {
 
 #register-form a:hover {
   color: #00a9e0;
+}
+
+/*STYLES FORMS*/
+
+.register-form__item {
+  margin-top: 1rem;
+}
+
+.heading-form {
+  color: #ff8f1b;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-align: center;
+}
+
+/** * * * * * * * * * * * * **/
+/* VALIDACIÓN RESPUESTAS */
+/** * * * * * * * * * * * * **/
+.fieldset-error {
+  border: 2px solid #f0142c;
+  padding: 20px;
+  position: relative;
+}
+
+.fieldset-error::before {
+  content: "Este campo no puede estar vacío";
+  color: #f0142c;
+  position: absolute;
+  top: -10px;
+  left: 40px;
+}
+
+/** * * * * * * * * * * * * **/
+/* BOTÓN BORRAR RESPUESTAS*/
+/** * * * * * * * * * * * * **/
+
+.section-undo {
+  padding: 10px 10px;
+  margin-top: -80px;
+  text-align: right;
+  background-color: #f3f3f3;
+}
+
+.button-container {
+  display: inline-block;
+  margin-right: 15%;
+}
+
+.btn--borrar-formulario {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 8px 15px;
+  font-size: 14px;
+  background-color: #ffffff;
+  color: #777;
+  border: 1px solid #ff8f1b;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn--borrar-formulario:hover {
+  background-color: #ff8f1b;
+  color: white;
+}
+
+.trashIcon {
+  width: 1.5rem;
+  height: 1.5rem;
 }

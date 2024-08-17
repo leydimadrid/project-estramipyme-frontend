@@ -13,8 +13,12 @@ export class RenderFormDirective {
   @Input({required: true}) url!: string;
 
   private dataProc = inject(DataProcService)
-  private provider = inject(GlobalProviderService)
   private form!: HTMLFormElement | undefined;
+  private provider!: GlobalProviderService;
+
+  constructor(provider: GlobalProviderService) {
+    this.provider = provider
+  }
 
   ngOnInit() {
     //const url = "http://localhost:3000/questions"
@@ -40,7 +44,9 @@ export class RenderFormDirective {
     })
     //this._getLocalStorage()
 
-
+    this.provider.Progress$.subscribe(progress => {
+      if (progress === 0) this.element.nativeElement.querySelector('.form--1').reset()
+    })
   }
 
   _createForm(data: Question[], id: String | number) {
