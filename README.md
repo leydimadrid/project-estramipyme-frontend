@@ -32,8 +32,8 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
 
 - **Registro e Inicio de Sesión:** Los usuarios pueden registrarse o iniciar sesión desde una página con un diseño intuitivo para garantizar un acceso sencillo. <br> En la sección _registrarse_, los usuarios deben especificar su tipo de persona (natural/jurídica), tipo de documento, el sector en el que se encuentra su empresa, entre otros datos básicos de registro.
 <p style="text-align: center;">
- <img src="images/login.png" alt="Login" width="500"/>
- <img src="images/registro.png" alt="Registro" width="500"/>
+ <img src="images/Login.png" alt="Login" width="500"/>
+ <img src="images/Registro.png" alt="Registro" width="500"/>
  <img src="images/menuRegistro.jpg" alt="Menu Desplegable" width="500"/> </p>
 
 - **Cuestionarios Dinámicos:** Después de iniciar sesión y hacer clic en el botón _Comenzar Test_, los usuarios son dirigidos a la primera sección de cuestionarios en una sola página. Este diseño facilita la recopilación de datos y la evaluación de diferentes aspectos del negocio, alimentando el Radar Estratégico Organizacional y el Círculo Dorado de Sinek.
