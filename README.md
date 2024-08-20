@@ -72,6 +72,11 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <a href="https://estramipime.web.app/"><strong>Visita Estramipyme aquí</strong></a>
 </p>
 
+
+<p style="text-align: center;">
+  <a href="https://view.genially.com/66bd54d7c5ecc5bc824909c4/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme</strong></a>
+</p>
+
 ## **Valores de Estramipyme**
 
 - Innovación - <img src="images/icon/innovacion.png" alt="Innovacion" width="25"/>
