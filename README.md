@@ -93,7 +93,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <img src="images/equipo/Leo.jpeg" alt="Foto de Leo" width="120" style="border-radius: 40%;"/>
 </p>
 
-**Cargo:** Desarrollador Web - Team Lead <br> **Funciones:** Liderazgo, Desarrollo, Programación, Diseño, Funcionalidad.
+**Cargo:** Desarrollador Web - Team Lead <br> **Funciones:** Liderazgo, Investigación, Programación, Diseño, Funcionalidad.
 
 <h2 style="text-align: center;">Angie</h2>
 
@@ -101,7 +101,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <img src="images/equipo/Angie.jpeg" alt="Foto de Angie" width="120" style="border-radius: 40%;"/>
 </p>
 
-**Cargo:** Desarolladora Web <br> **Funciones:** Diseño, Desarrollo, Programación, Funcionalidad.
+**Cargo:** Desarolladora Web <br> **Funciones:** Diseño, Investigación, Programación, Funcionalidad.
 
 <h2 style="text-align: center;">Sebas</h2>
 
@@ -109,7 +109,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <img src="images/equipo/Sebas.jpeg" alt="Foto de Sebas" width="120" style="border-radius: 40%;"/>
 </p>
 
-**Cargo:** Desarollador Web <br> **Funciones:** Desarrollo, Programación, Diseño, Funcionalidad.
+**Cargo:** Desarollador Web <br> **Funciones:** Programación, Diseño, Funcionalidad.
 
 <h2 style="text-align: center;">Ale</h2>
 
@@ -117,7 +117,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <img src="images/equipo/Ale.jpeg" alt="Foto de Ale" width="120" style="border-radius: 40%;"/>
 </p>
 
-**Cargo:** Desarrolladora Web <br> **Funciones:** Diseño, Desarrollo, Programación.
+**Cargo:** Desarrolladora Web <br> **Funciones:** Investigación, Programación, Diseño.
 
 <h2 style="text-align: center;">Yuli</h2>
 
@@ -125,15 +125,15 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <img src="images/equipo/Yuli.jpeg" alt="Foto de Yuli" width="120" style="border-radius: 40%;"/>
 </p>
 
-**Cargo:** Desarolladora Web <br> **Funciones:** Desarrollo, Programación, Funcionalidad.
+**Cargo:** Desarolladora Web <br> **Funciones:** Investigación, Programación,  Diseño.
 
-<h2 style="text-align: center;">Carlitos</h2>
+<h2 style="text-align: center;">Carlos</h2>
 
 <p style="text-align: center;">
   <img src="images/equipo/Carlos.jpeg" alt="Foto de Carlos" width="120" style="border-radius: 40%;"/>
 </p>
 
-**Cargo:** Desarollador Web <br> **Funciones:** Desarrollo, Programación, Funcionalidad.
+**Cargo:** Desarollador Web <br> **Funciones:** Investigación, Programación, Funcionalidad.
 
 ## **Tecnologías Utilizadas**
 
