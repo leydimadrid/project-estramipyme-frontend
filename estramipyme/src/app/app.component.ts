@@ -10,6 +10,8 @@ import { GlobalProviderService } from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
+import { AuthService } from '@services/auth.service';
 
 type Answers =
   | {}
@@ -29,6 +31,7 @@ type Answers =
     GraphCircleComponent,
     LoginComponent,
     RegisterComponent,
+    PdfGeneratorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -50,10 +53,16 @@ export class AppComponent implements OnInit {
 
   // private provider = inject(GlobalProviderService)
   globalProvider!: GlobalProviderService;
+  authService!: AuthService;
 
-  constructor(el: ElementRef, globalProvider: GlobalProviderService) {
+  constructor(
+    el: ElementRef,
+    globalProvider: GlobalProviderService,
+    authService: AuthService
+  ) {
     this.el = el;
     this.globalProvider = globalProvider;
+    this.authService = authService;
   }
 
   toggleLogin() {
@@ -65,7 +74,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.globalProvider.IsLogged$.subscribe((value) => {
+    this.authService.IsLogged$.subscribe((value) => {
       this.isLoged.set(value);
     });
 

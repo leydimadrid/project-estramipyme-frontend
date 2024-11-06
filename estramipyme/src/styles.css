@@ -5,6 +5,7 @@
   box-sizing: border-box;
 }
 
+
 body {
   font-family: "Inter", sans-serif;
   font-weight: 400;
@@ -496,7 +497,7 @@ label input[type="checkbox"] {
 }
 
 .heading-form {
-  color: #ff8f1b;
+  color: white;
   text-transform: uppercase;
   letter-spacing: 1px;
   text-align: center;

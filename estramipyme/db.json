@@ -436,13 +436,13 @@
       ]
     },
     {
-      "id": 52,
+      "id": "52",
       "section": "financiera",
       "question": "¿Qué porcentaje de los ingresos proviene de las principales líneas de productos o servicios?",
       "options": ["20%", "40%", "80%", "100%"]
     },
     {
-      "id": 53,
+      "id": "53",
       "section": "financiera",
       "question": "¿Cómo ha variado el margen bruto de la empresa en los últimos tres años?",
       "options": [
@@ -453,7 +453,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": "54",
       "section": "financiera",
       "question": "¿Cuál es la relación deuda-capital de la empresa?",
       "options": [
@@ -464,7 +464,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": "55",
       "section": "financiera",
       "question": "¿Cuál es la proporción de gastos operativos en relación con los ingresos totales?",
       "options": [
@@ -475,7 +475,7 @@
       ]
     },
     {
-      "id": 56,
+      "id": "56",
       "section": "financiera",
       "question": "¿Qué porcentaje de las cuentas por cobrar son incobrables o están en riesgo?",
       "options": [
@@ -486,25 +486,25 @@
       ]
     },
     {
-      "id": 57,
+      "id": "57",
       "section": "financiera",
       "question": "¿Cómo se compara la rentabilidad neta de la empresa con la de sus competidores?",
       "options": ["Mucho menor", "Menor", "Mayor", "Mucho mayor"]
     },
     {
-      "id": 58,
+      "id": "58",
       "section": "financiera",
       "question": "¿Cuál es la capacidad de la empresa para generar flujo de caja operativo positivo?",
       "options": ["Muy baja ", "Baja", "Alta", "Muy alta"]
     },
     {
-      "id": 59,
+      "id": "59",
       "section": "financiera",
       "question": "¿Cuál es el nivel actual de liquidez de la empresa?",
       "options": ["Muy bajo ", "Bajo", "Alto", "Muy alto"]
     },
     {
-      "id": 60,
+      "id": "60",
       "section": "financiera",
       "question": "¿Cuál es la rotación de personal de la empresa?",
       "options": [
@@ -515,7 +515,7 @@
       ]
     },
     {
-      "id": 61,
+      "id": "61",
       "section": "financiera",
       "question": "¿Qué porcentaje de los ingresos proviene de clientes recurrentes?",
       "options": [

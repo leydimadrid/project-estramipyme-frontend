@@ -1,51 +1,40 @@
-import {Component} from '@angular/core';
-import {Router} from "@angular/router";
-import {FormsModule, NgForm} from "@angular/forms";
-import {DataProcService} from "@services/data-proc.service";
-import {RegisterDataModel} from "@models/registerdata.models";
-import {GlobalProviderService} from "@services/global-provider.service";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { FormsModule, NgForm } from '@angular/forms';
+import { DataProcService } from '@services/data-proc.service';
+import { RegisterDataModel } from '@models/registerdata.models';
+import { GlobalProviderService } from '@services/global-provider.service';
+import { AuthService } from '@services/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  styleUrl: './login.component.css',
 })
 export class LoginComponent {
-  router!: Router;
-  dataproc!: DataProcService;
-  globalProvider!: GlobalProviderService;
+  credentials = { email: '', password: '' };
 
-  constructor(router: Router, dataproc: DataProcService, globalProvider: GlobalProviderService) {
-    this.router = router;
-    this.dataproc = dataproc
-    this.globalProvider = globalProvider
-  }
+  constructor(private router: Router, private authService: AuthService) {}
 
   navigateTo(path: string) {
-    this.router.navigate([path])
+    this.router.navigate([path]);
   }
 
-
   onSubmit(form: NgForm) {
-    if (!form.valid) return;
-    const values = form.value as RegisterDataModel
-    const url = `http://localhost:3000/users/?email=${values.email}`
-
-    this.dataproc.getData(url).subscribe({
-      next: (response) => {
-        const res = response as RegisterDataModel[];
-        res.forEach(item => {
-          if (item.password === values.password) {
-            this.globalProvider.setLogging(true)
-            this.navigateTo("")
-          }
-        });
-      },
-      error: err => {
-        console.error('Data ', err)
-      }
-    })
+    if (form.valid) {
+      this.authService.login(this.credentials).subscribe({
+        next: (response) => {
+          console.log("Inicio de sesión exitoso");
+          this.authService.setLogging(true);
+          this.navigateTo("/continuar")
+        },
+        error: (err) => {
+          console.log('Error en el inicio de sesión:', err);
+        },
+      });
+    }
   }
 }
