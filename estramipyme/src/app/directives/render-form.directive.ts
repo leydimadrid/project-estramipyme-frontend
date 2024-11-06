@@ -66,10 +66,11 @@ export class RenderFormDirective {
       fieldset.classList.add(`question--${q.id}`);
       fieldset.setAttribute('data-question-id', String(q.id));
       const legend = document.createElement('legend');
-      legend.textContent = q.question;
+      //legend.textContent = q.question;
 
       fieldset.append(legend);
       formElement.append(fieldset);
+      /*
       q.options.forEach((op: String, index: any) => {
         const label = document.createElement('label');
         const input = document.createElement('input');
@@ -86,6 +87,7 @@ export class RenderFormDirective {
 
         fieldset.append(label);
       });
+      */
     });
     return formElement;
   }

@@ -10,6 +10,10 @@ import { GlobalProviderService } from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { Form } from '@models/form.model';
+import { FormService } from '@services/form.service';
+import { from } from 'rxjs';
+import Swal from 'sweetalert2';
 
 type Answers =
   | {}
@@ -24,7 +28,6 @@ type Answers =
     CommonModule,
     RouterOutlet,
     GraphsComponent,
-    RenderFormDirective,
     FooterComponent,
     GraphCircleComponent,
     LoginComponent,
@@ -51,9 +54,18 @@ export class AppComponent implements OnInit {
   // private provider = inject(GlobalProviderService)
   globalProvider!: GlobalProviderService;
 
-  constructor(el: ElementRef, globalProvider: GlobalProviderService) {
+  //Listado form
+  formsData : Form[] = [];
+  //Servicio form
+  private formService! : FormService;
+  isLoading = false;
+
+  constructor(el: ElementRef, 
+    globalProvider: GlobalProviderService,
+    formService : FormService) {
     this.el = el;
     this.globalProvider = globalProvider;
+    this.formService = formService;
   }
 
   toggleLogin() {
@@ -64,14 +76,44 @@ export class AppComponent implements OnInit {
     this.mobileOpen.update((prevValue) => !prevValue);
   }
 
+  loadForms(){
+    this.isLoading = true;
+    this.formService.getForms().subscribe({
+      next: (_forms) =>{
+        this.formsData = _forms;
+        console.log(_forms);
+        this.isLoading = false;
+      },
+      error: (err) =>{
+        console.error(err.message);
+        Swal.fire({
+          position: "top-end",
+          icon: "error",
+          title: err.message,
+          showConfirmButton: false,
+          timer: 2500
+        });
+        this.isLoading = false;
+      }
+    });
+  }
+
   ngOnInit() {
     this.globalProvider.IsLogged$.subscribe((value) => {
       this.isLoged.set(value);
+      if(this.isLoged()){
+        //cargar forms
+        this.loadForms();
+      }
     });
 
     this.globalProvider.Progress$.subscribe((value) => {
       this.progress.set(value);
     });
+
+   
+    
+
     this.#navLinks = this.el.nativeElement.querySelector('.nav__links');
     this.#nav = this.el.nativeElement.querySelector('.nav');
     this.#navHeight = this.#nav.getBoundingClientRect().height;
