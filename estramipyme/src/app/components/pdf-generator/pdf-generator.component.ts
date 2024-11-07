@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
+
+
 
 @Component({
   selector: 'app-pdf-generator',
@@ -7,8 +9,11 @@ import { Component } from '@angular/core';
   templateUrl: './pdf-generator.component.html',
   styleUrl: './pdf-generator.component.css'
 })
+
 export class PdfGeneratorComponent {
   clickPdf(){
     alert('Aquí tienes tu reporte')
   }
 }
+
+

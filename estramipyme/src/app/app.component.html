@@ -1,3 +1,4 @@
+
 <div class="modal">
   <router-outlet />
 </div>
@@ -242,9 +243,17 @@
         Apreciamos tu tiempo y colaboración.
       </h3>
     </div>
-    <button class="btn btn--show-modal">Ver resultados!</button>
+    <button class="btn btn--show-modal" (click)="gotoReport()">Ver resultados!</button>
   </section>
+
+  <div id="report">
+    <app-pdf-generator></app-pdf-generator>
+  </div>
+
+  <!--
   <app-graphs />
   <app-graph-circle></app-graph-circle>
   <app-footer />
+  -->
 </main>
+

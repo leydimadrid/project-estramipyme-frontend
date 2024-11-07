@@ -1,10 +1,10 @@
 .main {
   margin: 40px auto;
   border: 1px solid rgb(161, 160, 160);
-  width: 600px;
+  width: 850px;
   border-radius: 10px;
   background-color: white;
-  height: 1250px;
+  height: auto;
 }
 
 .main__top{
@@ -50,4 +50,7 @@ h2 {
   cursor: pointer;
 }
 
+p {
+  margin: 20px 20px;
+}
 
