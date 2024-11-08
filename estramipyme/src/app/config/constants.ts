@@ -1,6 +1,7 @@
 export const API_CONSTANTS = {
     BASE_URL: 'http://localhost:8081', //Configurar ambiente
-    FORMS_ENDPOINT: '/api/form/getForm'
+    GETFORMS_ENDPOINT: '/api/form/getForm',
+    POSTTEST_ENDPOINT: '/api/test/newTest'
 };
 
 export const APP_SETTINGS = {

@@ -14,6 +14,8 @@ import { Form } from '@models/form.model';
 import { FormService } from '@services/form.service';
 import { from } from 'rxjs';
 import Swal from 'sweetalert2';
+import { TestService } from '@services/test.service';
+import { TestRequestDTO } from './DTO/testRequestDTO';
 
 type Answers =
   | {}
@@ -58,14 +60,18 @@ export class AppComponent implements OnInit {
   formsData : Form[] = [];
   //Servicio form
   private formService! : FormService;
+  private testService! : TestService;
   isLoading = false;
+  private testData! : TestRequestDTO;
 
   constructor(el: ElementRef, 
     globalProvider: GlobalProviderService,
-    formService : FormService) {
+    formService : FormService,
+    testService : TestService) {
     this.el = el;
     this.globalProvider = globalProvider;
     this.formService = formService;
+    this.testService = testService;
   }
 
   toggleLogin() {
@@ -78,24 +84,60 @@ export class AppComponent implements OnInit {
 
   loadForms(){
     this.isLoading = true;
-    this.formService.getForms().subscribe({
-      next: (_forms) =>{
-        this.formsData = _forms;
-        console.log(_forms);
-        this.isLoading = false;
-      },
-      error: (err) =>{
-        console.error(err.message);
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: err.message,
-          showConfirmButton: false,
-          timer: 2500
+    try{
+      this.formService.getForms().subscribe({
+        next: (_forms) =>{
+          this.formsData = _forms;
+          console.log(_forms);
+          this.isLoading = false;
+        },
+        error: (err) =>{
+          console.error(err.message);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: err.message,
+            showConfirmButton: false,
+            timer: 2500
+          });
+          this.isLoading = false;
+        }
+      });
+    }catch(error){
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error realizando la consulta API",
+        showConfirmButton: false,
+        timer: 2500
+      });
+      console.error(error);
+      this.isLoading = false;
+    }   
+  }
+
+
+  onOptionSelect(formId: number,questionId: number, optionId: number) {
+    try{
+      // Encuentra la pregunta correspondiente
+      const question = this.formsData.find(f => f.id == formId)?.questions.find(q => q.id === questionId);
+      if (question) {
+        // Recorre las opciones y ajusta la propiedad `selected`
+        question.questionOptions.forEach(option => {
+          option.selected = option.id === optionId;
         });
-        this.isLoading = false;
       }
-    });
+      console.log(this.formsData);
+    }catch(error){
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error al seleccionar la respuesta",
+        showConfirmButton: false,
+        timer: 2500
+      });
+      console.error(error);
+    }    
   }
 
   ngOnInit() {
@@ -225,6 +267,104 @@ export class AppComponent implements OnInit {
     else this.#nav.classList.remove('hidden');
   }
 
+  completeQuestionsValidate(){
+
+    let validation = true;
+
+    const fieldsets = this.el.nativeElement.querySelectorAll(
+      '.form--1 fieldset'
+    );
+
+    // Resetear cualquier error previo
+    fieldsets.forEach((fieldset: HTMLHtmlElement) => {
+      fieldset.classList.remove('fieldset-error');
+    });
+
+    this.formsData.map((form) =>{
+      form.questions.map((question) =>{
+        let opcionSeleccionada = question.questionOptions.filter(x => x.selected !== null && x.selected === true);
+        console.log(opcionSeleccionada);
+        if(opcionSeleccionada.length == 0){
+          console.log("En la pregunta " + question.statement + " no se selecciono nada");
+          const fieldsets = this.el.nativeElement.querySelectorAll(
+            '.Q'+question.id
+          );
+          console.log(fieldsets);
+          // Resetear cualquier error previo
+          fieldsets.forEach((fieldset: HTMLHtmlElement) => {
+            fieldset.classList.add('fieldset-error');
+          });
+          validation = false;
+        }
+
+      });
+    });
+    return validation;
+  }
+
+  onSaveResults(){
+    if(this.completeQuestionsValidate()){
+      this.saveTest();
+    }
+  }
+
+
+  saveTest(){
+    this.isLoading = true;
+    try{
+
+
+      let ids : number[] = [];
+
+      this.formsData.map(f=>{
+        f.questions.map(q=>{
+          q.questionOptions.map(qo=>{
+            if(qo.selected){
+              ids.push(qo.id);
+            }
+          });
+        });
+      });
+
+      this.testData = {
+        id: 0,
+        user_id: 2, //TODO: AJUSTAR CON LOGIN
+        date: new Date(),
+        answers_option_ids: ids
+      }
+
+      console.log(this.testData);
+
+      this.testService.saveTest(this.testData).subscribe({
+        next: (_test) =>{
+          console.log(_test);
+          this.isLoading = false;
+        },
+        error: (err) =>{
+          console.error(err.message);
+          Swal.fire({
+            position: "top-end",
+            icon: "error",
+            title: err.message,
+            showConfirmButton: false,
+            timer: 2500
+          });
+          this.isLoading = false;
+        }
+      });
+    }catch(error){
+      Swal.fire({
+        position: "top-end",
+        icon: "error",
+        title: "Error realizando la consulta API",
+        showConfirmButton: false,
+        timer: 2500
+      });
+      console.error(error);
+      this.isLoading = false;
+    }   
+  }
+
   _setupResultsButton() {
     const showResultsButton = this.el.nativeElement.querySelector(
       '.section-see-results .btn--show-modal'
@@ -235,15 +375,24 @@ export class AppComponent implements OnInit {
       return;
     }
 
+    
+/*
     showResultsButton.addEventListener('click', () => {
+
+      this.completeQuestionsValidate();
+
+    
       const fieldsets = this.el.nativeElement.querySelectorAll(
-        '.form-container fieldset'
+        '.form--1 fieldset'
       );
 
       // Resetear cualquier error previo
       fieldsets.forEach((fieldset: HTMLHtmlElement) => {
         fieldset.classList.remove('fieldset-error');
       });
+
+      console.log(this.globalProvider.answers());
+      console.log(this.globalProvider.numberOfQuestions);
 
       if (
         Object.entries(this.globalProvider.answers()).length <
@@ -288,5 +437,6 @@ export class AppComponent implements OnInit {
         }
       }
     });
+    */
   }
 }

@@ -111,10 +111,19 @@
 
 
     <form class="form--1" *ngFor="let question of form.questions; let j = index">
-      <fieldset class="questions question--1" data-question-id="1">
+      <fieldset class="questions question--1 Q{{question.id}}">
         <legend>{{question.statement}}</legend>
-        <label *ngFor="let option of question.questionOptions; let k = index">
-          <input type="radio" name="Q1" value="1" class="radioinput radioinput__section--1" data-id="1-1">{{option.option.text}}
+        <label *ngFor="let questionOption of question.questionOptions; let k = index">
+           <!--<input type="radio" name="Q1" value={{questionOption.id}} class="radioinput radioinput__section--1" data-id="1-1">-->
+           <input
+        type="radio"
+        [name]="'QO' + question.id"
+        [value]="questionOption.id"
+        (change)="onOptionSelect(form.id,question.id, questionOption.id)"
+        class="radioinput radioinput__section--1"
+        [checked]="questionOption.selected"
+      />
+           {{questionOption.option.text}}
         </label>
       </fieldset>
     </form>
@@ -169,7 +178,7 @@
         Apreciamos tu tiempo y colaboración.
       </h3>
     </div>
-    <button class="btn btn--show-modal">Ver resultados!</button>
+    <button (click)="onSaveResults()" class="btn btn--show-modal">Ver resultados!</button>
   </section>
   <app-graphs />
   <app-graph-circle></app-graph-circle>

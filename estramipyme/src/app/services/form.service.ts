@@ -11,7 +11,7 @@ export class FormService{
     private http = inject(HttpClient);
 
     getForms(){
-        let endpoint = API_CONSTANTS.BASE_URL + API_CONSTANTS.FORMS_ENDPOINT;
+        let endpoint = API_CONSTANTS.BASE_URL + API_CONSTANTS.GETFORMS_ENDPOINT;
         return this.http.get<Form[]>(endpoint)
     }
    
