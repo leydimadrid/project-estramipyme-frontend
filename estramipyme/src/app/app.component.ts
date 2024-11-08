@@ -10,6 +10,7 @@ import { GlobalProviderService } from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 
 type Answers =
   | {}
@@ -29,6 +30,7 @@ type Answers =
     GraphCircleComponent,
     LoginComponent,
     RegisterComponent,
+    PdfGeneratorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -54,6 +56,13 @@ export class AppComponent implements OnInit {
   constructor(el: ElementRef, globalProvider: GlobalProviderService) {
     this.el = el;
     this.globalProvider = globalProvider;
+  }
+
+  gotoReport() {
+    const reportSection = document.getElementById("report");
+    if(reportSection) {
+      reportSection.scrollIntoView({behavior: 'smooth', block:'start'})
+    }
   }
 
   toggleLogin() {
@@ -195,7 +204,7 @@ export class AppComponent implements OnInit {
 
     showResultsButton.addEventListener('click', () => {
       const fieldsets = this.el.nativeElement.querySelectorAll(
-        '.form-container fieldset'
+       '.form-container fieldset'
       );
 
       // Resetear cualquier error previo

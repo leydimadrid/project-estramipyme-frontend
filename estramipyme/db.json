@@ -4,67 +4,122 @@
       "id": "1",
       "section": "cliente",
       "question": "¿Qué tan precisa es la información demográfica de sus clientes (edad, género, ubicación, etc.) en su base de datos?",
-      "options": ["Notengo", "Muy poco", "Buena", "excelente"]
+      "options": [
+        "Notengo",
+        "Muy poco",
+        "Buena",
+        "excelente"
+      ]
     },
     {
       "id": "2",
       "section": "cliente",
       "question": "¿Qué tan bien comprende el historial de compras las preferencias y los patrones de gastos de sus clientes?",
-      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "Lo desconozco",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "3",
       "section": "cliente",
       "question": "¿Qué tan bien identifica las necesidades, deseos y motivaciones de sus diferentes segmentos de clientes?",
-      "options": ["Lo desconozco", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "Lo desconozco",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "4",
       "section": "cliente",
       "question": "¿Qué tan bien conoce los canales de comunicación preferidos de sus clientes (correo electrónico, redes sociales, teléfono, etc.)?",
-      "options": ["No los conozco", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "No los conozco",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "5",
       "section": "cliente",
       "question": "¿Qué tan bien mide y comprende la satisfacción de sus clientes con sus productos, servicios y experiencias?",
-      "options": ["No los mido", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "No los mido",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "6",
       "section": "cliente",
       "question": "¿Qué tan bien identifica y retiene a sus clientes más valiosos y leales?",
-      "options": ["No lo aplico", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "No lo aplico",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "7",
       "section": "cliente",
       "question": "¿Qué tan efectiva es su segmentación de clientes para crear campañas y ofertas personalizadas?",
-      "options": ["No lo aplico", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "No lo aplico",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "8",
       "section": "cliente",
       "question": "¿Qué tan bien utiliza los datos de sus clientes para obtener información y tomar decisiones estratégicas?",
-      "options": ["No la utilizo", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "No la utilizo",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "9",
       "section": "cliente",
       "question": "¿Qué tan bien personaliza las experiencias de sus clientes en sus diferentes canales de interacción?",
-      "options": ["No lo aplico", "Muy poco", "Bien", "Excelente"]
+      "options": [
+        "No lo aplico",
+        "Muy poco",
+        "Bien",
+        "Excelente"
+      ]
     },
     {
       "id": "10",
       "section": "cliente",
       "question": "¿Qué tan bien recopila y utiliza la retroalimentación de los clientes para mejorar sus productos, servicios y experiencias?",
-      "options": ["Nunca", "Muy poco", "Bien", "excelente"]
+      "options": [
+        "Nunca",
+        "Muy poco",
+        "Bien",
+        "excelente"
+      ]
     },
     {
       "id": "11",
       "section": "negocio",
       "question": "¿Qué tan positivo es tu flujo de caja cada mes?",
-      "options": ["Muy positivo", "positivo", "Negativo", "Muy negativo"]
+      "options": [
+        "Muy positivo",
+        "positivo",
+        "Negativo",
+        "Muy negativo"
+      ]
     },
     {
       "id": "12",
@@ -81,19 +136,34 @@
       "id": "13",
       "section": "negocio",
       "question": "¿Cuántas devoluciones por producto o servicio se tuvieron el  mes pasado?",
-      "options": ["Más del 50%", "Más del 25%", "Más del 15%", "Ninguno"]
+      "options": [
+        "Más del 50%",
+        "Más del 25%",
+        "Más del 15%",
+        "Ninguno"
+      ]
     },
     {
       "id": "14",
       "section": "negocio",
       "question": "¿Cuál es el porcentaje de participación de mercado que tienen  en el sector?",
-      "options": ["Más del 90%", "Más del 70%", "Más del 40%", "Más del 20%"]
+      "options": [
+        "Más del 90%",
+        "Más del 70%",
+        "Más del 40%",
+        "Más del 20%"
+      ]
     },
     {
       "id": "15",
       "section": "negocio",
       "question": "¿Cuántas horas se dedica a la formación continua de los empleados el último año?",
-      "options": ["Más de 90", "Entre 70 y 90", "Entre 40 y 70", "Menos de 40"]
+      "options": [
+        "Más de 90",
+        "Entre 70 y 90",
+        "Entre 40 y 70",
+        "Menos de 40"
+      ]
     },
     {
       "id": "16",
@@ -132,7 +202,12 @@
       "id": "19",
       "section": "negocio",
       "question": "¿Cómo se encuentra la relación con tus empleados?",
-      "options": ["Muy buena", "Buena", "Regular", "Se necesita mejoría"]
+      "options": [
+        "Muy buena",
+        "Buena",
+        "Regular",
+        "Se necesita mejoría"
+      ]
     },
     {
       "id": "20",
@@ -247,37 +322,67 @@
       "id": "30",
       "section": "alineacion",
       "question": " ¿Cómo calificarías la claridad de la estrategia empresarial en tu organización?",
-      "options": ["No hay claridad", "Muy poca", "Muy buena", "Excelente"]
+      "options": [
+        "No hay claridad",
+        "Muy poca",
+        "Muy buena",
+        "Excelente"
+      ]
     },
     {
       "id": "31",
       "section": "alineacion",
       "question": "¿Qué tan efectiva consideras que es la comunicación de la estrategia a todos los niveles de la empresa?",
-      "options": ["No hay comunicación", "Muy poca", "Muy buena", "Excelente"]
+      "options": [
+        "No hay comunicación",
+        "Muy poca",
+        "Muy buena",
+        "Excelente"
+      ]
     },
     {
       "id": "32",
       "section": "alineacion",
       "question": " ¿Qué tan alineados sientes que están los objetivos individuales con los objetivos estratégicos de la empresa?",
-      "options": ["No hay objetivos", "Muy poco", "Medianamente", "Excelente"]
+      "options": [
+        "No hay objetivos",
+        "Muy poco",
+        "Medianamente",
+        "Excelente"
+      ]
     },
     {
       "id": "33",
       "section": "alineacion",
       "question": " ¿Qué tan frecuentemente se evalúa la comprensión y adopción de la estrategia por parte de los empleados?",
-      "options": ["Nunca", "uy poco", "Frecuentemente", "Excelente"]
+      "options": [
+        "Nunca",
+        "uy poco",
+        "Frecuentemente",
+        "Excelente"
+      ]
     },
     {
       "id": "34",
       "section": "alineacion",
       "question": "  Cómo valorarías el nivel de colaboración y trabajo en equipo par lograr los objetivos estratégicos",
-      "options": ["No existe", "Muy poco", "Muy bueno", "Excelente"]
+      "options": [
+        "No existe",
+        "Muy poco",
+        "Muy bueno",
+        "Excelente"
+      ]
     },
     {
       "id": "35",
       "section": "alineacion",
       "question": " ¿Qué tan ágil consideras que es la empresa en ajustar la estrategia ante cambios internos y externos?",
-      "options": ["No se implementan", "Muy poco", "Muy bueno", "Excelente"]
+      "options": [
+        "No se implementan",
+        "Muy poco",
+        "Muy bueno",
+        "Excelente"
+      ]
     },
     {
       "id": "36",
@@ -294,19 +399,34 @@
       "id": "37",
       "section": "alineacion",
       "question": " Cómo evaluarías la efectividad de las herramientas utilizadas para monitorear el progreso hacia los objetivos estratégicos",
-      "options": ["No se evalua", "Muy poco", "Muy bueno", "Excelente"]
+      "options": [
+        "No se evalua",
+        "Muy poco",
+        "Muy bueno",
+        "Excelente"
+      ]
     },
     {
       "id": "38",
       "section": "alineacion",
       "question": " Qué tan comprometidos están los líderes y equipos directivos con la alineación interna",
-      "options": ["No hay compromiso", "Muy poco", "Muy bueno", "Excelente"]
+      "options": [
+        "No hay compromiso",
+        "Muy poco",
+        "Muy bueno",
+        "Excelente"
+      ]
     },
     {
       "id": "39",
       "section": "alineacion",
       "question": " Qué tan arraigada sientes que está la cultura organizacional que apoye la ejecución de la estrategia empresarial",
-      "options": ["No existe", "Muy poco", "Muy buena", "Excelente"]
+      "options": [
+        "No existe",
+        "Muy poco",
+        "Muy buena",
+        "Excelente"
+      ]
     },
     {
       "id": "40",
@@ -389,7 +509,12 @@
       "id": "47",
       "section": "circulo",
       "question": "¿Qué tan bien crees que nuestra empresa comunica cómo llevamos cabo nuestro propósito a nuestros clientes?",
-      "options": ["Muy mal", "Mal", "Bien", "Muy bien"]
+      "options": [
+        "Muy mal",
+        "Mal",
+        "Bien",
+        "Muy bien"
+      ]
     },
     {
       "id": "48",
@@ -436,13 +561,18 @@
       ]
     },
     {
-      "id": 52,
+      "id": "52",
       "section": "financiera",
       "question": "¿Qué porcentaje de los ingresos proviene de las principales líneas de productos o servicios?",
-      "options": ["20%", "40%", "80%", "100%"]
+      "options": [
+        "20%",
+        "40%",
+        "80%",
+        "100%"
+      ]
     },
     {
-      "id": 53,
+      "id": "53",
       "section": "financiera",
       "question": "¿Cómo ha variado el margen bruto de la empresa en los últimos tres años?",
       "options": [
@@ -453,7 +583,7 @@
       ]
     },
     {
-      "id": 54,
+      "id": "54",
       "section": "financiera",
       "question": "¿Cuál es la relación deuda-capital de la empresa?",
       "options": [
@@ -464,7 +594,7 @@
       ]
     },
     {
-      "id": 55,
+      "id": "55",
       "section": "financiera",
       "question": "¿Cuál es la proporción de gastos operativos en relación con los ingresos totales?",
       "options": [
@@ -475,7 +605,7 @@
       ]
     },
     {
-      "id": 56,
+      "id": "56",
       "section": "financiera",
       "question": "¿Qué porcentaje de las cuentas por cobrar son incobrables o están en riesgo?",
       "options": [
@@ -486,25 +616,40 @@
       ]
     },
     {
-      "id": 57,
+      "id": "57",
       "section": "financiera",
       "question": "¿Cómo se compara la rentabilidad neta de la empresa con la de sus competidores?",
-      "options": ["Mucho menor", "Menor", "Mayor", "Mucho mayor"]
+      "options": [
+        "Mucho menor",
+        "Menor",
+        "Mayor",
+        "Mucho mayor"
+      ]
     },
     {
-      "id": 58,
+      "id": "58",
       "section": "financiera",
       "question": "¿Cuál es la capacidad de la empresa para generar flujo de caja operativo positivo?",
-      "options": ["Muy baja ", "Baja", "Alta", "Muy alta"]
+      "options": [
+        "Muy baja ",
+        "Baja",
+        "Alta",
+        "Muy alta"
+      ]
     },
     {
-      "id": 59,
+      "id": "59",
       "section": "financiera",
       "question": "¿Cuál es el nivel actual de liquidez de la empresa?",
-      "options": ["Muy bajo ", "Bajo", "Alto", "Muy alto"]
+      "options": [
+        "Muy bajo ",
+        "Bajo",
+        "Alto",
+        "Muy alto"
+      ]
     },
     {
-      "id": 60,
+      "id": "60",
       "section": "financiera",
       "question": "¿Cuál es la rotación de personal de la empresa?",
       "options": [
@@ -515,7 +660,7 @@
       ]
     },
     {
-      "id": 61,
+      "id": "61",
       "section": "financiera",
       "question": "¿Qué porcentaje de los ingresos proviene de clientes recurrentes?",
       "options": [
@@ -697,6 +842,20 @@
       "email": "leydi.madrid6@gmail.com",
       "password": "123456",
       "confirmPassword": "123456"
+    },
+    {
+      "id": "675a",
+      "name": "Juan Esteban ",
+      "surname": "Munoz",
+      "personType": "natural",
+      "docType": "CC",
+      "docNumber": 1234567,
+      "businessName": "sas",
+      "sector": "naval",
+      "otroSector": "",
+      "email": "jeramirez@platzi.com",
+      "password": "1234",
+      "confirmPassword": "1234"
     }
   ]
 }
