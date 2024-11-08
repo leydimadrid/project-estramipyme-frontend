@@ -310,7 +310,6 @@ fieldset label::before {
   max-width: 800px;
  /* max-height: 800px; */
   width: 100%;
-  height: auto;
   display: block;
   margin: 0 auto;
 }
