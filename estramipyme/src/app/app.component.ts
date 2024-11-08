@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, NgModule, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GraphsComponent } from './components/graphs/graphs.component';
@@ -11,6 +11,9 @@ import { GraphCircleComponent } from './components/graph-circle/graph-circle.com
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
+import { BrowserModule } from '@angular/platform-browser';
+
+
 
 type Answers =
   | {}

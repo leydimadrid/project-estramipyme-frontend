@@ -308,7 +308,7 @@ fieldset label::before {
 
 #myChart {
   max-width: 800px;
-  max-height: 800px;
+ /* max-height: 800px; */
   width: 100%;
   height: auto;
   display: block;
@@ -325,7 +325,6 @@ fieldset label::before {
 .radar-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 3rem;
   align-items: start;
   width: 100%;
 }
