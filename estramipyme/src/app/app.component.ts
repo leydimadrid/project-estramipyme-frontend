@@ -1,4 +1,4 @@
-import { Component, ElementRef, inject, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, NgModule, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GraphsComponent } from './components/graphs/graphs.component';
@@ -16,6 +16,9 @@ import { TestService } from '@services/test.service';
 import { TestRequestDTO } from './DTO/testRequestDTO';
 
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
+import { BrowserModule } from '@angular/platform-browser';
+
+
 
 type Answers =
   | {}
