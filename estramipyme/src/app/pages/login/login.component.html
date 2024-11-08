@@ -1,3 +1,4 @@
+
 <div class="container">
   <form id="login-form" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
     <h2 class="heading-form">Iniciar Sesión</h2>
@@ -61,8 +62,10 @@
       ¿No tienes cuenta?
       <a href="registro" id="show-register">Regístrate</a>
     </p>
+    <div class="register-go-back">
     <button type="button" id="go-back" (click)="navigateTo('')">
       Regresar
     </button>
+  </div>
   </form>
 </div>

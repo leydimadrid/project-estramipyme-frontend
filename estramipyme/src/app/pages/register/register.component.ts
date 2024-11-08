@@ -8,6 +8,7 @@ import { TypeDocument } from '../../enums/typedocument.enum';
 import { Sector } from '../../enums/Sector.enum';
 import { TypeUser } from '../../enums/typeuser.enum';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -55,6 +56,13 @@ export class RegisterComponent {
     // Si las contraseñas coinciden, realizar la llamada al backend
     this.authService.register(values).subscribe({
       next: (response) => {
+        Swal.fire({
+          position: "center",
+          icon: "success",
+          title: "Usuario registrado exitosamente!",
+          showConfirmButton: false,
+          timer: 2000
+        });
         console.log('Registro exitoso', response);
         this.authService.setLogging(true);
         this.navigateTo('/login');

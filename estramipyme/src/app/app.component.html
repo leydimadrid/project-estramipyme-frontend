@@ -85,7 +85,8 @@
 
 <div *ngIf="isLoading" class="spinner"></div>
 
-<main [class.hidden]="!isLoged()">
+<main class="container" [class.hidden]="!isLoged()">
+  <div class="container-form">
   <section
     class="section"
     id="section--1"
@@ -127,6 +128,7 @@
       </fieldset>
     </form>
   </section>
+</div>
 
   <section class="section section-undo">
     <div class="button-container">

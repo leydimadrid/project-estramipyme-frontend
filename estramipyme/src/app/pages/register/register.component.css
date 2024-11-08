@@ -47,6 +47,12 @@
   width: 600px;
 }
 
+.container form {
+  background-color: #f9f9f9;
+  padding: 30px;
+  border-radius: 10px;
+}
+
 .register-form-cols {
   display: flex;
   flex-direction: column;
