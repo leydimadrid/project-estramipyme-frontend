@@ -844,6 +844,19 @@
       "confirmPassword": "123456"
     },
     {
+      "id": "d778",
+      "name": "juan",
+      "surname": "perez",
+      "personType": "natural",
+      "docType": "CC",
+      "docNumber": 332323,
+      "businessName": "x",
+      "sector": "agricultura",
+      "otroSector": "x",
+      "email": "juan@gmail.com",
+      "password": "123",
+      "confirmPassword": "123"
+
       "id": "675a",
       "name": "Juan Esteban ",
       "surname": "Munoz",
@@ -856,6 +869,7 @@
       "email": "jeramirez@platzi.com",
       "password": "1234",
       "confirmPassword": "1234"
+
     }
   ]
 }

@@ -51,6 +51,7 @@ export class GlobalProviderService {
   });
 
   constructor() {
+/*
     this.dataProc.getItems('http://localhost:3000/questions').subscribe({
       next: (questions) => {
         this.numberOfQuestions = questions.length; //Obtener los ids
@@ -83,6 +84,7 @@ export class GlobalProviderService {
         console.log(err);
       },
     });
+    */
   }
 
   setLocalStorage(id: number | string, value: string) {
