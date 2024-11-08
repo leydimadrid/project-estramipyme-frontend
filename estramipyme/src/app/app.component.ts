@@ -10,12 +10,16 @@ import { GlobalProviderService } from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+
 import { Form } from '@models/form.model';
 import { FormService } from '@services/form.service';
 import { from } from 'rxjs';
 import Swal from 'sweetalert2';
 import { TestService } from '@services/test.service';
 import { TestRequestDTO } from './DTO/testRequestDTO';
+
+import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
+
 
 type Answers =
   | {}
@@ -34,6 +38,7 @@ type Answers =
     GraphCircleComponent,
     LoginComponent,
     RegisterComponent,
+    PdfGeneratorComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -72,6 +77,13 @@ export class AppComponent implements OnInit {
     this.globalProvider = globalProvider;
     this.formService = formService;
     this.testService = testService;
+  }
+
+  gotoReport() {
+    const reportSection = document.getElementById("report");
+    if(reportSection) {
+      reportSection.scrollIntoView({behavior: 'smooth', block:'start'})
+    }
   }
 
   toggleLogin() {
@@ -383,7 +395,11 @@ export class AppComponent implements OnInit {
 
     
       const fieldsets = this.el.nativeElement.querySelectorAll(
+
         '.form--1 fieldset'
+
+       '.form-container fieldset'
+
       );
 
       // Resetear cualquier error previo
