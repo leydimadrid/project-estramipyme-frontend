@@ -31,11 +31,9 @@ export class GlobalProviderService {
     how: [90, 10],
     why: [90, 10],
   });
-  private isLogged: BehaviorSubject<boolean> = new BehaviorSubject(false);
   Progress$ = this.progress.asObservable();
   RadarData$ = this.RadarData.asObservable();
   CircleData$ = this.CircleData.asObservable();
-  IsLogged$ = this.isLogged.asObservable();
   cliente: string[] = [];
   negocio: string[] = [];
   coherencia: string[] = [];
@@ -51,7 +49,7 @@ export class GlobalProviderService {
   });
 
   constructor() {
-/*
+    /*
     this.dataProc.getItems('http://localhost:3000/questions').subscribe({
       next: (questions) => {
         this.numberOfQuestions = questions.length; //Obtener los ids
@@ -203,10 +201,6 @@ export class GlobalProviderService {
 
   getRadarData() {
     this.RadarData.next(this.getScores());
-  }
-
-  setLogging(value: boolean) {
-    this.isLogged.next(value);
   }
 
   getCircleData() {

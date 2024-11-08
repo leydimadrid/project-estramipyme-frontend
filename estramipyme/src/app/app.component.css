@@ -1,5 +1,19 @@
-.login {
+.container-campo-login {
     display: flex;
+    gap: 5px;
+    align-content: center;
     flex-direction: row;
     justify-content: end;
+  }
+
+.bx {
+  font-size: 22px;
+  color: white;
+  align-content: center;
 }
+
+.login {
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+  }
