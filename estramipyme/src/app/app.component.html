@@ -1,3 +1,4 @@
+
 <div class="modal">
   <router-outlet />
 </div>
@@ -89,15 +90,16 @@
   </div>
 </header>
 
+<div *ngIf="isLoading" class="spinner">
+  
+</div>
+
 <main [class.hidden]="!isLoged()">
-  <section class="section" id="section--1">
+  <section class="section" id="section--1" *ngFor="let form of formsData; let i = index">
     <div class="section-intro">
-      <h2 class="section-title">Conocimiento del cliente</h2>
+      <h2 class="section-title">{{form.name}}</h2>
       <p class="section-description">
-        Esta sección está diseñada para evaluar el nivel de conocimiento que
-        tienes acerca de tus clientes. Al responder este test, podrás
-        identificar oportunidades de mejora en la comprensión de las necesidades
-        y comportamientos de tus clientes.
+        {{form.description}}
       </p>
     </div>
 
@@ -106,94 +108,29 @@
       appRenderForm
       url="http://localhost:3000/questions/?section=cliente"
     ></div>
+
+
+
+    <form class="form--1" *ngFor="let question of form.questions; let j = index">
+      <fieldset class="questions question--1 Q{{question.id}}">
+        <legend>{{question.statement}}</legend>
+        <label *ngFor="let questionOption of question.questionOptions; let k = index">
+           <!--<input type="radio" name="Q1" value={{questionOption.id}} class="radioinput radioinput__section--1" data-id="1-1">-->
+           <input
+        type="radio"
+        [name]="'QO' + question.id"
+        [value]="questionOption.id"
+        (change)="onOptionSelect(form.id,question.id, questionOption.id)"
+        class="radioinput radioinput__section--1"
+        [checked]="questionOption.selected"
+      />
+           {{questionOption.option.text}}
+        </label>
+      </fieldset>
+    </form>
+
   </section>
 
-  <section class="section section__main" id="section--2">
-    <div class="section-intro">
-      <h2 class="section-title">Conocimiento del Negocio</h2>
-      <p class="section-description">
-        Este formulario evalúa tu capacidad para tomar decisiones informadas en
-        situaciones cotidianas, basadas en tu entendimiento de cómo tu negocio
-        genera ingresos y de su relación con clientes y empleados.
-      </p>
-    </div>
-
-    <div
-      class="form-container"
-      appRenderForm
-      url="http://localhost:3000/questions/?section=negocio"
-    ></div>
-  </section>
-  <section class="section section__main" id="section--6">
-    <div class="section-intro">
-      <h2 class="section-title">Salud Financiera</h2>
-      <p class="section-description">
-        Este cuestionario mide la estabilidad económica de tu negocio, evaluando
-        aspectos como ingresos, gastos y beneficios. Su objetivo es proporcionar
-        una visión clara de la solidez financiera de la empresa para tomar
-        decisiones estratégicas informadas.
-      </p>
-    </div>
-
-    <div
-      class="form-container"
-      appRenderForm
-      url="http://localhost:3000/questions/?section=financiera"
-    ></div>
-  </section>
-
-  <section class="section section__main" id="section--3">
-    <div class="section-intro">
-      <h2 class="section-title">Coherencia del Modelo de Negocio</h2>
-      <p class="section-description">
-        Este cuestionario está dividido en tres fases: propósito, proceso y
-        producto. Su objetivo es evaluar la consistencia y lógica de tu modelo
-        de negocio, asegurando que todos los componentes funcionen de manera
-        coherente y efectiva.
-      </p>
-    </div>
-
-    <div
-      class="form-container"
-      appRenderForm
-      url="http://localhost:3000/questions/?section=coherencia"
-    ></div>
-  </section>
-
-  <section class="section section__main" id="section--4">
-    <div class="section-intro">
-      <h2 class="section-title">Alineación en la Comunicación Interna</h2>
-      <p class="section-description">
-        Evalúa cómo se comunica y coordina la información dentro de tu empresa,
-        asegurando que todos los miembros estén alineados y trabajando hacia los
-        mismos objetivos. Este cuestionario también mide la coherencia y
-        consistencia entre el plan estratégico, la cultura empresarial, los
-        procesos y los proyectos para cumplir con los objetivos
-        organizacionales.
-      </p>
-    </div>
-    <div
-      class="form-container"
-      appRenderForm
-      url="http://localhost:3000/questions/?section=alineacion"
-    ></div>
-  </section>
-  <section class="section section__main" id="section--5">
-    <div class="section-intro">
-      <h2 class="section-title">Circulo Dorado</h2>
-      <p class="section-description">
-        Este cuestionario mide la estabilidad económica de tu negocio, evaluando
-        aspectos como ingresos, gastos y beneficios. Su objetivo es proporcionar
-        una visión clara de la solidez financiera de la empresa para tomar
-        decisiones estratégicas informadas.
-      </p>
-    </div>
-    <div
-      class="form-container"
-      appRenderForm
-      url="http://localhost:3000/questions/?section=circulo"
-    ></div>
-  </section>
   <section class="section section-undo">
     <div class="button-container">
       <button
@@ -242,10 +179,19 @@
         Apreciamos tu tiempo y colaboración.
       </h3>
     </div>
-    <button class="btn btn--show-modal">Ver resultados!</button>
-    <app-pdf-generator></app-pdf-generator>
+    <button (click)="onSaveResults()" class="btn btn--show-modal">Ver resultados!</button>
+
+    <button class="btn btn--show-modal" (click)="gotoReport()">Ver resultados!</button>
   </section>
+
+  <div id="report">
+    <app-pdf-generator></app-pdf-generator>
+  </div>
+
+  <!--
   <app-graphs />
   <app-graph-circle></app-graph-circle>
   <app-footer />
+  -->
 </main>
+

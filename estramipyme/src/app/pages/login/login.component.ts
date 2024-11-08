@@ -1,16 +1,13 @@
-import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, Inject } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
 import { FormsModule, NgForm } from '@angular/forms';
-import { DataProcService } from '@services/data-proc.service';
-import { RegisterDataModel } from '@models/registerdata.models';
-import { GlobalProviderService } from '@services/global-provider.service';
 import { AuthService } from '@services/auth.service';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css',
 })
@@ -29,7 +26,7 @@ export class LoginComponent {
         next: (response) => {
           console.log("Inicio de sesión exitoso");
           this.authService.setLogging(true);
-          this.navigateTo("/continuar")
+          this.navigateTo("")
         },
         error: (err) => {
           console.log('Error en el inicio de sesión:', err);
@@ -38,3 +35,4 @@ export class LoginComponent {
     }
   }
 }
+

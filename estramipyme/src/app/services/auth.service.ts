@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Inject, Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -9,9 +9,9 @@ export class AuthService {
   private isLogged: BehaviorSubject<boolean> = new BehaviorSubject(false);
   IsLogged$ = this.isLogged.asObservable();
 
-  private apiUrl = 'http://localhost:8081/api/auth'; // Cambia esta URL según el endpoint de tu backend
+  private apiUrl = 'http://localhost:8081/api/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(@Inject(HttpClient) private http: HttpClient) {}
 
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData);
