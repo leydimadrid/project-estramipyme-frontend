@@ -26,7 +26,8 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/queries.css"
+              "src/queries.css",
+              "node_modules/sweetalert2/dist/sweetalert2.min.css"
             ],
             "scripts": []
           },

@@ -1,24 +1,23 @@
-import { Component, ElementRef, inject, OnInit, signal } from '@angular/core';
+import { Component, ElementRef, inject, NgModule, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GraphsComponent } from './components/graphs/graphs.component';
-
-import { Question } from '@models/question.model';
-import { RenderFormDirective } from './directives/render-form.directive';
 import { FooterComponent } from './pages/components/footer/footer.component';
 import { GlobalProviderService } from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { AuthService } from '@services/auth.service';
 
 import { Form } from '@models/form.model';
 import { FormService } from '@services/form.service';
-import { from } from 'rxjs';
 import Swal from 'sweetalert2';
 import { TestService } from '@services/test.service';
 import { TestRequestDTO } from './DTO/testRequestDTO';
 
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
+import { BrowserModule } from '@angular/platform-browser';
+
 
 
 type Answers =
@@ -60,29 +59,34 @@ export class AppComponent implements OnInit {
 
   // private provider = inject(GlobalProviderService)
   globalProvider!: GlobalProviderService;
+  authService!: AuthService;
 
   //Listado form
-  formsData : Form[] = [];
+  formsData: Form[] = [];
   //Servicio form
-  private formService! : FormService;
-  private testService! : TestService;
+  private formService!: FormService;
+  private testService!: TestService;
   isLoading = false;
-  private testData! : TestRequestDTO;
+  private testData!: TestRequestDTO;
 
-  constructor(el: ElementRef, 
+  constructor(
+    el: ElementRef,
     globalProvider: GlobalProviderService,
-    formService : FormService,
-    testService : TestService) {
+    formService: FormService,
+    testService: TestService,
+    authService: AuthService
+  ) {
     this.el = el;
     this.globalProvider = globalProvider;
     this.formService = formService;
     this.testService = testService;
+    this.authService = authService;
   }
 
   gotoReport() {
-    const reportSection = document.getElementById("report");
-    if(reportSection) {
-      reportSection.scrollIntoView({behavior: 'smooth', block:'start'})
+    const reportSection = document.getElementById('report');
+    if (reportSection) {
+      reportSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
 
@@ -94,68 +98,69 @@ export class AppComponent implements OnInit {
     this.mobileOpen.update((prevValue) => !prevValue);
   }
 
-  loadForms(){
+  loadForms() {
     this.isLoading = true;
-    try{
+    try {
       this.formService.getForms().subscribe({
-        next: (_forms) =>{
+        next: (_forms) => {
           this.formsData = _forms;
           console.log(_forms);
           this.isLoading = false;
         },
-        error: (err) =>{
+        error: (err) => {
           console.error(err.message);
           Swal.fire({
-            position: "top-end",
-            icon: "error",
+            position: 'top-end',
+            icon: 'error',
             title: err.message,
             showConfirmButton: false,
-            timer: 2500
+            timer: 2500,
           });
           this.isLoading = false;
-        }
+        },
       });
-    }catch(error){
+    } catch (error) {
       Swal.fire({
-        position: "top-end",
-        icon: "error",
-        title: "Error realizando la consulta API",
+        position: 'top-end',
+        icon: 'error',
+        title: 'Error realizando la consulta API',
         showConfirmButton: false,
-        timer: 2500
+        timer: 2500,
       });
       console.error(error);
       this.isLoading = false;
-    }   
+    }
   }
 
-
-  onOptionSelect(formId: number,questionId: number, optionId: number) {
-    try{
+  onOptionSelect(formId: number, questionId: number, optionId: number) {
+    try {
       // Encuentra la pregunta correspondiente
-      const question = this.formsData.find(f => f.id == formId)?.questions.find(q => q.id === questionId);
+      const question = this.formsData
+        .find((f) => f.id == formId)
+        ?.questions.find((q) => q.id === questionId);
       if (question) {
         // Recorre las opciones y ajusta la propiedad `selected`
-        question.questionOptions.forEach(option => {
+        question.questionOptions.forEach((option) => {
           option.selected = option.id === optionId;
         });
       }
       console.log(this.formsData);
-    }catch(error){
+    } catch (error) {
       Swal.fire({
-        position: "top-end",
-        icon: "error",
-        title: "Error al seleccionar la respuesta",
+        position: 'top-end',
+        icon: 'error',
+        title: 'Error al seleccionar la respuesta',
         showConfirmButton: false,
-        timer: 2500
+        timer: 2500,
       });
       console.error(error);
-    }    
+    }
   }
 
   ngOnInit() {
-    this.globalProvider.IsLogged$.subscribe((value) => {
+    this.authService.IsLogged$.subscribe((value) => {
       this.isLoged.set(value);
-      if(this.isLoged()){
+      if (this.isLoged()) {
         //cargar forms
         this.loadForms();
       }
@@ -164,9 +169,6 @@ export class AppComponent implements OnInit {
     this.globalProvider.Progress$.subscribe((value) => {
       this.progress.set(value);
     });
-
-   
-    
 
     this.#navLinks = this.el.nativeElement.querySelector('.nav__links');
     this.#nav = this.el.nativeElement.querySelector('.nav');
@@ -279,27 +281,29 @@ export class AppComponent implements OnInit {
     else this.#nav.classList.remove('hidden');
   }
 
-  completeQuestionsValidate(){
-
+  completeQuestionsValidate() {
     let validation = true;
 
-    const fieldsets = this.el.nativeElement.querySelectorAll(
-      '.form--1 fieldset'
-    );
+    const fieldsets =
+      this.el.nativeElement.querySelectorAll('.form--1 fieldset');
 
     // Resetear cualquier error previo
     fieldsets.forEach((fieldset: HTMLHtmlElement) => {
       fieldset.classList.remove('fieldset-error');
     });
 
-    this.formsData.map((form) =>{
-      form.questions.map((question) =>{
-        let opcionSeleccionada = question.questionOptions.filter(x => x.selected !== null && x.selected === true);
+    this.formsData.map((form) => {
+      form.questions.map((question) => {
+        let opcionSeleccionada = question.questionOptions.filter(
+          (x) => x.selected !== null && x.selected === true
+        );
         console.log(opcionSeleccionada);
-        if(opcionSeleccionada.length == 0){
-          console.log("En la pregunta " + question.statement + " no se selecciono nada");
+        if (opcionSeleccionada.length == 0) {
+          console.log(
+            'En la pregunta ' + question.statement + ' no se selecciono nada'
+          );
           const fieldsets = this.el.nativeElement.querySelectorAll(
-            '.Q'+question.id
+            '.Q' + question.id
           );
           console.log(fieldsets);
           // Resetear cualquier error previo
@@ -308,30 +312,26 @@ export class AppComponent implements OnInit {
           });
           validation = false;
         }
-
       });
     });
     return validation;
   }
 
-  onSaveResults(){
-    if(this.completeQuestionsValidate()){
+  onSaveResults() {
+    if (this.completeQuestionsValidate()) {
       this.saveTest();
     }
   }
 
-
-  saveTest(){
+  saveTest() {
     this.isLoading = true;
-    try{
+    try {
+      let ids: number[] = [];
 
-
-      let ids : number[] = [];
-
-      this.formsData.map(f=>{
-        f.questions.map(q=>{
-          q.questionOptions.map(qo=>{
-            if(qo.selected){
+      this.formsData.map((f) => {
+        f.questions.map((q) => {
+          q.questionOptions.map((qo) => {
+            if (qo.selected) {
               ids.push(qo.id);
             }
           });
@@ -342,39 +342,39 @@ export class AppComponent implements OnInit {
         id: 0,
         user_id: 2, //TODO: AJUSTAR CON LOGIN
         date: new Date(),
-        answers_option_ids: ids
-      }
+        answers_option_ids: ids,
+      };
 
       console.log(this.testData);
 
       this.testService.saveTest(this.testData).subscribe({
-        next: (_test) =>{
+        next: (_test) => {
           console.log(_test);
           this.isLoading = false;
         },
-        error: (err) =>{
+        error: (err) => {
           console.error(err.message);
           Swal.fire({
-            position: "top-end",
-            icon: "error",
+            position: 'top-end',
+            icon: 'error',
             title: err.message,
             showConfirmButton: false,
-            timer: 2500
+            timer: 2500,
           });
           this.isLoading = false;
-        }
+        },
       });
-    }catch(error){
+    } catch (error) {
       Swal.fire({
-        position: "top-end",
-        icon: "error",
-        title: "Error realizando la consulta API",
+        position: 'top-end',
+        icon: 'error',
+        title: 'Error realizando la consulta API',
         showConfirmButton: false,
-        timer: 2500
+        timer: 2500,
       });
       console.error(error);
       this.isLoading = false;
-    }   
+    }
   }
 
   _setupResultsButton() {
@@ -387,13 +387,12 @@ export class AppComponent implements OnInit {
       return;
     }
 
-    
-/*
+    /*
     showResultsButton.addEventListener('click', () => {
 
       this.completeQuestionsValidate();
 
-    
+
       const fieldsets = this.el.nativeElement.querySelectorAll(
 
         '.form--1 fieldset'

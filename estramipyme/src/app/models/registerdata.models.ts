@@ -1,16 +1,18 @@
+import { Sector } from '../enums/Sector.enum';
+import { TypeDocument } from '../enums/typedocument.enum';
+import { TypeUser } from '../enums/typeuser.enum';
+
 export interface RegisterDataModel {
-  acceptDataProcPolicy: boolean;
-  businessName: string;
-  docNumber: number
-  docType: string;
-  email: string;
-  name: string;
-  otroSector: string;
-  password: string;
-  personType: string;
   confirmPassword: string;
-  sector: string;
-  surname: string;
+  id: number;
+  name: string;
+  lastname: string;
+  typeUser: TypeUser;
+  typeDocument: TypeDocument;
+  numberDocument: string;
+  businessName: string; // Solo será relevante si es un tipo de usuario LEGAL
+  sector: Sector;
+  otherSector: string;
+  email: string;
+  password: string;
 }
-
-
