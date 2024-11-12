@@ -454,4 +454,8 @@ export class AppComponent implements OnInit {
     });
     */
   }
+
+  logout() {
+    this.authService.logout();
+  }
 }

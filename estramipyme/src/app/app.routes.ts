@@ -3,7 +3,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { AppComponent } from './app.component';
 import { RegisterComponent } from '@pages/register/register.component';
 
-
 export const routes: Routes = [
   // {path: "login", component: LoginComponent},
   {
