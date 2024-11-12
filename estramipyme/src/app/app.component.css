@@ -12,12 +12,12 @@
 }
 
 .container-campo-login {
-    display: flex;
-    gap: 5px;
-    align-content: center;
-    flex-direction: row;
-    justify-content: end;
-  }
+  display: flex;
+  gap: 15px;
+  align-content: center;
+  flex-direction: row;
+  justify-content: end;
+}
 
 .bx {
   font-size: 22px;
@@ -25,66 +25,77 @@
   align-content: center;
 }
 
-.login {
-    text-decoration: none;
-    color: white;
-    font-size: 1rem;
-  }
+.login,
+.close {
+  display: flex;
+  gap: 5px;
+  text-decoration: none;
+  color: white;
+  align-content: center;
+  align-items: center;
+  font-size: 1rem;
+}
 
-  .container-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-  }
-
-
- .container form {
-    background-color: #f9f9f9;
-    width: 100%;
-    padding: 30px;
-    border-radius: 10px;
-  }
+.register{
+  text-decoration: none;
+  color: white;
+  padding: 4px 8px 4px 8px;
+  border: 1px solid white;
+  border-radius: 6px;
+  font-size: 1rem;
+}
 
 
+.container-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
 
+.container form {
+  background-color: #f9f9f9;
+  width: 100%;
+  padding: 30px;
+  border-radius: 10px;
+}
 
-  .section {
-    padding: 10rem 3rem;
-    border-top: 1px solid #ddd;
-  
-    transition: transform 1s, opacity 1s;
-  }
-  
-  .section-intro {
-    max-width: 80rem;
-    margin: 0 auto 5rem auto;
-  }
-  
-  .section-title {
-    font-size: 1.8rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    margin-bottom: 1rem;
-  }
-  
-  .section-description {
-    font-size: 1.3rem;
-  }
+.section {
+  padding: 10rem 3rem;
+  border-top: 1px solid #ddd;
 
-  .start-test {
-    font-size: 2rem;
-    font-weight: 600;
-    padding: 1.7rem 3.5rem;
-    border: none;
-    border-radius: 10rem;
-    background-color: #ff8f1b;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .start-test:hover {
-    background-color: white;
-    color: #155fe7;
-  }
+  transition: transform 1s, opacity 1s;
+}
+
+.section-intro {
+  max-width: 80rem;
+  margin: 0 auto 5rem auto;
+}
+
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  font-size: 1.3rem;
+}
+
+.start-test {
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 1.7rem 3.5rem;
+  border: none;
+  border-radius: 10rem;
+  background-color: #ff8f1b;
+  color: #fff;
+  cursor: pointer;
+}
+
+.start-test:hover {
+  background-color: white;
+  color: #155fe7;
+}
