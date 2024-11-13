@@ -21,23 +21,29 @@ export class LoginComponent {
     this.router.navigate([path]);
   }
 
+  onRememberMeChange(event: any) {
+    this.authService.onRememberMeChange(event);
+  }
+
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.authService.login(this.credentials).subscribe({
-        next: (response) => {
-          console.log('Inicio de sesión exitoso');
-          this.authService.setLogging(true);
-          this.navigateTo('');
-        },
-        error: (err) => {
-          Swal.fire({
-            icon: 'error',
-            title: 'Oops...',
-            text: 'Este usuario no existe o la contraseña es incorrecta. Intente de nuevo.',
-          });
-          console.log('Error en el inicio de sesión:', err);
-        },
-      });
+      this.authService
+        .login(this.credentials, this.authService.rememberMe)
+        .subscribe({
+          next: (response) => {
+            console.log('Inicio de sesión exitoso');
+            this.authService.setLogging(true);
+            this.navigateTo('');
+          },
+          error: (err) => {
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'Este usuario no existe o la contraseña es incorrecta. Intente de nuevo.',
+            });
+            console.log('Error en el inicio de sesión:', err);
+          },
+        });
     }
   }
 }

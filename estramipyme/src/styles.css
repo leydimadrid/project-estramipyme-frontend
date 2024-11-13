@@ -312,6 +312,17 @@ fieldset label::before {
   background-color: #508f7d;
 }
 
+.Button-primary {
+  font-size: 16px;
+  font-weight: 600;
+  background-color: #000066;
+  color: #fff;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 10rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
 
 .heading-form {
   color: #0e0e61;
