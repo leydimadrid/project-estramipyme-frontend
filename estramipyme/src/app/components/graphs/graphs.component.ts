@@ -1,4 +1,4 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
 import { GlobalProviderService } from '@services/global-provider.service';
@@ -8,30 +8,27 @@ import { GlobalProviderService } from '@services/global-provider.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './graphs.component.html',
-  //styleUrl: './graphs.component.css',
+  // styleUrl: './graphs.component.css',
 })
-export class GraphsComponent {
-  private el: ElementRef;
-  radarCtx: HTMLHtmlElement | any;
-  // elemento en el template
+export class GraphsComponent implements AfterViewInit {
   @ViewChild('graph') radarEl!: ElementRef;
-
-  globalProvider!: GlobalProviderService;
-
   radarChart!: Chart;
 
-  constructor(el: ElementRef, globalProvider: GlobalProviderService) {
-    this.el = el;
-    this.globalProvider = globalProvider;
-  }
+  constructor(
+    private el: ElementRef,
+    private globalProvider: GlobalProviderService
+  ) {}
 
-  ngOnInit() {
+  ngAfterViewInit() {
+    console.log('Inicialización completa');
     this.globalProvider.RadarData$.subscribe((value) => {
       if (this.radarEl) {
         if (this.radarChart) {
           this.radarChart.destroy();
         }
-        this.renderChart(value);
+        console.log(value);
+        //const valores: number[] = [1, 2, 3, 4, 5, 6];
+        //this.renderChart(valores);
       }
     });
   }
@@ -120,10 +117,16 @@ export class GraphsComponent {
       },
     };
 
-    this.radarChart = new Chart(this.radarEl.nativeElement, {
-      type: 'radar',
-      data: radarData,
-      options: radarOptions,
-    });
+    const canvas = this.radarEl.nativeElement as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      this.radarChart = new Chart(canvas, {
+        type: 'radar',
+        data: radarData,
+        options: radarOptions,
+      });
+    } else {
+      console.error('No se pudo obtener el contexto 2D del canvas');
+    }
   }
 }

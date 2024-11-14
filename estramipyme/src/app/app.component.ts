@@ -17,6 +17,7 @@ import { TestRequestDTO } from './DTO/testRequestDTO';
 
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { number } from 'echarts';
 
 
 
@@ -320,6 +321,15 @@ export class AppComponent implements OnInit {
   onSaveResults() {
     if (this.completeQuestionsValidate()) {
       this.saveTest();
+      this.gotoReport();
+    }else{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: "Debe seleccionar almenos una respuesta por cada pregunta",
+        showConfirmButton: false,
+        timer: 2500,
+      });
     }
   }
 
@@ -350,6 +360,25 @@ export class AppComponent implements OnInit {
       this.testService.saveTest(this.testData).subscribe({
         next: (_test) => {
           console.log(_test);
+          
+          let infoTest = _test as TestRequestDTO;
+          this.testService.getReporteREO(infoTest.id).subscribe({
+            next: (_infoReo) => {
+              console.log('info response');
+              console.log(_infoReo);
+            },
+            error: (err) => {
+              console.error(err.message);
+              Swal.fire({
+                position: 'top-end',
+                icon: 'error',
+                title: err.message,
+                showConfirmButton: false,
+                timer: 2500,
+              });
+          this.isLoading = false;
+            }
+          });
           this.isLoading = false;
         },
         error: (err) => {

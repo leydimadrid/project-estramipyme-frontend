@@ -133,6 +133,9 @@ export class GlobalProviderService {
   }
 
   getScores(): number[] {
+
+    return [5,5,5,5,5];
+    /*
     let clientAcc = 0;
     let negocioAcc = 0;
     let coherenciaAcc = 0;
@@ -169,6 +172,7 @@ export class GlobalProviderService {
       Number(((alineacionAcc / (tAlineacion * 4)) * 4).toFixed(2)),
       Number(((negocioAcc / (tNegocio * 4)) * 4).toFixed(2)),
     ];
+    */
   }
 
   getCircle() {
