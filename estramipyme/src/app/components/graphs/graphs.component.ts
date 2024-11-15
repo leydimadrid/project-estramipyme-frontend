@@ -1,7 +1,8 @@
-import { Component, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
 import { GlobalProviderService } from '@services/global-provider.service';
+import { ReportReoDTO } from '../../DTO/reportReoDTO';
 
 @Component({
   selector: 'app-graphs',
@@ -10,7 +11,7 @@ import { GlobalProviderService } from '@services/global-provider.service';
   templateUrl: './graphs.component.html',
   // styleUrl: './graphs.component.css',
 })
-export class GraphsComponent implements AfterViewInit {
+export class GraphsComponent implements OnInit {
   @ViewChild('graph') radarEl!: ElementRef;
   radarChart!: Chart;
 
@@ -19,7 +20,8 @@ export class GraphsComponent implements AfterViewInit {
     private globalProvider: GlobalProviderService
   ) {}
 
-  ngAfterViewInit() {
+
+  ngOnInit() {
     console.log('Inicialización completa');
     this.globalProvider.RadarData$.subscribe((value) => {
       if (this.radarEl) {
@@ -28,24 +30,18 @@ export class GraphsComponent implements AfterViewInit {
         }
         console.log(value);
         //const valores: number[] = [1, 2, 3, 4, 5, 6];
-        //this.renderChart(valores);
+        this.renderChart(value);
       }
     });
   }
 
-  renderChart(values: number[]) {
+  renderChart(values: ReportReoDTO[]) {
     const radarData = {
-      labels: [
-        'Coherencia del modelo de negocio',
-        'Conocimiento del cliente',
-        'Conocimiento del negocio',
-        'Alineación en la comunicación interna',
-        'Salud financiera',
-      ],
+      labels: values.map(label => label.name),
       datasets: [
         {
-          label: 'Tu Radar',
-          data: values,
+          label: 'Resultado REO',
+          data: values.map(reo => reo.score),
           fill: true,
           backgroundColor: 'rgba(21, 95, 231, 0.2)',
           borderColor: '#155FE7',
@@ -91,10 +87,11 @@ export class GraphsComponent implements AfterViewInit {
       },
       scales: {
         r: {
+          min: 1,
+            max: 4,
           ticks: {
             beginAtZero: true,
-            min: 1,
-            max: 4,
+            
             stepSize: 1,
             font: {
               size: 14,
@@ -108,6 +105,8 @@ export class GraphsComponent implements AfterViewInit {
               family: 'Inter',
             },
           },
+          suggestedMin: 0,
+          suggestedMax: 4
         },
       },
       layout: {

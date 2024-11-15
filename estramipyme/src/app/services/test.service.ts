@@ -18,7 +18,6 @@ export class TestService{
    
     getReporteREO(testId:number) {
         let endpoint = `${API_CONSTANTS.BASE_URL}${API_CONSTANTS.GETTEST_REPORTREO}` + '/' + testId;
-        console.log(endpoint);
         return this.http.get<ReportReoDTO[]>(endpoint);
     }
 }

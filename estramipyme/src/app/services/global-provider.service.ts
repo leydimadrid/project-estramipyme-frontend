@@ -1,6 +1,7 @@
 import { computed, inject, Injectable, signal } from '@angular/core';
 import { DataProcService } from '@services/data-proc.service';
 import { BehaviorSubject } from 'rxjs';
+import { ReportReoDTO } from '../DTO/reportReoDTO';
 
 type Answer =
   | {}
@@ -23,9 +24,7 @@ export class GlobalProviderService {
   numberOfQuestions = 51;
   private dataProc = inject(DataProcService);
 
-  private RadarData: BehaviorSubject<number[]> = new BehaviorSubject([
-    1, 2, 3, 4, 5,
-  ]);
+  private RadarData: BehaviorSubject<ReportReoDTO[]> = new BehaviorSubject<ReportReoDTO[]>([]);
   private CircleData: BehaviorSubject<Circle> = new BehaviorSubject({
     what: [90, 10],
     how: [90, 10],
@@ -95,7 +94,6 @@ export class GlobalProviderService {
     });
     localStorage.setItem('estramipyme', JSON.stringify(this.answers()));
     this.getProgress();
-    this.getRadarData();
     this.getCircleData();
   }
 
@@ -108,7 +106,6 @@ export class GlobalProviderService {
       return { ...this.answers(), ...data };
     });
     this.getProgress();
-    this.getRadarData();
     this.getCircleData();
   }
 
@@ -203,8 +200,9 @@ export class GlobalProviderService {
     };
   }
 
-  getRadarData() {
-    this.RadarData.next(this.getScores());
+
+  public updateRadarData(newData: ReportReoDTO[]): void {
+    this.RadarData.next(newData);;
   }
 
   getCircleData() {

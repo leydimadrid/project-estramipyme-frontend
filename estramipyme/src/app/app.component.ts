@@ -18,6 +18,7 @@ import { TestRequestDTO } from './DTO/testRequestDTO';
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { number } from 'echarts';
+import { switchMap } from 'rxjs';
 
 
 
@@ -357,28 +358,17 @@ export class AppComponent implements OnInit {
 
       console.log(this.testData);
 
-      this.testService.saveTest(this.testData).subscribe({
-        next: (_test) => {
-          console.log(_test);
-          
-          let infoTest = _test as TestRequestDTO;
-          this.testService.getReporteREO(infoTest.id).subscribe({
-            next: (_infoReo) => {
-              console.log('info response');
-              console.log(_infoReo);
-            },
-            error: (err) => {
-              console.error(err.message);
-              Swal.fire({
-                position: 'top-end',
-                icon: 'error',
-                title: err.message,
-                showConfirmButton: false,
-                timer: 2500,
-              });
-          this.isLoading = false;
-            }
-          });
+      this.testService.saveTest(this.testData).pipe(
+        switchMap((test) => {
+          const infoTest = test as TestRequestDTO;
+          return this.testService.getReporteREO(infoTest.id);
+        })
+      ).subscribe({
+        next: (_infoReo) => {
+          console.log('info response', _infoReo);
+
+          this.globalProvider.updateRadarData(_infoReo); 
+
           this.isLoading = false;
         },
         error: (err) => {
@@ -391,7 +381,7 @@ export class AppComponent implements OnInit {
             timer: 2500,
           });
           this.isLoading = false;
-        },
+        }
       });
     } catch (error) {
       Swal.fire({
