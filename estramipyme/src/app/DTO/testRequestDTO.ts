@@ -1,6 +1,6 @@
 export interface TestRequestDTO {
     id: number;
     date: Date;
-    user_id: number;
+    userEmail: string;
     answers_option_ids: number[];
 }

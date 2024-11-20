@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import * as echarts from 'echarts';
 import { GlobalProviderService } from '@services/global-provider.service';
+import { CommonModule } from '@angular/common';
 
 export interface Circle {
   what: number[];
@@ -11,11 +12,11 @@ export interface Circle {
 @Component({
   selector: 'app-graph-circle',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './graph-circle.component.html',
   styleUrl: './graph-circle.component.css',
 })
-export class GraphCircleComponent {
+export class GraphCircleComponent implements OnInit{
   chart!: echarts.ECharts;
   @ViewChild('circle') circleEl!: ElementRef;
   globalProvider!: GlobalProviderService;
@@ -24,15 +25,18 @@ export class GraphCircleComponent {
     this.globalProvider = globalProvider;
   }
 
+
+
   ngOnInit() {
     this.globalProvider.CircleData$.subscribe((value: Circle) => {
       if (this.circleEl) this.renderCicle(value);
     });
   }
 
+
   renderCicle(value: Circle) {
     this.chart = echarts.init(this.circleEl.nativeElement);
-
+  
     const option = {
       tooltip: {
         trigger: 'item',
@@ -54,11 +58,15 @@ export class GraphCircleComponent {
           },
           data: [
             {
-              value: value.why[0],
+              value: value.why[0], // Primer valor
               name: '¿Por qué?',
               itemStyle: { color: '#E5A900' },
             },
-            { value: value.why[1], name: '', itemStyle: { color: 'none' } },
+            {
+              value: 100 - value.why[0], // Relleno invisible
+              name: '',
+              itemStyle: { color: 'none' },
+            },
           ],
         },
         {
@@ -75,11 +83,15 @@ export class GraphCircleComponent {
           },
           data: [
             {
-              value: value.how[0],
+              value: value.how[0], // Segundo valor
               name: '¿Cómo?',
               itemStyle: { color: '#F7C600' },
             },
-            { value: value.how[1], name: '', itemStyle: { color: 'none' } },
+            {
+              value: 100 - value.how[0], // Relleno invisible
+              name: '',
+              itemStyle: { color: 'none' },
+            },
           ],
         },
         {
@@ -96,15 +108,21 @@ export class GraphCircleComponent {
           },
           data: [
             {
-              value: value.what[0],
+              value: value.what[0], // Tercer valor
               name: '¿Qué?',
-              itemStyle: { color: '#F8D300 ' },
+              itemStyle: { color: '#F8D300' },
             },
-            { value: value.what[1], name: '', itemStyle: { color: 'none' } },
+            {
+              value: 100 - value.what[0], // Relleno invisible
+              name: '',
+              itemStyle: { color: 'none' },
+            },
           ],
         },
       ],
     };
+  
     this.chart.setOption(option);
   }
+  
 }

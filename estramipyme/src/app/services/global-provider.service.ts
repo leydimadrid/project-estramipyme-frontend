@@ -2,6 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { DataProcService } from '@services/data-proc.service';
 import { BehaviorSubject } from 'rxjs';
 import { ReportReoDTO } from '../DTO/reportReoDTO';
+import {  jwtDecode  }  from  "jwt-decode" ;
 
 type Answer =
   | {}
@@ -109,6 +110,16 @@ export class GlobalProviderService {
     this.getCircleData();
   }
 
+  getUserEmail(): string{
+    let token = sessionStorage.getItem('authToken');
+    let resultado = "";
+    if(token != null){
+      const  info = jwtDecode(token);
+      resultado =  info.sub ?? "";
+    }
+    return resultado;
+  }
+
   getProgress() {
     if (!this.answers())
       this.progress.next(
@@ -203,6 +214,10 @@ export class GlobalProviderService {
 
   public updateRadarData(newData: ReportReoDTO[]): void {
     this.RadarData.next(newData);;
+  }
+
+  public updateCircleData(newData: Circle): void {
+    this.CircleData.next(newData);
   }
 
   getCircleData() {

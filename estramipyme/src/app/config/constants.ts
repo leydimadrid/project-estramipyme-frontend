@@ -3,6 +3,7 @@ export const API_CONSTANTS = {
   GETFORMS_ENDPOINT: '/api/form/getForm',
   POSTTEST_ENDPOINT: '/api/test/newTest',
   GETTEST_REPORTREO: '/api/test/getReportRadarEstrategico',
+  GETTEST_REPORTCIRCULO: '/api/test/getReportCirculoDorado',
   AUTH_ENPOINT: '/api/auth',
 };
 

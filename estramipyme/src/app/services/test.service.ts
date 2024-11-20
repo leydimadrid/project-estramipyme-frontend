@@ -3,6 +3,7 @@ import { inject, Injectable } from "@angular/core";
 import { API_CONSTANTS } from "../config/constants";
 import { TestRequestDTO } from "../DTO/testRequestDTO";
 import { ReportReoDTO } from "../DTO/reportReoDTO";
+import { InfoResultadoCirculoDoradoDTO } from "../DTO/infoResultadoCirculoDoradoDTO";
 
 @Injectable({
     providedIn: 'root',
@@ -19,5 +20,11 @@ export class TestService{
     getReporteREO(testId:number) {
         let endpoint = `${API_CONSTANTS.BASE_URL}${API_CONSTANTS.GETTEST_REPORTREO}` + '/' + testId;
         return this.http.get<ReportReoDTO[]>(endpoint);
+    }
+
+    getReporteCirculoDorado(testId:number) {
+        let endpoint = `${API_CONSTANTS.BASE_URL}${API_CONSTANTS.GETTEST_REPORTCIRCULO}` + '/' + testId;
+        console.log(endpoint);
+        return this.http.get<InfoResultadoCirculoDoradoDTO[]>(endpoint);
     }
 }
