@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GraphsComponent } from './components/graphs/graphs.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
-import { GlobalProviderService } from '@services/global-provider.service';
+import { Circle, GlobalProviderService } from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthService } from '@services/auth.service';
-
+import {  jwtDecode  }  from  "jwt-decode" ;
 import { Form } from '@models/form.model';
 import { FormService } from '@services/form.service';
 import Swal from 'sweetalert2';
@@ -17,6 +17,9 @@ import { TestRequestDTO } from './DTO/testRequestDTO';
 
 import { PdfGeneratorComponent } from './components/pdf-generator/pdf-generator.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { number } from 'echarts';
+import { switchMap } from 'rxjs';
+import { InfoResultadoCirculoDoradoDTO } from './DTO/infoResultadoCirculoDoradoDTO';
 
 
 
@@ -317,10 +320,26 @@ export class AppComponent implements OnInit {
     return validation;
   }
 
+
+  
+
   onSaveResults() {
+    
+    
+    
     if (this.completeQuestionsValidate()) {
       this.saveTest();
+      this.gotoReport();
+    }else{
+      Swal.fire({
+        position: 'top-end',
+        icon: 'warning',
+        title: "Debe seleccionar almenos una respuesta por cada pregunta",
+        showConfirmButton: false,
+        timer: 2500,
+      });
     }
+    
   }
 
   saveTest() {
@@ -338,18 +357,72 @@ export class AppComponent implements OnInit {
         });
       });
 
+
+      let _userEmail = this.globalProvider.getUserEmail();
+
+      if(_userEmail == ""){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'error',
+          title: "Error al recuperar la información del usuario.",
+          showConfirmButton: false,
+          timer: 2500,
+        });
+      }
+
       this.testData = {
         id: 0,
-        user_id: 2, //TODO: AJUSTAR CON LOGIN
+        userEmail: _userEmail, 
         date: new Date(),
         answers_option_ids: ids,
       };
 
       console.log(this.testData);
 
-      this.testService.saveTest(this.testData).subscribe({
-        next: (_test) => {
-          console.log(_test);
+      this.testService.saveTest(this.testData).pipe(
+        switchMap((test) => {
+          const infoTest = test as TestRequestDTO;
+
+          /*INICIO*/
+
+this.testService.getReporteCirculoDorado(infoTest.id).subscribe({
+  next: (_infoCirculo) => {
+    console.log('info circulo', _infoCirculo);
+
+    let _que = _infoCirculo.filter(x=>x.grupo == "Que").map(x=>x.total);
+    let _porque = _infoCirculo.filter(x=>x.grupo == "Por Que").map(x=>x.total);
+    let _como = _infoCirculo.filter(x=>x.grupo == "Como").map(x=>x.total);
+
+    let info : Circle = {what:_que,why:_porque,how:_como};
+    this.globalProvider.updateCircleData(info);
+
+  },
+  error: (err) => {
+    console.error(err.message);
+    Swal.fire({
+      position: 'top-end',
+      icon: 'error',
+      title: err.message,
+      showConfirmButton: false,
+      timer: 2500,
+    });
+    this.isLoading = false;
+  }
+});
+
+/*fin */
+
+          return this.testService.getReporteREO(infoTest.id);
+        })
+      ).subscribe({
+        next: (_infoReo) => {
+          console.log('info response', _infoReo);
+
+          this.globalProvider.updateRadarData(_infoReo); 
+
+          //let x : Circle = {what:[1,2,3],why:[1,2,3],how:[1,2,3]};
+          //this.globalProvider.updateCircleData(x);
+
           this.isLoading = false;
         },
         error: (err) => {
@@ -362,7 +435,7 @@ export class AppComponent implements OnInit {
             timer: 2500,
           });
           this.isLoading = false;
-        },
+        }
       });
     } catch (error) {
       Swal.fire({

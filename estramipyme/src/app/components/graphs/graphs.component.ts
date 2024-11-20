@@ -1,54 +1,47 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
 import { GlobalProviderService } from '@services/global-provider.service';
+import { ReportReoDTO } from '../../DTO/reportReoDTO';
 
 @Component({
   selector: 'app-graphs',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './graphs.component.html',
-  //styleUrl: './graphs.component.css',
+  // styleUrl: './graphs.component.css',
 })
-export class GraphsComponent {
-  private el: ElementRef;
-  radarCtx: HTMLHtmlElement | any;
-  // elemento en el template
+export class GraphsComponent implements OnInit {
   @ViewChild('graph') radarEl!: ElementRef;
-
-  globalProvider!: GlobalProviderService;
-
   radarChart!: Chart;
 
-  constructor(el: ElementRef, globalProvider: GlobalProviderService) {
-    this.el = el;
-    this.globalProvider = globalProvider;
-  }
+  constructor(
+    private el: ElementRef,
+    private globalProvider: GlobalProviderService
+  ) {}
+
 
   ngOnInit() {
+    console.log('Inicialización completa');
     this.globalProvider.RadarData$.subscribe((value) => {
       if (this.radarEl) {
         if (this.radarChart) {
           this.radarChart.destroy();
         }
+        console.log(value);
+        //const valores: number[] = [1, 2, 3, 4, 5, 6];
         this.renderChart(value);
       }
     });
   }
 
-  renderChart(values: number[]) {
+  renderChart(values: ReportReoDTO[]) {
     const radarData = {
-      labels: [
-        'Coherencia del modelo de negocio',
-        'Conocimiento del cliente',
-        'Conocimiento del negocio',
-        'Alineación en la comunicación interna',
-        'Salud financiera',
-      ],
+      labels: values.map(label => label.name),
       datasets: [
         {
-          label: 'Tu Radar',
-          data: values,
+          label: 'Resultado REO',
+          data: values.map(reo => reo.score),
           fill: true,
           backgroundColor: 'rgba(21, 95, 231, 0.2)',
           borderColor: '#155FE7',
@@ -94,10 +87,11 @@ export class GraphsComponent {
       },
       scales: {
         r: {
+          min: 1,
+            max: 4,
           ticks: {
             beginAtZero: true,
-            min: 1,
-            max: 4,
+            
             stepSize: 1,
             font: {
               size: 14,
@@ -111,6 +105,8 @@ export class GraphsComponent {
               family: 'Inter',
             },
           },
+          suggestedMin: 0,
+          suggestedMax: 4
         },
       },
       layout: {
@@ -120,10 +116,16 @@ export class GraphsComponent {
       },
     };
 
-    this.radarChart = new Chart(this.radarEl.nativeElement, {
-      type: 'radar',
-      data: radarData,
-      options: radarOptions,
-    });
+    const canvas = this.radarEl.nativeElement as HTMLCanvasElement;
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      this.radarChart = new Chart(canvas, {
+        type: 'radar',
+        data: radarData,
+        options: radarOptions,
+      });
+    } else {
+      console.error('No se pudo obtener el contexto 2D del canvas');
+    }
   }
 }
