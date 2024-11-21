@@ -4,6 +4,7 @@ export const API_CONSTANTS = {
   POSTTEST_ENDPOINT: '/api/test/newTest',
   GETTEST_REPORTREO: '/api/test/getReportRadarEstrategico',
   GETTEST_REPORTCIRCULO: '/api/test/getReportCirculoDorado',
+  GETREPORTE_REPORTEPDF: '/api/reporte',
   AUTH_ENPOINT: '/api/auth',
 };
 

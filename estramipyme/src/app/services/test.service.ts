@@ -27,4 +27,10 @@ export class TestService{
         console.log(endpoint);
         return this.http.get<InfoResultadoCirculoDoradoDTO[]>(endpoint);
     }
+
+    getReportePDF(testId:number) {
+        let endpoint = `${API_CONSTANTS.BASE_URL}${API_CONSTANTS.GETREPORTE_REPORTEPDF}` + '/' + testId;
+        let response = this.http.get<InfoResultadoCirculoDoradoDTO[]>(endpoint);
+        return response;
+    }
 }

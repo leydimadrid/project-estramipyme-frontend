@@ -94,7 +94,7 @@ export class GlobalProviderService {
       return { ...prevValue, ...newValue };
     });
     localStorage.setItem('estramipyme', JSON.stringify(this.answers()));
-    this.getProgress();
+    //this.getProgress();
     this.getCircleData();
   }
 
@@ -106,7 +106,7 @@ export class GlobalProviderService {
     this.answers.update(() => {
       return { ...this.answers(), ...data };
     });
-    this.getProgress();
+    //this.getProgress();
     this.getCircleData();
   }
 
@@ -121,21 +121,10 @@ export class GlobalProviderService {
   }
 
   getProgress() {
-    if (!this.answers())
-      this.progress.next(
-        Math.ceil(
-          (Object.keys(this.answers()).length / this.numberOfQuestions) * 100
-        )
-      );
-    if (!this.numberOfQuestions)
-      this.progress.next(
-        Math.ceil(
-          (Object.keys(this.answers()).length / this.numberOfQuestions) * 100
-        )
-      );
+    console.log('progress');
     this.progress.next(
       Math.ceil(
-        (Object.keys(this.answers()).length / this.numberOfQuestions) * 100
+        50//(Object.keys(this.answers()).length / this.numberOfQuestions) * 100
       )
     );
   }

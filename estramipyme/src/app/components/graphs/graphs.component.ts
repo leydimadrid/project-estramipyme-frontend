@@ -111,7 +111,7 @@ export class GraphsComponent implements OnInit {
       },
       layout: {
         padding: {
-          top: 20,
+          top: 0,
         },
       },
     };

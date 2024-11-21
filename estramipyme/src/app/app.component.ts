@@ -72,6 +72,8 @@ export class AppComponent implements OnInit {
   isLoading = false;
   private testData!: TestRequestDTO;
 
+  isVisible: boolean = false;
+
   constructor(
     el: ElementRef,
     globalProvider: GlobalProviderService,
@@ -136,6 +138,7 @@ export class AppComponent implements OnInit {
   }
 
   onOptionSelect(formId: number, questionId: number, optionId: number) {
+    
     try {
       // Encuentra la pregunta correspondiente
       const question = this.formsData
@@ -147,7 +150,11 @@ export class AppComponent implements OnInit {
           option.selected = option.id === optionId;
         });
       }
-      console.log(this.formsData);
+      
+
+      this._getProgress();
+
+
     } catch (error) {
       Swal.fire({
         position: 'top-end',
@@ -225,8 +232,23 @@ export class AppComponent implements OnInit {
   }
 
   resetForm(): void {
-    this.globalProvider.reset();
+    this.progress.set(0);
+    this.formsData = this.resetFormData(this.formsData);
   }
+
+  resetFormData(formsData: Form[]): Form[] {
+    return formsData.map(form => ({
+      ...form,
+      questions: form.questions.map(question => ({
+        ...question,
+        questionOptions: question.questionOptions.map(option => ({
+          ...option,
+          selected: false // O puedes eliminar esta propiedad si no es necesaria
+        }))
+      }))
+    }));
+  }
+  
 
   _revealSection(
     entries: IntersectionObserverEntry[],
@@ -271,11 +293,12 @@ export class AppComponent implements OnInit {
   }
 
   _getProgress() {
-    if (!this.answers) return 0;
-    if (!this.numberOfQuestions) return 0;
-    return Math.ceil(
-      (Object.keys(this.answers).length / this.numberOfQuestions) * 100
-    );
+  const totalQuestions = this.formsData.reduce((sum, form) => sum + form.questions.length, 0);
+  const answeredQuestions = this.formsData.reduce((sum, form) => 
+    sum + form.questions.filter(question => 
+      question.questionOptions.some(option => option.selected)
+    ).length, 0);
+    this.progress.set((answeredQuestions / totalQuestions) * 100);
   }
 
   _createStickyNav(entries: any) {
@@ -329,7 +352,13 @@ export class AppComponent implements OnInit {
     
     if (this.completeQuestionsValidate()) {
       this.saveTest();
-      this.gotoReport();
+      
+      setTimeout(() => {
+        this.gotoReport();
+      }, 1000);
+      
+      
+      
     }else{
       Swal.fire({
         position: 'top-end',
@@ -381,13 +410,24 @@ export class AppComponent implements OnInit {
 
       this.testService.saveTest(this.testData).pipe(
         switchMap((test) => {
+
+          this.isVisible = true;
+
+          this.resetForm();
+
           const infoTest = test as TestRequestDTO;
+
+          localStorage.setItem('testId', infoTest.id.toString());
+
+          
 
           /*INICIO*/
 
 this.testService.getReporteCirculoDorado(infoTest.id).subscribe({
   next: (_infoCirculo) => {
-    console.log('info circulo', _infoCirculo);
+    
+    
+    
 
     let _que = _infoCirculo.filter(x=>x.grupo == "Que").map(x=>x.total);
     let _porque = _infoCirculo.filter(x=>x.grupo == "Por Que").map(x=>x.total);
@@ -420,8 +460,7 @@ this.testService.getReporteCirculoDorado(infoTest.id).subscribe({
 
           this.globalProvider.updateRadarData(_infoReo); 
 
-          //let x : Circle = {what:[1,2,3],why:[1,2,3],how:[1,2,3]};
-          //this.globalProvider.updateCircleData(x);
+          
 
           this.isLoading = false;
         },
