@@ -22,7 +22,7 @@ La idea surgió de Angie Henríquez de la Dirección de Innovación EAFIT. La me
 
 La página de Estramipyme es una **monopágina**, diseñada así para facilitar la navegación y ofrecer una experiencia de usuario más fluida y directa. <br> Incluye las siguientes funcionalidades:
 
-- **Landing Page:** La página de inicio presenta el nombre del proyecto, Estramipyme, y ofrece navegación a las secciones principales: Iniciar Sesión y Registro. Además, la página incluye el nombre Estramipyme y el eslogan "Planeación Estratégica".
+- **Landing Page:** La página de inicio presenta el nombre del proyecto, Estramipyme, y ofrece navegación a las secciones principales: Iniciar Sesión y Registrarse. Además, la página incluye el nombre Estramipyme y el eslogan "Planeación Estratégica".
 <p style="text-align: center;">
   <img src="images/inicial.png" alt="Inicial" width="550"/></p>
 
@@ -33,8 +33,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
 - **Registro e Inicio de Sesión:** Los usuarios pueden registrarse o iniciar sesión desde una página con un diseño intuitivo para garantizar un acceso sencillo. <br> En la sección _registrarse_, los usuarios deben especificar su tipo de persona (natural/jurídica), tipo de documento, el sector en el que se encuentra su empresa, entre otros datos básicos de registro.
 <p style="text-align: center;">
  <img src="images/Login.png" alt="Login" width="500"/>
- <img src="images/Registro.png" alt="Registro" width="500"/>
- <img src="images/menuRegistro.jpg" alt="Menu Desplegable" width="500"/> </p>
+ <img src="images/menuRegistro.png" alt="Menu Desplegable" width="500"/> </p>
 
 - **Cuestionarios Dinámicos:** Después de iniciar sesión y hacer clic en el botón _Comenzar Test_, los usuarios son dirigidos a la primera sección de cuestionarios en una sola página. Este diseño facilita la recopilación de datos y la evaluación de diferentes aspectos del negocio, alimentando el Radar Estratégico Organizacional y el Círculo Dorado de Sinek.
 <p style="text-align: center;">
@@ -85,70 +84,19 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
 - Integridad - <img src="images/icon/integridad1.png" alt="Integridad" width="25"/>
 - Trabajo en Equipo - <img src="images/icon/equipo.png" alt="Trabajo en Equipo" width="35"/>
 
-## **Conoce al Equipo**
-
-<h2 style="text-align: center;">Leo</h2>
-
-<p style="text-align: center;">
-  <img src="images/equipo/Leo.jpeg" alt="Foto de Leo" width="120" style="border-radius: 40%;"/>
-</p>
-
-**Cargo:** Desarrollador Web - Team Lead <br> **Funciones:** Liderazgo, Investigación, Programación, Diseño, Funcionalidad.
-
-<h2 style="text-align: center;">Angie</h2>
-
-<p style="text-align: center;">
-  <img src="images/equipo/Angie.jpeg" alt="Foto de Angie" width="120" style="border-radius: 40%;"/>
-</p>
-
-**Cargo:** Desarolladora Web <br> **Funciones:** Diseño, Investigación, Programación, Funcionalidad.
-
-<h2 style="text-align: center;">Sebas</h2>
-
-<p style="text-align: center;">
-  <img src="images/equipo/Sebas.jpeg" alt="Foto de Sebas" width="120" style="border-radius: 40%;"/>
-</p>
-
-**Cargo:** Desarollador Web <br> **Funciones:** Programación, Diseño, Funcionalidad.
-
-<h2 style="text-align: center;">Ale</h2>
-
-<p style="text-align: center;">
-  <img src="images/equipo/Ale.jpeg" alt="Foto de Ale" width="120" style="border-radius: 40%;"/>
-</p>
-
-**Cargo:** Desarrolladora Web <br> **Funciones:** Investigación, Programación, Diseño.
-
-<h2 style="text-align: center;">Yuli</h2>
-
-<p style="text-align: center;">
-  <img src="images/equipo/Yuli.jpeg" alt="Foto de Yuli" width="120" style="border-radius: 40%;"/>
-</p>
-
-**Cargo:** Desarolladora Web <br> **Funciones:** Investigación, Programación,  Diseño.
-
-<h2 style="text-align: center;">Carlos</h2>
-
-<p style="text-align: center;">
-  <img src="images/equipo/Carlos.jpeg" alt="Foto de Carlos" width="120" style="border-radius: 40%;"/>
-</p>
-
-**Cargo:** Desarollador Web <br> **Funciones:** Investigación, Programación, Funcionalidad.
 
 ## **Tecnologías Utilizadas**
 
 En este proyecto se utilizaron las siguientes tecnologías y lenguajes:
 
-- <img src="images/icon/html-5.png" alt="HTML5" width="50"/> <br> **HTML5** - Lenguaje de marcado para la estructura de la página web.
-- <img src="images/icon/css-3.png" alt="CSS3" width="50"/> <br> **CSS3** - Lenguaje utilizado para los estilos y diseño de la página.
-- <img src="images/icon/java-script.png" alt="JS" width="50"/> <br> **JavaScript** - Lenguaje de programación utilizado para la funcionalidad del proyecto.
+
 - <img src="images/icon/echarts.png" alt="ECharts" width="50"/> <img src="images/icon/chartjs.png" alt="Chartjs" width="40"/> <br> **ECharts** - **Chart.js** - Librerías para la creación e integración de gráficos interactivos.
 - <img src="images/icon/angular.png" alt="Angular" width="50"/> <br> **Angular** - Framework utilizado para la migración y desarrollo del proyecto.
 - <img src="images/icon/typescript.png" alt="Typescript" width="50"/> <br> **TypeScript** - Superset de JavaScript utilizado para desarrollar en Angular.
 - <img src="images/icon/firebase.png" alt="Firebase" width="50"/> <br> **Firebase** - Plataforma utilizada para el despliegue de la página web.
 - <img src="images/icon/github.png" alt="Github" width="60"/> <br> **Github** - Utilizado para la gestión de versiones y colaboración en el proyecto.
 - <img src="images/icon/teams.png" alt="Microsoft Teams" width="50"/> <img src="images/icon/meet.png" alt="Google Meet" width="50"/> <br> **Microsoft Teams** - **Google Meet** - Utilizados para la comunicación (dailys y reuniones) y coordinación del equipo durante el desarrollo en un entorno remoto.
-- <img src="images/icon/copilot.webp" alt="Copilot" width="50"/> <br> **Copilot** - Utilizado para la creación de imágenes de los creadores utilizando DALL·E 3.
+
 
 ## **Referencias**
 
