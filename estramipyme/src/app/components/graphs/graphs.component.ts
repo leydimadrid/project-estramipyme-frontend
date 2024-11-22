@@ -120,8 +120,6 @@ export class GraphsComponent implements OnInit {
     };
 
     const canvas = this.radarEl.nativeElement as HTMLCanvasElement;
-    canvas.width = 800; // Ancho en píxeles
-    canvas.height = 600; // Alto en píxeles
     const ctx = canvas.getContext('2d');
     if (ctx) {
       this.radarChart = new Chart(canvas, {
