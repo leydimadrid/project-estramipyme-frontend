@@ -66,28 +66,9 @@ export class RenderFormDirective {
       fieldset.classList.add(`question--${q.id}`);
       fieldset.setAttribute('data-question-id', String(q.id));
       const legend = document.createElement('legend');
-      //legend.textContent = q.question;
 
       fieldset.append(legend);
       formElement.append(fieldset);
-      /*
-      q.options.forEach((op: String, index: any) => {
-        const label = document.createElement('label');
-        const input = document.createElement('input');
-        input.setAttribute('type', 'radio');
-        input.setAttribute('name', `$Q${q.id}`);
-        input.setAttribute('value', index);
-        label.innerHTML = `
-      <input type="radio" name="Q${q.id}" value=${
-          index + 1
-        } class="radioinput radioinput__section--${id}" data-id="${q.id}-${
-          index + 1
-        }">${op}
-      `;
-
-        fieldset.append(label);
-      });
-      */
     });
     return formElement;
   }

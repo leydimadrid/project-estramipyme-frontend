@@ -15,7 +15,6 @@ import { ReportReoDTO } from '../../DTO/reportReoDTO';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './graphs.component.html',
-  // styleUrl: './graphs.component.css',
 })
 export class GraphsComponent implements OnInit {
   @ViewChild('graph') radarEl!: ElementRef;
@@ -34,7 +33,6 @@ export class GraphsComponent implements OnInit {
           this.radarChart.destroy();
         }
         console.log(value);
-        //const valores: number[] = [1, 2, 3, 4, 5, 6];
         this.renderChart(value);
       }
     });

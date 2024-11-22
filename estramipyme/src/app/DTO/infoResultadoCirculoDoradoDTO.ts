@@ -1,4 +1,4 @@
 export interface InfoResultadoCirculoDoradoDTO {
-    grupo: string;
-    total: number;
+  grupo: string;
+  total: number;
 }

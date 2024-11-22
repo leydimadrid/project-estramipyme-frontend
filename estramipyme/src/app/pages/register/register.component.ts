@@ -21,13 +21,7 @@ export class RegisterComponent {
   sector = Sector;
   typeDocument = TypeDocument;
   typeUsers = TypeUser;
-  // passwordDoNotMatch = signal<boolean>(false);
-  // invalidSurname = signal<boolean>(false);
-  // invalidBusinessName = signal<boolean>(false);
-  // invalidId = signal<boolean>(false);
-  // invalidName = signal<boolean>(false);
   router!: Router;
-  // dataproc!: DataProcService;
   authService!: AuthService;
 
   constructor(router: Router, authService: AuthService) {
@@ -57,11 +51,11 @@ export class RegisterComponent {
     this.authService.register(values).subscribe({
       next: (response) => {
         Swal.fire({
-          position: "center",
-          icon: "success",
-          title: "Usuario registrado exitosamente!",
+          position: 'center',
+          icon: 'success',
+          title: 'Usuario registrado exitosamente!',
           showConfirmButton: false,
-          timer: 2000
+          timer: 2000,
         });
         console.log('Registro exitoso', response);
         this.authService.setLogging(true);
@@ -72,47 +66,4 @@ export class RegisterComponent {
       },
     });
   }
-
-  // _checkName(value: string) {
-  //   this.invalidName.set(true);
-  //   return value.trim().length > 0;
-  // }
-
-  // _checkSurname(value: string) {
-  //   this.invalidSurname.set(true);
-  //   return value.trim().length > 0;
-  // }
-
-  // _checkBusinessName(value: string) {
-  //   this.invalidBusinessName.set(true);
-  //   return value.trim().length > 0;
-  // }
-
-  // _checkId(value: number) {
-  //   this.invalidId.set(true);
-  //   return Number(value) > 0;
-  // }
-
-  // onSubmit(form: NgForm) {
-  //   console.log('valores del form');
-  //   console.log(form.value);
-  //   if (!form.valid) return;
-  //   const url = 'http://localhost:3000/users';
-  //   const values = form.value as RegisterDataModel;
-  //   if (values.password !== values.confirmPassword) {
-  //     this.passwordDoNotMatch.set(true);
-  //     return;
-  //   }
-
-  //   this.dataproc.sendData(url, values).subscribe({
-  //     next: (response) => {
-  //       console.log('Data posted successfully', response);
-  //       console.log(form);
-  //       this.navigateTo('');
-  //     },
-  //     error: (err) => {
-  //       console.error(err);
-  //     },
-  //   });
-  // }
 }
