@@ -5,7 +5,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { RegisterDataModel } from '@models/registerdata.models';
 import { AuthService } from '@services/auth.service';
 import { TypeDocument } from '../../enums/typedocument.enum';
-import { Sector } from '../../enums/Sector.enum';
+import { Sector } from '../../enums/sector2.enum';
 import { TypeUser } from '../../enums/typeuser.enum';
 import { CommonModule } from '@angular/common';
 import Swal from 'sweetalert2';

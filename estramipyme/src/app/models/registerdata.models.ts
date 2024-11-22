@@ -1,4 +1,4 @@
-import { Sector } from '../enums/Sector.enum';
+import { Sector } from '../enums/sector2.enum';
 import { TypeDocument } from '../enums/typedocument.enum';
 import { TypeUser } from '../enums/typeuser.enum';
 
