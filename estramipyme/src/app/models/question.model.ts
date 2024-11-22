@@ -1,4 +1,4 @@
-import { QuestionOptions } from "./questionoptions.model";
+import { QuestionOptions } from './questionoptions.model';
 
 export interface Question {
   id: number;

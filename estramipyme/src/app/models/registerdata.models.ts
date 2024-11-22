@@ -10,7 +10,7 @@ export interface RegisterDataModel {
   typeUser: TypeUser;
   typeDocument: TypeDocument;
   numberDocument: string;
-  businessName: string; // Solo será relevante si es un tipo de usuario LEGAL
+  businessName: string;
   sector: Sector;
   otherSector: string;
   email: string;

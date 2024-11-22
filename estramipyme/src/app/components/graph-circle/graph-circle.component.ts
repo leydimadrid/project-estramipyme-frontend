@@ -16,7 +16,7 @@ export interface Circle {
   templateUrl: './graph-circle.component.html',
   styleUrl: './graph-circle.component.css',
 })
-export class GraphCircleComponent implements OnInit{
+export class GraphCircleComponent implements OnInit {
   chart!: echarts.ECharts;
   @ViewChild('circle') circleEl!: ElementRef;
   globalProvider!: GlobalProviderService;
@@ -25,18 +25,15 @@ export class GraphCircleComponent implements OnInit{
     this.globalProvider = globalProvider;
   }
 
-
-
   ngOnInit() {
     this.globalProvider.CircleData$.subscribe((value: Circle) => {
       if (this.circleEl) this.renderCicle(value);
     });
   }
 
-
   renderCicle(value: Circle) {
     this.chart = echarts.init(this.circleEl.nativeElement);
-  
+
     const option = {
       tooltip: {
         trigger: 'item',
@@ -121,8 +118,7 @@ export class GraphCircleComponent implements OnInit{
         },
       ],
     };
-  
+
     this.chart.setOption(option);
   }
-  
 }

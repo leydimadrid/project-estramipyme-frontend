@@ -6,6 +6,16 @@
         <div class="campos">
           <label for="register-names">Nombres:</label>
           <input type="text" id="register-names" name="name" ngModel required />
+          <div
+            *ngIf="
+              form.controls['name']?.invalid &&
+              (form.controls['name']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
         <div class="campos">
           <label for="register-surnames">Apellidos:</label>
@@ -16,11 +26,29 @@
             name="lastname"
             ngModel
           />
+          <div
+            *ngIf="
+              form.controls['lastname']?.invalid &&
+              (form.controls['lastname']?.touched || form.submitted)
+            "
+          >
+            <small style="color: red">Este campo es obligatorio.</small>
+          </div>
         </div>
       </div>
       <div class="campos" style="width: 100%">
         <label for="register-email">Correo Electrónico:</label>
         <input type="email" id="register-email" required name="email" ngModel />
+        <div
+          *ngIf="
+            form.controls['email']?.invalid &&
+            (form.controls['email']?.touched || form.submitted)
+          "
+        >
+          <small class="error" style="color: red"
+            >Este campo es obligatorio.</small
+          >
+        </div>
       </div>
 
       <div class="fila">
@@ -33,6 +61,16 @@
             name="numberDocument"
             ngModel
           />
+          <div
+            *ngIf="
+              form.controls['numberDocument']?.invalid &&
+              (form.controls['numberDocument']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
         <div class="campos">
           <label for="register-doc-type">Tipo de Documento:</label>
@@ -45,6 +83,16 @@
               {{ typeDocument.value }}
             </option>
           </select>
+          <div
+            *ngIf="
+              form.controls['typeDocument']?.invalid &&
+              (form.controls['typeDocument']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
       </div>
 
@@ -60,6 +108,16 @@
               {{ typeUser.value }}
             </option>
           </select>
+          <div
+            *ngIf="
+              form.controls['typeUser']?.invalid &&
+              (form.controls['typeUser']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
 
         <div class="campos">
@@ -71,6 +129,16 @@
             name="businessName"
             ngModel
           />
+          <div
+            *ngIf="
+              form.controls['businessName']?.invalid &&
+              (form.controls['businessName']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
       </div>
       <div class="fila">
@@ -85,10 +153,30 @@
               {{ sector.value }}
             </option>
           </select>
+          <div
+            *ngIf="
+              form.controls['sector']?.invalid &&
+              (form.controls['sector']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
         <div class="campos">
           <label for="register-otro">Otro Sector:</label>
-          <input type="text" id="register-otro" name="otherSector" ngModel />
+          <input type="text" id="register-otro" name="otherSector" ngModel required />
+          <div
+            *ngIf="
+              form.controls['otherSector']?.invalid &&
+              (form.controls['otherSector']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
       </div>
 
@@ -102,6 +190,16 @@
             name="password"
             ngModel
           />
+          <div
+            *ngIf="
+              form.controls['password']?.invalid &&
+              (form.controls['password']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
 
         <div class="campos">
@@ -113,6 +211,16 @@
             name="confirmPassword"
             ngModel
           />
+          <div
+            *ngIf="
+              form.controls['confirmPassword']?.invalid &&
+              (form.controls['confirmPassword']?.touched || form.submitted)
+            "
+          >
+            <small class="error" style="color: red"
+              >Este campo es obligatorio.</small
+            >
+          </div>
         </div>
       </div>
     </div>

@@ -383,11 +383,6 @@ fieldset label::before {
   height: 1.5rem;
 }
 
-/*.datos-personales {*/
-/*  display: flex;*/
-/*  flex-direction: column;*/
-/*}*/
-
 /*Carga*/
 .spinner {
   display: inline-block;

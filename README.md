@@ -46,10 +46,24 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
  <img src="images/Cuestionarios.png" alt="Cuestionarios" width="600"/>
 </p>
 
+- **Botón de Limpiar Respuestas:** Permite restaurar los cuestionarios, dejando todas las respuestas en blanco nuevamente.
+<p style="text-align: center;">
+  <img src="images/botonLimpiar.png" alt="Borrar Respuestas" width="500"/> </p>
+
+- **Navegación a Resultados:** Una vez que todas las preguntas han sido respondidas, debes darle al botón ver resultados para visualizar las gráficas.
+<p style="text-align: center;">
+  <img src="images/verResultados.png" alt="Ver Resultados" width="500"/></p>
+
+
 - **Visualización de Resultados:** Los resultados de los cuestionarios se presentan en gráficos interactivos, como el Radar Estratégico Organizacional y el Círculo Dorado de Sinek, permitiendo una visualización clara y comprensible del estado del negocio.
 <p style="text-align: center;">
   <img src="images/Radar.png" alt="Resultados Radar" width="325"/>
   <img src="images/circuloDorado.png" alt="Resultados circulo" width="300"/> </p>
+
+  - **Reporte de resultados:** Si deseas descargar el reporte en PDF, debes darle al botón *Generar reporte en PDF*, se descargará un PDF con los resultados y algunas recomendaciones.
+<p style="text-align: center;">
+  <img src="images/botonReporte.png" alt="Ver Resultados" width="500"/></p>
+  <img src="images/reporte.png" alt="Ver Resultados" width="500"/></p>
 
 #### **Otras Funcionalidades**
 
@@ -61,15 +75,8 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
 <p style="text-align: center;">
   <img src="images/validacionRespuestas.png" alt="Validación Respuestas" width="500"/> </p>
 
-- **Navegación a Resultados:** Una vez que todas las preguntas han sido respondidas, la plataforma te lleva automáticamente a la sección de resultados.
-<p style="text-align: center;">
-  <img src="images/verResultados.png" alt="Ver Resultados" width="500"/></p>
 
-- **Botón de Borrar Respuestas:** Permite restaurar los cuestionarios, dejando todas las respuestas en blanco nuevamente.
-<p style="text-align: center;">
-  <img src="images/botonLimpiar.png" alt="Borrar Respuestas" width="500"/> </p>
-
-- **Footer:** La página finaliza con un footer que incluye una breve descripción de +Estramipyme\*, junto con una sección de `Contáctenos` y enlaces a redes sociales.
+- **Footer:** La página finaliza con un footer que incluye una breve descripción de *Estramipyme*, junto con una sección de `Contáctenos` y enlaces a redes sociales.
 <p style="text-align: center;">
   <img src="images/footer.png" alt="Footer" width="500"/> </p>
 
