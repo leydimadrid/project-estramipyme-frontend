@@ -35,6 +35,12 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
  <img src="images/Login.png" alt="Login" width="500"/>
  <img src="images/menuRegistro.png" alt="Menu Desplegable" width="500"/> </p>
 
+ - **Restablecer contraseña:** Los usuarios pueden solicitar restablecer contraseña al darle  <br> En la sección _¿Haz olvidado la contraseña?_, posteriormente de enviar restablecer contraseña, aparecerá un modal para colocar la nueva contraseña.
+<p style="text-align: center;">
+ <img src="images/restablecerContraseina.png" alt="Restablecer Contraseña" width="500"/>
+ <img src="images/nuevaContraseina.png" alt="Nueva contraseña" width="500"/>
+  </p>
+
 - **Cuestionarios Dinámicos:** Después de iniciar sesión y hacer clic en el botón _Comenzar Test_, los usuarios son dirigidos a la primera sección de cuestionarios en una sola página. Este diseño facilita la recopilación de datos y la evaluación de diferentes aspectos del negocio, alimentando el Radar Estratégico Organizacional y el Círculo Dorado de Sinek.
 <p style="text-align: center;">
  <img src="images/Cuestionarios.png" alt="Cuestionarios" width="600"/>
@@ -61,7 +67,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
 
 - **Botón de Borrar Respuestas:** Permite restaurar los cuestionarios, dejando todas las respuestas en blanco nuevamente.
 <p style="text-align: center;">
-  <img src="images/botonBorrar.png" alt="Borrar Respuestas" width="500"/> </p>
+  <img src="images/botonLimpiar.png" alt="Borrar Respuestas" width="500"/> </p>
 
 - **Footer:** La página finaliza con un footer que incluye una breve descripción de +Estramipyme\*, junto con una sección de `Contáctenos` y enlaces a redes sociales.
 <p style="text-align: center;">
