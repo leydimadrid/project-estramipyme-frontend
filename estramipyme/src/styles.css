@@ -203,9 +203,14 @@ fieldset label::before {
 }
 
 .section-see-results {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #00a9e0;
   text-align: center;
   font-size: 1.2rem;
+  padding: 40px 10px 10px 10px;
   color: #777;
 }
 
@@ -219,7 +224,6 @@ fieldset label::before {
   align-items: center;
   height: 100%;
   padding: 20px;
-  background-color: #f9f9f9;
 }
 
 .section-container {
@@ -339,8 +343,7 @@ fieldset label::before {
 /** * * * * * * * * * * * * **/
 
 .section-undo {
-  padding: 10px 10px;
-  margin-top: -80px;
+  margin: 20px;
   text-align: right;
   background-color: #f3f3f3;
 }
@@ -356,17 +359,19 @@ fieldset label::before {
   gap: 2px;
   padding: 8px 15px;
   font-size: 14px;
-  background-color: #ffffff;
-  color: #777;
-  border: 1px solid #ff8f1b;
+  background-color: #ff8f1b;
+  color: #ffffff;
   border-radius: 10rem;
+  border: 1px solid #d0720e;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .btn--borrar-formulario:hover {
-  background-color: #ff8f1b;
-  color: white;
+  background-color: #ffffff;
+  border: 1px solid #ff8f1b;
+  cursor: pointer;
+  color: rgb(84, 84, 84);
 }
 
 .section__header {
