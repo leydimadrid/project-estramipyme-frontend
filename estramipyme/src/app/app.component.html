@@ -90,55 +90,53 @@
 
 <main class="container" [class.hidden]="!isLoged()">
   <div class="container-form">
-  <div *ngFor="let form of formsData; let i = index">
-    <section
-      class="section"
-      id="section--{{form.id}}"
-      
-    >
-      <div class="section-intro">
-        <h2 class="section-title">{{ form.name }}</h2>
-        <p class="section-description">
-          {{ form.description }}
-        </p>
-      </div>
+    <div *ngFor="let form of formsData; let i = index">
+      <section class="section" id="section--{{ form.id }}">
+        <div class="section-intro">
+          <h2 class="section-title">{{ form.name }}</h2>
+          <p class="section-description">
+            {{ form.description }}
+          </p>
+        </div>
 
-      <div
-        class="form-container"
-        appRenderForm
-        url="http://localhost:3000/questions/?section=cliente"
-      ></div>
+        <div
+          class="form-container"
+          appRenderForm
+          url="http://localhost:3000/questions/?section=cliente"
+        ></div>
 
-      <form
-        class="form--1"
-        *ngFor="let question of form.questions; let j = index"
-      >
-        <fieldset class="questions question--1 Q{{ question.id }}">
-          <legend>{{ question.statement }}</legend>
-          <label
-            *ngFor="
-              let questionOption of question.questionOptions;
-              let k = index
-            "
-          >
-            <!--<input type="radio" name="Q1" value={{questionOption.id}} class="radioinput radioinput__section--1" data-id="1-1">-->
-            <input
-              type="radio"
-              [name]="'QO' + question.id"
-              [value]="questionOption.id"
-              (change)="onOptionSelect(form.id, question.id, questionOption.id)"
-              class="radioinput radioinput__section--1"
-              [checked]="questionOption.selected"
-            />
-            {{ questionOption.option.text }}
-          </label>
-        </fieldset>
-      </form>
-    </section>
+        <form
+          class="form--1"
+          *ngFor="let question of form.questions; let j = index"
+        >
+          <fieldset class="questions question--1 Q{{ question.id }}">
+            <legend>{{ question.statement }}</legend>
+            <label
+              *ngFor="
+                let questionOption of question.questionOptions;
+                let k = index
+              "
+            >
+              <!--<input type="radio" name="Q1" value={{questionOption.id}} class="radioinput radioinput__section--1" data-id="1-1">-->
+              <input
+                type="radio"
+                [name]="'QO' + question.id"
+                [value]="questionOption.id"
+                (change)="
+                  onOptionSelect(form.id, question.id, questionOption.id)
+                "
+                class="radioinput radioinput__section--1"
+                [checked]="questionOption.selected"
+              />
+              {{ questionOption.option.text }}
+            </label>
+          </fieldset>
+        </form>
+      </section>
     </div>
   </div>
 
-  <section class="section section-undo">
+  <section class="section-undo">
     <div class="button-container">
       <button
         class="btn--borrar-formulario"
@@ -174,31 +172,24 @@
             stroke-width="32"
           />
         </svg>
-        Limpiar Respuestas
+        Limpiar respuestas
       </button>
     </div>
   </section>
 
-  <section class="section section-see-results">
+  <section class="section-see-results">
     <div class="section-intro">
       <h3 class="section__header">
         ¡Gracias por completar el formulario! <br />
         Apreciamos tu tiempo y colaboración.
       </h3>
+      <button (click)="onSaveResults()" class="btn btn--show-modal">
+        Ver resultados!
+      </button>
     </div>
-    <button (click)="onSaveResults()" class="btn btn--show-modal">
-      Ver resultados!
-    </button>
   </section>
 
+  <app-pdf-generator *ngIf="isVisible"></app-pdf-generator>
 
-  <div id="report" >
-    <app-pdf-generator *ngIf="isVisible"></app-pdf-generator>
-  </div>
-
-  <!--
-  <app-graphs />
-  <app-graph-circle></app-graph-circle>
   <app-footer />
-  -->
 </main>
