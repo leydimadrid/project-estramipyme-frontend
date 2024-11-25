@@ -106,7 +106,7 @@ En este proyecto se utilizaron las siguientes tecnologías y lenguajes:
 - <img src="images/icon/echarts.png" alt="ECharts" width="50"/> <img src="images/icon/chartjs.png" alt="Chartjs" width="40"/> <br> **ECharts** - **Chart.js** - Librerías para la creación e integración de gráficos interactivos.
 - <img src="images/icon/angular.png" alt="Angular" width="50"/> <br> **Angular** - Framework utilizado para la migración y desarrollo del proyecto.
 - <img src="images/icon/typescript.png" alt="Typescript" width="50"/> <br> **TypeScript** - Superset de JavaScript utilizado para desarrollar en Angular.
-- <img src="images/icon/firebase.png" alt="Firebase" width="50"/> <br> **Firebase** - Plataforma utilizada para el despliegue de la página web.
+- <img src="images/icon/Netlify.webp" alt="Netlify" width="50"/> <br> **Netlify** - Plataforma utilizada para el despliegue de la página web.
 - <img src="images/icon/github.png" alt="Github" width="60"/> <br> **Github** - Utilizado para la gestión de versiones y colaboración en el proyecto.
 - <img src="images/icon/teams.png" alt="Microsoft Teams" width="50"/> <img src="images/icon/meet.png" alt="Google Meet" width="50"/> <br> **Microsoft Teams** - **Google Meet** - Utilizados para la comunicación (dailys y reuniones) y coordinación del equipo durante el desarrollo en un entorno remoto.
 
