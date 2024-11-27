@@ -81,12 +81,13 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <img src="images/footer.png" alt="Footer" width="500"/> </p>
 
 <p style="text-align: center;">
-  <a href="https://estramipime.web.app/"><strong>Visita Estramipyme aquí</strong></a>
+  <a href="https://estramipyme-web.netlify.app/"><strong>Visita Estramipyme aquí</strong></a>
 </p>
 
 
 <p style="text-align: center;">
   <a href="https://view.genially.com/673dfca0abe51854d55832da/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme en Español</strong></a>
+  <a href="https://view.genially.com/673dfca0abe51854d55832da/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme en Inglés</strong></a>
 </p>
 
 ## **Valores de Estramipyme**
