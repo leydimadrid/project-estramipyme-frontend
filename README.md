@@ -89,7 +89,7 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
   <a href="https://view.genially.com/673dfca0abe51854d55832da/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme en Español</strong></a>
 </p>
 <p style="text-align: center;">
-  <a href="https://view.genially.com/673dfca0abe51854d55832da/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme en Inglés</strong></a>
+  <a href="https://view.genially.com/674749f167b42fc9fb17144f/presentation-user-manual-estramipyme"><strong>Estramipyme User Manual in English</strong></a>
 </p>
 
 ## **Valores de Estramipyme**
