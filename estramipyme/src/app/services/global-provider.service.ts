@@ -2,7 +2,7 @@ import { computed, inject, Injectable, signal } from '@angular/core';
 import { DataProcService } from '@services/data-proc.service';
 import { BehaviorSubject } from 'rxjs';
 import { ReportReoDTO } from '../DTO/reportReoDTO';
-import {  jwtDecode  }  from  "jwt-decode" ;
+import { jwtDecode } from 'jwt-decode';
 
 type Answer =
   | {}
@@ -25,7 +25,9 @@ export class GlobalProviderService {
   numberOfQuestions = 51;
   private dataProc = inject(DataProcService);
 
-  private RadarData: BehaviorSubject<ReportReoDTO[]> = new BehaviorSubject<ReportReoDTO[]>([]);
+  private RadarData: BehaviorSubject<ReportReoDTO[]> = new BehaviorSubject<
+    ReportReoDTO[]
+  >([]);
   private CircleData: BehaviorSubject<Circle> = new BehaviorSubject({
     what: [90, 10],
     how: [90, 10],
@@ -48,42 +50,7 @@ export class GlobalProviderService {
     return this.getScores();
   });
 
-  constructor() {
-    /*
-    this.dataProc.getItems('http://localhost:3000/questions').subscribe({
-      next: (questions) => {
-        this.numberOfQuestions = questions.length; //Obtener los ids
-        this.cliente = questions
-          .filter((e) => e.section === 'cliente')
-          .map((q) => String(q.id));
-        this.negocio = questions
-          .filter((e) => e.section === 'negocio')
-          .map((q) => String(q.id));
-        this.coherencia = questions
-          .filter((e) => e.section === 'coherencia')
-          .map((q) => String(q.id));
-        this.alineacion = questions
-          .filter((e) => e.section === 'alineacion')
-          .map((q) => String(q.id));
-        this.financiera = questions
-          .filter((e) => e.section === 'financiera')
-          .map((q) => String(q.id));
-        this.circuloQue = questions
-          .filter((e) => e.section === 'circulo' && e.subsection === 'que')
-          .map((q) => String(q.id));
-        this.circuloComo = questions
-          .filter((e) => e.section === 'circulo' && e.subsection === 'como')
-          .map((q) => String(q.id));
-        this.circuloPorQue = questions
-          .filter((e) => e.section === 'circulo' && e.subsection === 'por que')
-          .map((q) => String(q.id));
-      },
-      error: (err) => {
-        console.log(err);
-      },
-    });
-    */
-  }
+  constructor() {}
 
   setLocalStorage(id: number | string, value: string) {
     const newValue = {
@@ -94,7 +61,6 @@ export class GlobalProviderService {
       return { ...prevValue, ...newValue };
     });
     localStorage.setItem('estramipyme', JSON.stringify(this.answers()));
-    //this.getProgress();
     this.getCircleData();
   }
 
@@ -106,70 +72,26 @@ export class GlobalProviderService {
     this.answers.update(() => {
       return { ...this.answers(), ...data };
     });
-    //this.getProgress();
     this.getCircleData();
   }
 
-  getUserEmail(): string{
+  getUserEmail(): string {
     let token = sessionStorage.getItem('authToken');
-    let resultado = "";
-    if(token != null){
-      const  info = jwtDecode(token);
-      resultado =  info.sub ?? "";
+    let resultado = '';
+    if (token != null) {
+      const info = jwtDecode(token);
+      resultado = info.sub ?? '';
     }
     return resultado;
   }
 
   getProgress() {
     console.log('progress');
-    this.progress.next(
-      Math.ceil(
-        50//(Object.keys(this.answers()).length / this.numberOfQuestions) * 100
-      )
-    );
+    this.progress.next(Math.ceil(50));
   }
 
   getScores(): number[] {
-
-    return [5,5,5,5,5];
-    /*
-    let clientAcc = 0;
-    let negocioAcc = 0;
-    let coherenciaAcc = 0;
-    let alineacionAcc = 0;
-    let financieraAcc = 0;
-    const tCliente = +this.cliente.length;
-    const tNegocio = +this.negocio.length;
-    const tCoherencia = +this.coherencia.length;
-    const tAlineacion = +this.alineacion.length;
-    const tFinanciera = +this.financiera.length;
-
-    Object.entries(this.answers()).forEach(([key, value]) => {
-      if (this.cliente.includes(key)) {
-        clientAcc += Number(value);
-      }
-      if (this.negocio.includes(key)) {
-        negocioAcc += Number(value);
-      }
-      if (this.coherencia.includes(key)) {
-        coherenciaAcc += Number(value);
-      }
-      if (this.alineacion.includes(key)) {
-        alineacionAcc += Number(value);
-      }
-      if (this.financiera.includes(key)) {
-        financieraAcc += Number(value);
-      }
-    });
-
-    return [
-      Number(((coherenciaAcc / (tCoherencia * 4)) * 4).toFixed(2)),
-      Number(((financieraAcc / (tFinanciera * 4)) * 4).toFixed(2)),
-      Number(((clientAcc / (tCliente * 4)) * 4).toFixed(2)),
-      Number(((alineacionAcc / (tAlineacion * 4)) * 4).toFixed(2)),
-      Number(((negocioAcc / (tNegocio * 4)) * 4).toFixed(2)),
-    ];
-    */
+    return [5, 5, 5, 5, 5];
   }
 
   getCircle() {
@@ -200,9 +122,8 @@ export class GlobalProviderService {
     };
   }
 
-
   public updateRadarData(newData: ReportReoDTO[]): void {
-    this.RadarData.next(newData);;
+    this.RadarData.next(newData);
   }
 
   public updateCircleData(newData: Circle): void {

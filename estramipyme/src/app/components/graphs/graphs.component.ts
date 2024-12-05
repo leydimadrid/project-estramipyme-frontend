@@ -1,4 +1,10 @@
-import { Component, ElementRef, ViewChild, AfterViewInit, OnInit } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  OnInit,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import Chart from 'chart.js/auto';
 import { GlobalProviderService } from '@services/global-provider.service';
@@ -9,7 +15,6 @@ import { ReportReoDTO } from '../../DTO/reportReoDTO';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './graphs.component.html',
-  // styleUrl: './graphs.component.css',
 })
 export class GraphsComponent implements OnInit {
   @ViewChild('graph') radarEl!: ElementRef;
@@ -20,7 +25,6 @@ export class GraphsComponent implements OnInit {
     private globalProvider: GlobalProviderService
   ) {}
 
-
   ngOnInit() {
     console.log('Inicialización completa');
     this.globalProvider.RadarData$.subscribe((value) => {
@@ -29,7 +33,6 @@ export class GraphsComponent implements OnInit {
           this.radarChart.destroy();
         }
         console.log(value);
-        //const valores: number[] = [1, 2, 3, 4, 5, 6];
         this.renderChart(value);
       }
     });
@@ -37,11 +40,11 @@ export class GraphsComponent implements OnInit {
 
   renderChart(values: ReportReoDTO[]) {
     const radarData = {
-      labels: values.map(label => label.name),
+      labels: values.map((label) => label.name),
       datasets: [
         {
           label: 'Resultado REO',
-          data: values.map(reo => reo.score),
+          data: values.map((reo) => reo.score),
           fill: true,
           backgroundColor: 'rgba(21, 95, 231, 0.2)',
           borderColor: '#155FE7',
@@ -88,10 +91,10 @@ export class GraphsComponent implements OnInit {
       scales: {
         r: {
           min: 1,
-            max: 4,
+          max: 4,
           ticks: {
             beginAtZero: true,
-            
+
             stepSize: 1,
             font: {
               size: 14,
@@ -106,7 +109,7 @@ export class GraphsComponent implements OnInit {
             },
           },
           suggestedMin: 0,
-          suggestedMax: 4
+          suggestedMax: 4,
         },
       },
       layout: {

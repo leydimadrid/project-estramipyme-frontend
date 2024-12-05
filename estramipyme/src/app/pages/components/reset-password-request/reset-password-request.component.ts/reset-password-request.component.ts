@@ -9,7 +9,7 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [CommonModule, FormsModule],
   templateUrl: './reset-password-request.component.html',
-  styleUrl: './reset-password-request.component.css'
+  styleUrl: './reset-password-request.component.css',
 })
 export class ResetPasswordRequestComponentTsComponent {
   email: string = '';
@@ -20,11 +20,13 @@ export class ResetPasswordRequestComponentTsComponent {
 
   requestReset(): void {
     this.authService.requestPasswordReset(this.email).subscribe(
-      response => {
+      (response) => {
         this.message = response.message; // Mensaje de éxito
       },
-      error => {
-        this.errorMessage = error.error.message || 'Hubo un problema al solicitar el restablecimiento.';
+      (error) => {
+        this.errorMessage =
+          error.error.message ||
+          'Hubo un problema al solicitar el restablecimiento.';
       }
     );
   }

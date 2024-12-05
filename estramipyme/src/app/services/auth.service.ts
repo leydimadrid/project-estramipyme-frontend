@@ -26,7 +26,7 @@ export class AuthService {
   checkToken() {
     const token = this.getAuthToken();
     this.setLogging(!!token); // Solo establece la sesión activa si hay token
-}
+  }
 
   login(credentials: any, rememberMe: boolean = false): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}/login`, credentials).pipe(

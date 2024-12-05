@@ -1,14 +1,24 @@
-import { Component, ElementRef, inject, NgModule, OnInit, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  inject,
+  NgModule,
+  OnInit,
+  signal,
+} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { GraphsComponent } from './components/graphs/graphs.component';
 import { FooterComponent } from './pages/components/footer/footer.component';
-import { Circle, GlobalProviderService } from '@services/global-provider.service';
+import {
+  Circle,
+  GlobalProviderService,
+} from '@services/global-provider.service';
 import { GraphCircleComponent } from './components/graph-circle/graph-circle.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { AuthService } from '@services/auth.service';
-import {  jwtDecode  }  from  "jwt-decode" ;
+import { jwtDecode } from 'jwt-decode';
 import { Form } from '@models/form.model';
 import { FormService } from '@services/form.service';
 import Swal from 'sweetalert2';
@@ -20,8 +30,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { number } from 'echarts';
 import { switchMap } from 'rxjs';
 import { InfoResultadoCirculoDoradoDTO } from './DTO/infoResultadoCirculoDoradoDTO';
-
-
 
 type Answers =
   | {}
@@ -60,7 +68,6 @@ export class AppComponent implements OnInit {
   #progress: HTMLHtmlElement | any;
   #navLinks: HTMLHtmlElement | any;
 
-  // private provider = inject(GlobalProviderService)
   globalProvider!: GlobalProviderService;
   authService!: AuthService;
 
@@ -115,7 +122,7 @@ export class AppComponent implements OnInit {
         error: (err) => {
           console.error(err.message);
           Swal.fire({
-            position: 'top-end',
+            position: 'center',
             icon: 'error',
             title: err.message,
             showConfirmButton: false,
@@ -126,7 +133,7 @@ export class AppComponent implements OnInit {
       });
     } catch (error) {
       Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'error',
         title: 'Error realizando la consulta API',
         showConfirmButton: false,
@@ -138,7 +145,6 @@ export class AppComponent implements OnInit {
   }
 
   onOptionSelect(formId: number, questionId: number, optionId: number) {
-    
     try {
       // Encuentra la pregunta correspondiente
       const question = this.formsData
@@ -150,14 +156,11 @@ export class AppComponent implements OnInit {
           option.selected = option.id === optionId;
         });
       }
-      
 
       this._getProgress();
-
-
     } catch (error) {
       Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'error',
         title: 'Error al seleccionar la respuesta',
         showConfirmButton: false,
@@ -226,9 +229,7 @@ export class AppComponent implements OnInit {
     headerObserver.observe(this.#header);
 
     this._setupResultsButton();
-    // this._setupBorrarButton();
     this._setupResultsButton();
-    // this._setupBorrarButton();
   }
 
   resetForm(): void {
@@ -237,18 +238,17 @@ export class AppComponent implements OnInit {
   }
 
   resetFormData(formsData: Form[]): Form[] {
-    return formsData.map(form => ({
+    return formsData.map((form) => ({
       ...form,
-      questions: form.questions.map(question => ({
+      questions: form.questions.map((question) => ({
         ...question,
-        questionOptions: question.questionOptions.map(option => ({
+        questionOptions: question.questionOptions.map((option) => ({
           ...option,
-          selected: false // O puedes eliminar esta propiedad si no es necesaria
-        }))
-      }))
+          selected: false,
+        })),
+      })),
     }));
   }
-  
 
   _revealSection(
     entries: IntersectionObserverEntry[],
@@ -293,11 +293,18 @@ export class AppComponent implements OnInit {
   }
 
   _getProgress() {
-  const totalQuestions = this.formsData.reduce((sum, form) => sum + form.questions.length, 0);
-  const answeredQuestions = this.formsData.reduce((sum, form) => 
-    sum + form.questions.filter(question => 
-      question.questionOptions.some(option => option.selected)
-    ).length, 0);
+    const totalQuestions = this.formsData.reduce(
+      (sum, form) => sum + form.questions.length,
+      0
+    );
+    const answeredQuestions = this.formsData.reduce(
+      (sum, form) =>
+        sum +
+        form.questions.filter((question) =>
+          question.questionOptions.some((option) => option.selected)
+        ).length,
+      0
+    );
     this.progress.set((answeredQuestions / totalQuestions) * 100);
   }
 
@@ -343,32 +350,22 @@ export class AppComponent implements OnInit {
     return validation;
   }
 
-
-  
-
   onSaveResults() {
-    
-    
-    
     if (this.completeQuestionsValidate()) {
       this.saveTest();
-      
+
       setTimeout(() => {
         this.gotoReport();
       }, 1000);
-      
-      
-      
-    }else{
+    } else {
       Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'warning',
-        title: "Debe seleccionar almenos una respuesta por cada pregunta",
+        title: 'Debe seleccionar almenos una respuesta por cada pregunta',
         showConfirmButton: false,
         timer: 2500,
       });
     }
-    
   }
 
   saveTest() {
@@ -386,14 +383,13 @@ export class AppComponent implements OnInit {
         });
       });
 
-
       let _userEmail = this.globalProvider.getUserEmail();
 
-      if(_userEmail == ""){
+      if (_userEmail == '') {
         Swal.fire({
           position: 'top-end',
           icon: 'error',
-          title: "Error al recuperar la información del usuario.",
+          title: 'Error al recuperar la información del usuario.',
           showConfirmButton: false,
           timer: 2500,
         });
@@ -401,84 +397,83 @@ export class AppComponent implements OnInit {
 
       this.testData = {
         id: 0,
-        userEmail: _userEmail, 
+        userEmail: _userEmail,
         date: new Date(),
         answers_option_ids: ids,
       };
 
       console.log(this.testData);
 
-      this.testService.saveTest(this.testData).pipe(
-        switchMap((test) => {
+      this.testService
+        .saveTest(this.testData)
+        .pipe(
+          switchMap((test) => {
+            this.isVisible = true;
 
-          this.isVisible = true;
+            this.resetForm();
 
-          this.resetForm();
+            const infoTest = test as TestRequestDTO;
 
-          const infoTest = test as TestRequestDTO;
+            localStorage.setItem('testId', infoTest.id.toString());
 
-          localStorage.setItem('testId', infoTest.id.toString());
+            /*INICIO*/
 
-          
+            this.testService.getReporteCirculoDorado(infoTest.id).subscribe({
+              next: (_infoCirculo) => {
+                let _que = _infoCirculo
+                  .filter((x) => x.grupo == 'Que')
+                  .map((x) => x.total);
+                let _porque = _infoCirculo
+                  .filter((x) => x.grupo == 'Por Que')
+                  .map((x) => x.total);
+                let _como = _infoCirculo
+                  .filter((x) => x.grupo == 'Como')
+                  .map((x) => x.total);
 
-          /*INICIO*/
+                let info: Circle = { what: _que, why: _porque, how: _como };
+                this.globalProvider.updateCircleData(info);
+              },
+              error: (err) => {
+                console.error(err.message);
+                Swal.fire({
+                  position: 'top-end',
+                  icon: 'error',
+                  title: err.message,
+                  showConfirmButton: false,
+                  timer: 2500,
+                });
+                this.isLoading = false;
+              },
+            });
 
-this.testService.getReporteCirculoDorado(infoTest.id).subscribe({
-  next: (_infoCirculo) => {
-    
-    
-    
+            /*fin */
 
-    let _que = _infoCirculo.filter(x=>x.grupo == "Que").map(x=>x.total);
-    let _porque = _infoCirculo.filter(x=>x.grupo == "Por Que").map(x=>x.total);
-    let _como = _infoCirculo.filter(x=>x.grupo == "Como").map(x=>x.total);
+            return this.testService.getReporteREO(infoTest.id);
+          })
+        )
+        .subscribe({
+          next: (_infoReo) => {
+            console.log('info response', _infoReo);
 
-    let info : Circle = {what:_que,why:_porque,how:_como};
-    this.globalProvider.updateCircleData(info);
+            this.globalProvider.updateRadarData(_infoReo);
 
-  },
-  error: (err) => {
-    console.error(err.message);
-    Swal.fire({
-      position: 'top-end',
-      icon: 'error',
-      title: err.message,
-      showConfirmButton: false,
-      timer: 2500,
-    });
-    this.isLoading = false;
-  }
-});
-
-/*fin */
-
-          return this.testService.getReporteREO(infoTest.id);
-        })
-      ).subscribe({
-        next: (_infoReo) => {
-          console.log('info response', _infoReo);
-
-          this.globalProvider.updateRadarData(_infoReo); 
-
-          
-
-          this.isLoading = false;
-        },
-        error: (err) => {
-          console.error(err.message);
-          Swal.fire({
-            position: 'top-end',
-            icon: 'error',
-            title: err.message,
-            showConfirmButton: false,
-            timer: 2500,
-          });
-          this.isLoading = false;
-        }
-      });
+            this.isLoading = false;
+          },
+          error: (err) => {
+            console.error(err.message);
+            Swal.fire({
+              position: 'top-end',
+              icon: 'error',
+              title: err.message,
+              showConfirmButton: false,
+              timer: 2500,
+            });
+            this.isLoading = false;
+          },
+        });
     } catch (error) {
       Swal.fire({
-        position: 'top-end',
+        position: 'center',
         icon: 'error',
         title: 'Error realizando la consulta API',
         showConfirmButton: false,
@@ -498,73 +493,6 @@ this.testService.getReporteCirculoDorado(infoTest.id).subscribe({
       console.error('Botón "Ver resultados" no encontrado.');
       return;
     }
-
-    /*
-    showResultsButton.addEventListener('click', () => {
-
-      this.completeQuestionsValidate();
-
-
-      const fieldsets = this.el.nativeElement.querySelectorAll(
-
-        '.form--1 fieldset'
-
-       '.form-container fieldset'
-
-      );
-
-      // Resetear cualquier error previo
-      fieldsets.forEach((fieldset: HTMLHtmlElement) => {
-        fieldset.classList.remove('fieldset-error');
-      });
-
-      console.log(this.globalProvider.answers());
-      console.log(this.globalProvider.numberOfQuestions);
-
-      if (
-        Object.entries(this.globalProvider.answers()).length <
-        this.globalProvider.numberOfQuestions
-      ) {
-        const answerIds = Object.keys(this.globalProvider.answers());
-
-        fieldsets.forEach((fieldset: HTMLHtmlElement) => {
-          const current = fieldset.getAttribute('data-question-id');
-          if (current) {
-            if (!answerIds.includes(current))
-              fieldset.classList.add('fieldset-error');
-          }
-        });
-
-        const questionsKeys = Array.from(
-          { length: this.globalProvider.numberOfQuestions },
-          (_, i) => String(i + 1)
-        );
-
-        const queue = questionsKeys.filter(
-          (element) => !answerIds.includes(element)
-        );
-
-        const currentTarget: HTMLHtmlElement =
-          this.el.nativeElement.querySelector(
-            `.form-container fieldset[data-question-id="${queue[0]}"]`
-          );
-        currentTarget.scrollIntoView({
-          behavior: 'smooth',
-          block: 'center',
-        });
-      } else {
-        console.log('Todas las preguntas han sido respondidas.');
-        const radarSection =
-          this.el.nativeElement.querySelector('.section-radar');
-        if (radarSection) {
-          radarSection.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center',
-          });
-        }
-      }
-    });
-    */
   }
 
   logout() {

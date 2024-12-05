@@ -4,14 +4,12 @@ import { AuthService } from '@services/auth.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-reset-password',
   standalone: true,
   imports: [FormsModule, CommonModule],
   templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  styleUrls: ['./reset-password.component.css'],
 })
 export class ResetPasswordComponent implements OnInit {
   token: string = '';
@@ -31,12 +29,14 @@ export class ResetPasswordComponent implements OnInit {
 
   resetPassword(): void {
     this.authService.resetPassword(this.token, this.newPassword).subscribe(
-      response => {
+      (response) => {
         this.message = response.message;
         setTimeout(() => this.router.navigate(['/login']), 2000); // Redirigir al login después de éxito
       },
-      error => {
-        this.errorMessage = error.error.message || 'Hubo un problema al restablecer la contraseña.';
+      (error) => {
+        this.errorMessage =
+          error.error.message ||
+          'Hubo un problema al restablecer la contraseña.';
       }
     );
   }

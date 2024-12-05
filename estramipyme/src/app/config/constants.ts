@@ -1,5 +1,5 @@
 export const API_CONSTANTS = {
-  BASE_URL: 'http://localhost:8081', //Configurar ambiente
+  BASE_URL:'https://project-estramipyme-backend-production-44d9.up.railway.app',
   GETFORMS_ENDPOINT: '/api/form/getForm',
   POSTTEST_ENDPOINT: '/api/test/newTest',
   GETTEST_REPORTREO: '/api/test/getReportRadarEstrategico',

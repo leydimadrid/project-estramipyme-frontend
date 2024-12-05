@@ -62,13 +62,15 @@
 }
 
 .section {
-  padding: 10rem 3rem;
+  padding: 8rem 3rem 2rem 3rem;
   border-top: 1px solid #ddd;
-
   transition: transform 1s, opacity 1s;
 }
 
 .section-intro {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
   max-width: 80rem;
   margin: 0 auto 5rem auto;
 }

@@ -35,15 +35,35 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
  <img src="images/Login.png" alt="Login" width="500"/>
  <img src="images/menuRegistro.png" alt="Menu Desplegable" width="500"/> </p>
 
+ - **Restablecer contraseña:** Los usuarios pueden solicitar restablecer contraseña al darle  <br> En la sección _¿Haz olvidado la contraseña?_, posteriormente de enviar restablecer contraseña, aparecerá un modal para colocar la nueva contraseña.
+<p style="text-align: center;">
+ <img src="images/restablecerContraseina.png" alt="Restablecer Contraseña" width="500"/>
+ <img src="images/nuevaContraseina.png" alt="Nueva contraseña" width="500"/>
+  </p>
+
 - **Cuestionarios Dinámicos:** Después de iniciar sesión y hacer clic en el botón _Comenzar Test_, los usuarios son dirigidos a la primera sección de cuestionarios en una sola página. Este diseño facilita la recopilación de datos y la evaluación de diferentes aspectos del negocio, alimentando el Radar Estratégico Organizacional y el Círculo Dorado de Sinek.
 <p style="text-align: center;">
  <img src="images/Cuestionarios.png" alt="Cuestionarios" width="600"/>
 </p>
 
+- **Botón de Limpiar Respuestas:** Permite restaurar los cuestionarios, dejando todas las respuestas en blanco nuevamente.
+<p style="text-align: center;">
+  <img src="images/botonLimpiar.png" alt="Borrar Respuestas" width="500"/> </p>
+
+- **Navegación a Resultados:** Una vez que todas las preguntas han sido respondidas, debes darle al botón ver resultados para visualizar las gráficas.
+<p style="text-align: center;">
+  <img src="images/verResultados.png" alt="Ver Resultados" width="500"/></p>
+
+
 - **Visualización de Resultados:** Los resultados de los cuestionarios se presentan en gráficos interactivos, como el Radar Estratégico Organizacional y el Círculo Dorado de Sinek, permitiendo una visualización clara y comprensible del estado del negocio.
 <p style="text-align: center;">
   <img src="images/Radar.png" alt="Resultados Radar" width="325"/>
   <img src="images/circuloDorado.png" alt="Resultados circulo" width="300"/> </p>
+
+  - **Reporte de resultados:** Si deseas descargar el reporte en PDF, debes darle al botón *Generar reporte en PDF*, se descargará un PDF con los resultados y algunas recomendaciones.
+<p style="text-align: center;">
+  <img src="images/botonReporte.png" alt="Ver Resultados" width="500"/></p>
+  <img src="images/reporte.png" alt="Ver Resultados" width="500"/></p>
 
 #### **Otras Funcionalidades**
 
@@ -55,25 +75,21 @@ La página de Estramipyme es una **monopágina**, diseñada así para facilitar 
 <p style="text-align: center;">
   <img src="images/validacionRespuestas.png" alt="Validación Respuestas" width="500"/> </p>
 
-- **Navegación a Resultados:** Una vez que todas las preguntas han sido respondidas, la plataforma te lleva automáticamente a la sección de resultados.
-<p style="text-align: center;">
-  <img src="images/verResultados.png" alt="Ver Resultados" width="500"/></p>
 
-- **Botón de Borrar Respuestas:** Permite restaurar los cuestionarios, dejando todas las respuestas en blanco nuevamente.
-<p style="text-align: center;">
-  <img src="images/botonBorrar.png" alt="Borrar Respuestas" width="500"/> </p>
-
-- **Footer:** La página finaliza con un footer que incluye una breve descripción de +Estramipyme\*, junto con una sección de `Contáctenos` y enlaces a redes sociales.
+- **Footer:** La página finaliza con un footer que incluye una breve descripción de *Estramipyme*, junto con una sección de `Contáctenos` y enlaces a redes sociales.
 <p style="text-align: center;">
   <img src="images/footer.png" alt="Footer" width="500"/> </p>
 
 <p style="text-align: center;">
-  <a href="https://estramipime.web.app/"><strong>Visita Estramipyme aquí</strong></a>
+  <a href="https://estramipyme-web.netlify.app/"><strong>Visita Estramipyme aquí</strong></a>
 </p>
 
 
 <p style="text-align: center;">
-  <a href="https://view.genially.com/66bd54d7c5ecc5bc824909c4/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme</strong></a>
+  <a href="https://view.genially.com/673dfca0abe51854d55832da/presentation-manual-de-usuario-estramipyme"><strong>Manual de Usuario Estramipyme en Español</strong></a>
+</p>
+<p style="text-align: center;">
+  <a href="https://view.genially.com/674749f167b42fc9fb17144f/presentation-user-manual-estramipyme"><strong>Estramipyme User Manual in English</strong></a>
 </p>
 
 ## **Valores de Estramipyme**
@@ -93,7 +109,7 @@ En este proyecto se utilizaron las siguientes tecnologías y lenguajes:
 - <img src="images/icon/echarts.png" alt="ECharts" width="50"/> <img src="images/icon/chartjs.png" alt="Chartjs" width="40"/> <br> **ECharts** - **Chart.js** - Librerías para la creación e integración de gráficos interactivos.
 - <img src="images/icon/angular.png" alt="Angular" width="50"/> <br> **Angular** - Framework utilizado para la migración y desarrollo del proyecto.
 - <img src="images/icon/typescript.png" alt="Typescript" width="50"/> <br> **TypeScript** - Superset de JavaScript utilizado para desarrollar en Angular.
-- <img src="images/icon/firebase.png" alt="Firebase" width="50"/> <br> **Firebase** - Plataforma utilizada para el despliegue de la página web.
+- <img src="images/icon/Netlify.webp" alt="Netlify" width="50"/> <br> **Netlify** - Plataforma utilizada para el despliegue de la página web.
 - <img src="images/icon/github.png" alt="Github" width="60"/> <br> **Github** - Utilizado para la gestión de versiones y colaboración en el proyecto.
 - <img src="images/icon/teams.png" alt="Microsoft Teams" width="50"/> <img src="images/icon/meet.png" alt="Google Meet" width="50"/> <br> **Microsoft Teams** - **Google Meet** - Utilizados para la comunicación (dailys y reuniones) y coordinación del equipo durante el desarrollo en un entorno remoto.
 

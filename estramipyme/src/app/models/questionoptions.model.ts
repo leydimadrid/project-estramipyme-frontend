@@ -1,9 +1,8 @@
-import { Option } from "./option.model";
+import { Option } from './option.model';
 
 export interface QuestionOptions {
-    id: number;
-    score: number;
-    option: Option;
-    selected?: boolean;
+  id: number;
+  score: number;
+  option: Option;
+  selected?: boolean;
 }
-  

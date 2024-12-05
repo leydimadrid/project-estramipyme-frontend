@@ -15,8 +15,9 @@ export const routes: Routes = [
     path: 'registro',
     component: RegisterComponent,
   },
-  { path: 'reset-password-request',
-    component: ResetPasswordRequestComponentTsComponent },
-  { path: 'reset-password',
-    component: ResetPasswordComponent },
+  {
+    path: 'reset-password-request',
+    component: ResetPasswordRequestComponentTsComponent,
+  },
+  { path: 'reset-password', component: ResetPasswordComponent },
 ];
